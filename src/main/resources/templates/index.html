@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="header"></th:block>
+
+
+<div class="novedadestitulo">
+      <h1>ULTIMAS NOVEDADES</h1>
+    </div>
+    <section class="novedades ">
+
+      <article>
+        <a href="./?producto=<?php echo $novedades[0]->codigo ?>">
+          <div class="card " style="width: 18rem; ">
+            <div class="card-header text-center mb-3 ">
+              <h3 class="card-text">
+                Titulo
+              </h3>
+            </div>
+            <img src="<?php echo $novedades[0]->imagen_url; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                Descripcion
+              </p>
+            </div>
+            <div class="card-footer text-center bg-success fs-4 ">
+              <p class="card-text fw-bold precio ">Precio:
+                €
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a href="./?producto=<?php echo $novedades[1]->codigo; ?>">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header text-center mb-3 ">
+              <h3 class="card-text">
+                titulo
+              </h3>
+            </div>
+            <img src="<?php echo $novedades[1]->imagen_url; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                descripcion
+              </p>
+            </div>
+            <div class="card-footer text-center bg-success fs-4 ">
+              <p class="card-text fw-bold precio ">Precio:
+                €
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a href="./?producto=<?php echo $novedades[2]->codigo; ?>">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header text-center mb-3 ">
+              <h3 class="card-text">
+                titulo
+              </h3>
+            </div>
+            <img src="<?php echo $novedades[2]->imagen_url; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+              descripcion
+              </p>
+            </div>
+            <div class="card-footer text-center bg-success fs-4 ">
+              <p class="card-text fw-bold precio ">Precio:
+                €
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a href="./?producto=<?php echo $novedades[3]->codigo; ?>">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header text-center mb-3 ">
+              <h3 class="card-text">
+               titulo
+              </h3>
+            </div>
+            <img src="<?php echo $novedades[3]->imagen_url; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                descripcion
+              </p>
+            </div>
+            <div class="card-footer text-center bg-success fs-4 ">
+              <p class="card-text fw-bold precio ">Precio:
+                €
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+
+
+    </section>
+    <div class="novedadestitulo">
+      <h1>RECOMENDADOS</h1>
+    </div>
+    <section class="novedades">
+      <article>
+        <a href="./?producto=<?php echo $recomendados[0]->codigo; ?>">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header text-center mb-3 ">
+              <h3 class="card-text">
+                titulo
+              </h3>
+            </div>
+            <img src="<?php echo $recomendados[0]->imagen_url; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+               descripcion
+              </p>
+            </div>
+            <div class="card-footer text-center bg-success fs-4 ">
+              <p class="card-text fw-bold precio ">Precio:
+                €
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a href="./?producto=<?php echo $recomendados[1]->codigo; ?>">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header text-center mb-3 ">
+              <h3 class="card-text">
+                titulo
+              </h3>
+            </div>
+            <img src="<?php echo $recomendados[1]->imagen_url; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                descripcion
+              </p>
+            </div>
+            <div class="card-footer text-center bg-success fs-4 ">
+              <p class="card-text fw-bold precio ">Precio:
+                €
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a href="./?producto=<?php echo $recomendados[2]->codigo; ?>">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header text-center mb-3 ">
+              <h3 class="card-text">
+               titulo
+              </h3>
+            </div>
+            <img src="<?php echo $recomendados[2]->imagen_url; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                descripcion
+              </p>
+            </div>
+            <div class="card-footer text-center bg-success fs-4 ">
+              <p class="card-text fw-bold precio ">Precio:
+              €
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a href="./?producto=<?php echo $recomendados[3]->codigo; ?>">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header text-center mb-3 ">
+              <h3 class="card-text">
+                titulo
+              </h3>
+            </div>
+            <img src="<?php echo $recomendados[3]->imagen_url; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">
+                descripcion
+              </p>
+            </div>
+            <div class="card-footer text-center bg-success fs-4 ">
+              <p class="card-text fw-bold precio ">Precio:
+                €
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+
+    </section>
+    
+    <th:block th:replace="footer"></th:block>
+
