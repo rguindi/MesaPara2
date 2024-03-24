@@ -20,19 +20,18 @@ public class MainController {
 		return "login";
 	}
 	
-	/*
-	 * @GetMapping("/requestParam") public String req (@RequestParam (name = "name",
-	 * required = false, defaultValue = "Lo que sea") String name, Model model) {
-	 * model.addAttribute("name", name); return "login"; }
-	 * 
-	 * @GetMapping("/requestParam") public String req (@RequestParam ("name")
-	 * Optional <String> name, Model model) { model.addAttribute("name",
-	 * name.orElse("Lo que sea")); return "login"; }
-	 * 
-	 * @GetMapping("/{name}") public String req (@PathVariable ("name") String name,
-	 * Model model) { model.addAttribute("name", name); return "login"; }
-	 * 
-	 * 
-	 */
-	
 }
+
+/*
+	  @GetMapping("/requestParam") public String req (@RequestParam (name = "name",
+	  required = false, defaultValue = "Lo que sea") String name, Model model) {
+	  model.addAttribute("name", name); return "login"; }
+	  
+	  @GetMapping("/requestParam") public String req (@RequestParam ("name")
+	  Optional <String> name, Model model) { model.addAttribute("name",
+	  name.orElse("Lo que sea")); return "login"; }
+	  
+	  @GetMapping("/{name}") public String req (@PathVariable ("name") String name,
+	  Model model) { model.addAttribute("name", name); return "login"; }
+	   
+ */
