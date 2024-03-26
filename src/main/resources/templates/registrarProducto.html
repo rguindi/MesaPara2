@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:include="header"></th:block>
+
+
+<div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
+
+	<!-- Si el id es igual a 0 es que es un nuevo usuario, si es diferente estamos editando -->
+	<form class="form-horizontal" action="#" enctype="multipart/form-data"
+		th:action="${productoForm != null and productoForm.id != null} ? @{/editarProducto/submit} : @{/registrarProducto/submit}"
+		method="post" th:object="${productoForm}">
+		<fieldset>
+
+			<!-- Categoria -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="categoria">Categoria</label>
+				<div class="col-md-12">
+					<select id="categoria" name="categoria"
+						class="form-control input-md" th:field="*{id_categoria}">
+						<option value="1">Tecnología</option>
+					</select>
+				</div>
+			</div>
+
+			<!-- Form Name -->
+			<legend
+				th:text="${productoForm != null and productoForm.id != null} ? 'Editar Producto' : 'Nuevo Producto'">Nuevo
+				Producto</legend>
+
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="nombre">Nombre</label>
+				<div class="col-md-12">
+					<input id="nombre" name="nombre" type="text" placeholder="Nombre"
+						class="form-control input-md" th:field="*{nombre}">
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="descripcion">Descripción</label>
+				<div class="col-md-12">
+					<input id="descripcion" name="descripcion" type="text"
+						placeholder="Descripción" class="form-control input-md"
+						th:field="*{descripcion}">
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="precio">Precio</label>
+				<div class="col-md-12">
+					<input id="precio" name="precio" type="number" placeholder="Precio"
+						class="form-control input-md" th:field="*{precio}">
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="stock">Stock</label>
+				<div class="col-md-12">
+					<input id="stock" name="stock" type="number" placeholder="Stock"
+						class="form-control input-md" th:field="stock">
+				</div>
+			</div>
+
+			<!-- Fecha_alta -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="fecha_alta">Fecha
+					de alta</label>
+				<div class="col-md-12">
+					<input id="fecha_alta" name="fecha_alta" type="date"
+						class="form-control input-md" th:field="*{fecha_alta}">
+				</div>
+			</div>
+
+			<!-- Fecha_baja -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="fecha_baja">Fecha
+					de baja</label>
+				<div class="col-md-12">
+					<input id="fecha_baja" name="fecha_baja" type="date"
+						class="form-control input-md" th:field="*{fecha_baja}">
+				</div>
+			</div>
+
+			<!-- Impuesto -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="impuesto">Impuesto</label>
+				<div class="col-md-12">
+					<input id="impuesto" name="impuesto" type="number"
+						placeholder="Impuesto" class="form-control input-md"
+						th:field="*{impuesto}">
+				</div>
+			</div>
+
+			<!-- Imagen -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="imagen">Imagen</label>
+				<div class="col-md-12">
+					<input id="imagen" name="imagen" type="file"
+						class="form-control input-file input-md" th:field="*{imagen}">
+				</div>
+			</div>
+
+			<!-- Botón de submit -->
+			<div class="form-group">
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</div>
+			</div>
+
+
+		</fieldset>
+	</form>
+</div>
+
+<th:block th:include="footer"></th:block>

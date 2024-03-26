@@ -1,20 +1,22 @@
 package com.example.demo.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.Entities.Producto;
-import com.example.demo.Entities.Usuario;
 import com.example.demo.Repositories.ProductoRepository;
-import com.example.demo.Repositories.UsuarioRepository;
 
 import jakarta.validation.Valid;
 
+@Controller
 public class ProductoController {
 	
 	@Autowired
@@ -24,7 +26,7 @@ public class ProductoController {
 	public String listadoProductos(Model model) {
 		
 		model.addAttribute("listaProductos", productoRepositorio.findAll());
-		return "usuarios";
+		return "productos";
 	}
 	
 	
@@ -36,13 +38,16 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/registrarProducto/submit")
-	public String registrarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, BindingResult validacion) {
+	public String registrarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, BindingResult validacion, @RequestParam("file") MultipartFile file) {
 		
 		if(validacion.hasErrors()) {
 			return "registrarProducto";
 		}
 		else {
 			
+			if (!file.isEmpty()) {
+				producto.setImagen(file.getOriginalFilename());
+			}
 			
 			productoRepositorio.save(producto);			
 			return "redirect:/productos";
