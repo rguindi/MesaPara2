@@ -1,7 +1,17 @@
 package com.example.demo.Entities;
 
 
-import jakarta.persistence.*;
+
+
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "usuarios")
@@ -10,11 +20,15 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
+	private long id;
+	
 	@Column(name = "id_rol")
 	private int id_rol;
+	
 	@Column(name = "email")
+	@Email (message = "{usuario.email.formato}")
 	private String email;
+	
 	@Column(name = "clave")
 	private String clave;
 	@Column(name = "nombre")
@@ -31,17 +45,20 @@ public class Usuario {
 	private String localidad;
 	@Column(name = "telefono")
 	private String telefono;
+	
 	@Column(name = "dni")
+	@NotEmpty
 	private String dni;
 	
 	public Usuario() {
 
 	}
 	
-	public Usuario(int id_rol, String email, String clave, String nombre, String apellido1, String apellido2,
+	
+	public Usuario(String email, String clave, String nombre, String apellido1, String apellido2,
 			String direccion, String provincia, String localidad, String telefono, String dni) {
-		super();
-		this.id_rol = id_rol;
+		
+		this.id_rol = 1;
 		this.email = email;
 		this.clave = clave;
 		this.nombre = nombre;
@@ -54,11 +71,11 @@ public class Usuario {
 		this.dni = dni;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
