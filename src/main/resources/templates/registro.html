@@ -7,12 +7,12 @@
 <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
 
     <!-- Si el id es igual a 0 es que es un nuevo usuario, si es diferente estamos editando --> 
-	<form class="form-horizontal" action="#" th:action="${empleadoForm != null and empleadoForm.id != null} ? @{/editar/submit} : @{/registro/submit}" method="post"  
+	<form class="form-horizontal" action="#" th:action="${usuarioForm != null and usuarioForm.id != null} ? @{/editar/submit} : @{/registro/submit}" method="post"  
 		th:object="${usuarioForm}">
 		<fieldset>
 
 			<!-- Form Name -->
-			<legend th:text="${empleadoForm != null and empleadoForm.id != null} ? 'Editar Usuario' : 'Nuevo Usuario'" >Nuevo Usuario</legend>
+			<legend th:text="${usuarioForm != null and usuarioForm.id != null} ? 'Editar Usuario' : 'Nuevo Usuario'" >Nuevo Usuario</legend>
 
 
 

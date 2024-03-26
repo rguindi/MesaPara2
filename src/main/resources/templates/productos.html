@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Usuarios</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/starter-template.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Listado de Usuarios</h1>
+        
+        <table>
+        	<thead>
+        	<tr><th>Id</th>
+        	<th>id_categoria</th>
+        <th>nombre</th>
+        	<th>descripcion</th>
+        	<th>Nombre</th>
+        	<th>descripcion</th>
+        	<th>precio</th>
+        	<th>Stock</th>
+        	<th>alta</th>
+        	<th>baja</th>
+        	<th>impuesto</th>
+        	<th>imagen</th></tr>
+        	
+       </thead>
+       
+       <tbody>
+       		<tr th:each="producto: ${listaProductos}" >
+       		<td th:text="${producto.id}"></td>	
+       			<td th:text="${producto.id_categoria}"></td>
+       			<td th:text="${producto.nombre}"></td>
+       			<td th:text="${producto.descripcion}"></td>
+       			<td th:text="${producto.precio}"></td>
+       			<td th:text="${producto.stock}"></td>
+       			<td th:text="${producto.fecha_alta}"></td>
+       			<td th:text="${producto.fecha_baja}"></td>
+       			<td th:text="${producto.impuesto}"></td>
+       			<td th:text="${producto.imagen}"></td>
+
+       		</tr>
+       </tbody>
+
+        </table>
+        
+        
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
