@@ -45,7 +45,10 @@
         	<th>alta</th>
         	<th>baja</th>
         	<th>impuesto</th>
-        	<th>imagen</th></tr>
+        	<th>imagen (VALOR guardado)</th>
+        	<th>imageb (IMAGEN)</th>
+        	
+        	</tr>
         	
        </thead>
        
@@ -61,6 +64,7 @@
        			<td th:text="${producto.fecha_baja}"></td>
        			<td th:text="${producto.impuesto}"></td>
        			<td th:text="${producto.imagen}"></td>
+       			<td><img th:src="@{$ {producto.imagen}}" width="50" height="50"/></td>
 
        		</tr>
        </tbody>

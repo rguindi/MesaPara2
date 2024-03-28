@@ -1,6 +1,7 @@
 package com.example.demo.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,10 +10,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import com.example.demo.Entities.Producto;
 import com.example.demo.Repositories.ProductoRepository;
+import com.example.demo.upload.storage.StorageService;
+import org.springframework.core.io.Resource;
 
 import jakarta.validation.Valid;
 
@@ -21,6 +26,9 @@ public class ProductoController {
 	
 	@Autowired
 	private ProductoRepository productoRepositorio;
+	
+	@Autowired
+	private StorageService storageService;
 	
 	@GetMapping("/productos")
 	public String listadoProductos(Model model) {
@@ -38,7 +46,7 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/registrarProducto/submit")
-	public String registrarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, BindingResult validacion, @RequestParam("file") MultipartFile file) {
+	public String registrarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, BindingResult validacion, @RequestParam("imagen") MultipartFile file) {
 		
 		if(validacion.hasErrors()) {
 			return "registrarProducto";
@@ -46,9 +54,11 @@ public class ProductoController {
 		else {
 			
 			if (!file.isEmpty()) {
-				producto.setImagen(file.getOriginalFilename());
+				String imagen = storageService.store(file, producto.getId());
+				producto.setImagen(MvcUriComponentsBuilder.fromMethodName(ProductoController.class, "serveFile", imagen).build().toUriString());
 			}
 			
+			producto.setFecha_alta(new java.sql.Timestamp(System.currentTimeMillis()));
 			productoRepositorio.save(producto);			
 			return "redirect:/productos";
 		}
@@ -75,6 +85,14 @@ public class ProductoController {
 			
 			return "redirect:/usuarios";
 		}
+	}
+	
+	@GetMapping("/files/{filename:.+}")
+	@ResponseBody
+	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+
+		Resource file = storageService.loadAsResource(filename);
+		return ResponseEntity.ok().body(file);
 	}
 	
 
