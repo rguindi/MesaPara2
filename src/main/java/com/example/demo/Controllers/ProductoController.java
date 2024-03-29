@@ -46,7 +46,8 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/registrarProducto/submit")
-	public String registrarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, BindingResult validacion, @RequestParam("imagen") MultipartFile file) {
+	public String registrarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, 
+			BindingResult validacion, @RequestParam("file") MultipartFile file) {
 		
 		if(validacion.hasErrors()) {
 			return "registrarProducto";
