@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import com.example.demo.Entities.Producto;
+import com.example.demo.Repositories.CategoriaRepository;
 import com.example.demo.Repositories.ProductoRepository;
 import com.example.demo.upload.storage.StorageService;
 import org.springframework.core.io.Resource;
@@ -26,6 +27,9 @@ public class ProductoController {
 	
 	@Autowired
 	private ProductoRepository productoRepositorio;
+	
+	@Autowired
+	private CategoriaRepository CategoriaRepository;
 	
 	@Autowired
 	private StorageService storageService;
@@ -40,6 +44,8 @@ public class ProductoController {
 	
 	@GetMapping("/registrarProducto")
 	public String registarProducto(Model model) {
+		
+		model.addAttribute("categorias", CategoriaRepository.findAll());
 		
 		model.addAttribute("productoForm", new Producto());
 		return "registrarProducto";

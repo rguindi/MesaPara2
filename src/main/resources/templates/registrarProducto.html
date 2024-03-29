@@ -17,9 +17,10 @@
 				<label class="col-md-4 control-label" for="categoria">Categoria</label>
 				<div class="col-md-12">
 					<select id="categoria" name="categoria"
-						class="form-control input-md" th:field="*{id_categoria}">
-						<option value="1">Tecnología</option>
-					</select>
+                        class="form-control input-md" th:field="*{id_categoria}">
+                        <option th:each="categoria: ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
+                        </select>				
+				
 				</div>
 			</div>
 
