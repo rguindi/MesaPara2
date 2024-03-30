@@ -1,6 +1,6 @@
 package com.example.demo.Entities;
 
-import java.sql.Date;
+
 import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 
 @Entity
@@ -25,15 +26,19 @@ public class Producto {
 	@Column(name = "id_categoria")
 	private int id_categoria;
 	
+	@NotEmpty
 	@Column(name = "nombre")
 	private String nombre;
 	
+	@NotEmpty
 	@Column(name = "descripcion")
 	private String descripcion;
 
+	@NotEmpty
 	@Column(name = "precio")
 	private double precio;
 	
+	@NotEmpty
 	@Column(name = "stock")
 	private int stock;
 	
