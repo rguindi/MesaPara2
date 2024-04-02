@@ -30,20 +30,20 @@ public class Producto {
 	@Column(name = "nombre")
 	private String nombre;
 	
-	@NotEmpty
+
 	@Column(name = "descripcion")
 	private String descripcion;
 
-	@NotEmpty
+
 	@Column(name = "precio")
 	private double precio;
 	
-	@NotEmpty
+	
 	@Column(name = "stock")
 	private int stock;
 	
 	@Column(name = "fecha_alta")
-	private Timestamp fecha_alta;
+	private Timestamp fechaAlta;
 	
 	@Column(name = "fecha_baja")
 	private Timestamp fecha_baja;
@@ -71,7 +71,7 @@ public class Producto {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.stock = stock;
-		this.fecha_alta = fecha_alta;
+		this.fechaAlta = fecha_alta;
 		this.fecha_baja = fecha_baja;
 		this.impuesto = impuesto;
 		this.imagen = imagen;
@@ -151,14 +151,14 @@ public class Producto {
 
 
 
-	public Timestamp getFecha_alta() {
-		return fecha_alta;
+	public Timestamp getFechaAlta() {
+		return fechaAlta;
 	}
 
 
 
-	public void setFecha_alta(Timestamp fecha_alta) {
-		this.fecha_alta = fecha_alta;
+	public void setFechaAlta(Timestamp fechaAlta) {
+		this.fechaAlta = fechaAlta;
 	}
 
 
@@ -202,13 +202,13 @@ public class Producto {
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", id_categoria=" + id_categoria + ", nombre=" + nombre + ", descripcion="
-				+ descripcion + ", precio=" + precio + ", stock=" + stock + ", fecha_alta=" + fecha_alta
-				+ ", fecha_baja=" + fecha_baja + ", impuesto=" + impuesto + ", imagen=" + imagen + "]";
+				+ descripcion + ", precio=" + precio + ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fecha_baja="
+				+ fecha_baja + ", impuesto=" + impuesto + ", imagen=" + imagen + "]";
 	}
-	
-	
-	
-	
+
+
+
+
 
 
 }

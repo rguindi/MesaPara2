@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<th:block th:insert="header"></th:block>
+<th:block th:insert="~{header}"></th:block>
 
 
 <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
@@ -35,7 +35,8 @@
 				<label class="col-md-4 control-label" for="nombre">Nombre</label>
 				<div class="col-md-12">
 					<input id="nombre" name="nombre" type="text" placeholder="Nombre"
-						class="form-control input-md" th:field="*{nombre}">
+						class="form-control input-md" th:field="*{nombre}" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid'">
+						<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger" id="nombre-error">Errores</span>
 				</div>
 			</div>
 
@@ -74,8 +75,8 @@
 				<label class="col-md-4 control-label" for="impuesto">Impuesto</label>
 				<div class="col-md-12">
 					<input id="impuesto" name="impuesto" type="number"
-						placeholder="Impuesto" class="form-control input-md"
-						th:field="*{impuesto}">
+						 class="form-control input-md"
+						th:value="${impuesto} ?: 21">
 				</div>
 			</div>
 
@@ -100,4 +101,4 @@
 	</form>
 </div>
 
-<th:block th:insert="footer"></th:block>
+<th:block th:insert="~{footer}"></th:block>

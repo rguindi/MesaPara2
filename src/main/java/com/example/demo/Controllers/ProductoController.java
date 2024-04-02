@@ -53,19 +53,21 @@ public class ProductoController {
 	
 	@PostMapping("/registrarProducto/submit")
 	public String registrarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, 
-			BindingResult validacion, @RequestParam("file") MultipartFile file) {
+			BindingResult validacion, @RequestParam("file") MultipartFile file, Model model) {
 		
 		if(validacion.hasErrors()) {
+			model.addAttribute("categorias", CategoriaRepository.findAll());
 			return "registrarProducto";
 		}
 		else {
+			productoRepositorio.save(producto);  //Lo guardo para que se genere el ID
 			
 			if (!file.isEmpty()) {
 				String imagen = storageService.store(file, producto.getId());
 				producto.setImagen(MvcUriComponentsBuilder.fromMethodName(ProductoController.class, "serveFile", imagen).build().toUriString());
 			}
 			
-			producto.setFecha_alta(new java.sql.Timestamp(System.currentTimeMillis()));
+			producto.setFechaAlta(new java.sql.Timestamp(System.currentTimeMillis()));
 			productoRepositorio.save(producto);			
 			return "redirect:/productos";
 		}
