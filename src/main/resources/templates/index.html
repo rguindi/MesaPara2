@@ -3,68 +3,113 @@
 
 <th:block th:insert="~{header}"></th:block>
 
-
-<div class="novedadestitulo">
-      <h1>ULTIMAS NOVEDADES</h1>
+<main class="d-flex align-content-center flex-column ">
+<nav class="navbar navbar-expand-lg bg-primary-subtle  ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Categorías</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" th:each="categoria: ${categorias}">
+        <a class="nav-link" href="#" th:text="${categoria.nombre}">Features</a>
+      </div>
     </div>
-    
-    <section class="novedades"  >
-      <article th:each="producto: ${novedades}">
-        <a href="./?producto=<?php echo $novedades[0]->codigo ?>">
-          <div class="card" style="width: 18rem; ">
-            <div class="card-header text-center mb-3 ">
-              <h3 class="card-text" th:text="${producto.nombre}">
-             
-              </h3>
-            </div>
-            <img src="" th:src="@{${producto.imagen}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text" th:text="${producto.descripcion}">
-            
-              </p>
-            </div>
-            <div class="card-footer text-center bg-success fs-4 ">
-              <p class="card-text fw-bold precio " th:text="${producto.precio} + €"> 
-                €
-              </p>
-            </div>
-          </div>
-        </a>
-      </article>
-    </section>
-    
-    
-    
+  </div>
+</nav>
+
+
+<div class="container m-5 align-self-center " >
+<div class="d-flex flex-column ">
+
+
+  <div>
     <div class="novedadestitulo">
-      <h1>RECOMENDADOS</h1>
+      <h1 class="text-center ">ULTIMAS NOVEDADES</h1>
     </div>
-    <section class="novedades">
-      <article>
-        <a href="#">
-          <div class="card" style="width: 18rem;">
-            <div class="card-header text-center mb-3 ">
-              <h3 class="card-text">
-                titulo
-              </h3>
-            </div>
-            <img src="url" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">
-               descripcion
-              </p>
-            </div>
-            <div class="card-footer text-center bg-success fs-4 ">
-              <p class="card-text fw-bold precio ">Precio:
-                €
-              </p>
-            </div>
-          </div>
-        </a>
-      </article>
+  </div>
+ 
+   
+  
 
+
+  <div id="myCarousel" class="carousel slide m-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+
+      
+      <div class="carousel-item active " >
+        <div class="d-flex align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${novedades}" th:if="${iterStat.index < 4}" class="d-flex ">
+          <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none "> 
+              <img src="" th:src="@{${producto.imagen}}" class="imagen-carousel rounded-5 " alt="No se encuentra">
+              <div class=" text-center bg-succes  fs-4 ">
+                <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
+                  
+                </p>
+              </div>
+            </a>
+        </div>
+      </div>
+      </div>
     
 
-    </section>
+
+      <div class="carousel-item  " >
+        <div class="d-flex align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${novedades}" th:if="${iterStat.index > 3 and iterStat.index < 8}" class="d-flex ">
+          <a href="" th:href="@{'producto/' + ${producto.id}}" class="text-decoration-none "> 
+              <img src="" th:src="@{${producto.imagen}}" class="imagen-carousel rounded-5 " alt="No se encuentra">
+              <div class=" text-center bg-succes  fs-4 ">
+                <p class="fw-bold text-secondary mt-2 " th:text="${producto.nombre}"> 
+                  
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+
+
+      <div class="carousel-item  " >
+        <div class="d-flex align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${novedades}" th:if="${iterStat.index > 7 and iterStat.index < 12}" class="d-flex ">
+          <a href="" th:href="@{'producto/' + ${producto.id}}" class="text-decoration-none "> 
+              <img src="" th:src="@{${producto.imagen}}" class="imagen-carousel rounded-5 " alt="No se encuentra">
+              <div class=" text-center bg-succes  fs-4 ">
+                <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
+                  
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    
+    <button class="carousel-control-prev  w-auto  " type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span style="filter: invert(100%)"  class="carousel-control-prev-icon " aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next   w-auto " type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span style="filter: invert(100%)" class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> 
+
+
+ </div>
+  </div>
+
+  </main>
     
 <th:block th:insert="~{footer}"></th:block>
 

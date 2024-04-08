@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.Entities.Usuario;
 import com.example.demo.Repositories.UsuarioRepository;
@@ -38,7 +39,14 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/registro/submit")
-	public String registroSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user, BindingResult validacion) {
+	public String registroSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user, BindingResult validacion,  @RequestParam("clave2") String clave2) {
+		
+		if(!user.getClave().equals(clave2)) validacion.rejectValue("clave", "error.clave.diferente", "Las contraseñas no coinciden");
+		 
+        Usuario usuarioExistente = usuarioRepositorio.findByEmail(user.getEmail());
+        if (!validacion.hasErrors() && usuarioExistente != null) {	
+        	validacion.rejectValue("email", "error.email.existente", "Este email ya está registrado");
+        }
 		
 		if(validacion.hasErrors()) {
 			return "registro";
@@ -56,6 +64,7 @@ public class UsuarioController {
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable Long id, Model model) {
 	
+		
 		Usuario usuario = usuarioRepositorio.findById(id).orElse(null);
 		
 		model.addAttribute("usuarioForm", usuario);
@@ -63,7 +72,14 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/editar/submit")
-	public String editarSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user,  BindingResult validacion) {
+	public String editarSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user,  BindingResult validacion,  @RequestParam("clave2") String clave2) {
+		
+		if(!user.getClave().equals(clave2)) validacion.rejectValue("clave", "error.clave.diferente", "Las contraseñas no coinciden");
+		
+		 Usuario usuarioExistente = usuarioRepositorio.findByEmail(user.getEmail());
+	        if (!validacion.hasErrors() && usuarioExistente != null) {	
+	        	validacion.rejectValue("email", "error.email.existente", "Este email ya está registrado");
+	        }
 		
 		if(validacion.hasErrors()) return "registro";
 		else {

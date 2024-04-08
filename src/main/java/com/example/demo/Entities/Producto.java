@@ -3,6 +3,8 @@ package com.example.demo.Entities;
 
 import java.sql.Timestamp;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,11 +29,13 @@ public class Producto {
 	private int id_categoria;
 	
 	@NotEmpty
+	@Length(max = 254, message = "{producto.nombre.longitud}")
 	@Column(name = "nombre")
 	private String nombre;
 	
 
 	@Column(name = "descripcion")
+	@Length(max = 254, message = "{producto.nombre.longitud}")
 	private String descripcion;
 
 
@@ -52,6 +56,7 @@ public class Producto {
 	private float impuesto;
 
 	@Column(name = "imagen")
+	@Length(max = 254, message = "{producto.imagen.longitud}")
 	private String imagen;
 
 	

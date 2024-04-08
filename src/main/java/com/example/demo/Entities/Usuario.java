@@ -27,22 +27,39 @@ public class Usuario {
 	
 	@Column(name = "email")
 	@Email (message = "{usuario.email.formato}")
+	@NotEmpty
 	private String email;
 	
 	@Column(name = "clave")
+	@NotEmpty
 	private String clave;
+	
+	@NotEmpty
 	@Column(name = "nombre")
 	private String nombre;
+	
+	
 	@Column(name = "apellido1")
+	@NotEmpty
 	private String apellido1;
+	
+	
 	@Column(name = "apellido2")
 	private String apellido2;
+	
+	
 	@Column(name = "direccion")
+	@NotEmpty
 	private String direccion;
+	
 	@Column(name = "provincia")
+	@NotEmpty
 	private String provincia;
+	
 	@Column(name = "localidad")
+	@NotEmpty
 	private String localidad;
+	
 	@Column(name = "telefono")
 	private String telefono;
 	

@@ -42,6 +42,8 @@ public class ProductoController {
 	}
 	
 	
+	//REGISTROS
+	
 	@GetMapping("/registrarProducto")
 	public String registarProducto(Model model) {
 		
@@ -63,8 +65,10 @@ public class ProductoController {
 			productoRepositorio.save(producto);  //Lo guardo para que se genere el ID
 			
 			if (!file.isEmpty()) {
+				
 				String imagen = storageService.store(file, producto.getId());
 				producto.setImagen(MvcUriComponentsBuilder.fromMethodName(ProductoController.class, "serveFile", imagen).build().toUriString());
+				
 			}
 			
 			producto.setFechaAlta(new java.sql.Timestamp(System.currentTimeMillis()));
@@ -73,6 +77,8 @@ public class ProductoController {
 		}
 	}
 	
+	
+	//EDICIONES
 	@GetMapping("/editarProducto/{id}")
 	public String editarProducto(@PathVariable Long id, Model model) {
 	
@@ -103,6 +109,19 @@ public class ProductoController {
 		Resource file = storageService.loadAsResource(filename);
 		return ResponseEntity.ok().body(file);
 	}
+	
+	
+	//DETALLE PRODUCTO
+	@GetMapping("/producto/{id}")
+	public String detalleProducto(@PathVariable Long id, Model model) {
+	
+		Producto producto = productoRepositorio.findById(id).orElse(null);
+		
+		model.addAttribute("producto", producto);
+		return "productoDetalle";
+	}
+	
+	
 	
 
 }

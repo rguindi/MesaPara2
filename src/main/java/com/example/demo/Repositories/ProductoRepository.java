@@ -9,6 +9,6 @@ import com.example.demo.Entities.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Long>  {
 	
-	List<Producto> findTop4ByOrderByFechaAltaDesc();
+	List<Producto> findTop12ByOrderByFechaAltaDesc();
 	
 }
