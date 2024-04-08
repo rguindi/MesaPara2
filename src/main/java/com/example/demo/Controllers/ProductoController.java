@@ -66,7 +66,7 @@ public class ProductoController {
 			
 			if (!file.isEmpty()) {
 				
-				String imagen = storageService.store(file, producto.getId());
+				String imagen = storageService.store(file, producto.getId(), producto.getNombre());
 				producto.setImagen(MvcUriComponentsBuilder.fromMethodName(ProductoController.class, "serveFile", imagen).build().toUriString());
 				
 			}

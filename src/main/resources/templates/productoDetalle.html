@@ -5,7 +5,7 @@
 
 <main>
 
-    <section class="articulo ">
+    <section class="articulo container p-4">
       <div class="tituloproducto">
         <h1 th:text="${producto.nombre}">
         </h1>
@@ -26,14 +26,27 @@
               <span class="card-text fw-bold precio pb-0 " th:text="${#numbers.formatInteger(producto.precio, '0')}"></span>
               <span class=" align-top "  th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'"></span>
             </div>
+            <br><br>
+
+            <p class="text-success fst-italic mt-3 "><i class="bi bi-check ms-5 me-2 text-success  "></i>Envio gratis!</p>
+          
+          </div>
+          
             <div class="text-center ">
-              <a href="">
-                <p class="btn btn-success p-3 fw-bold me-2  ">Añadir al carrito</p>
+              <div>
+                <label for="cantidad">Cantidad:</label>
+ 
+                <input type="number" id="cantidad" name="cantidad" value="0"  class="ms-2 input-cantidad">
+            
+              <a href=""
+                class="btn btn-sm btn-warning  fw-bold ms-3  ">Añadir al carrito
               </a>
+            
+            </div>
+
 
             </div>
-          </div>
-          <p class="mt-4 border-bottom  " th:text="'Stock: ' + ${producto.stock} + ' ud.'">Stock:
+          <p class="mt-4 border-bottom  text-secondary" th:text="${producto.stock >5} ? 'En Stock' : 'Últimas unidades disponibles'">
           </p>
           <p th:src="@{${producto.id}}">
             

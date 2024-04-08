@@ -46,7 +46,7 @@ article a{
     justify-content: center;
     margin-top: 20px;
     text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.81);
-    font-family: 'Rubik Maps', Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     color: rgb(255, 187, 0);
     border-bottom: 4px solid rgb(255, 208, 0);
@@ -58,7 +58,7 @@ article a{
     margin-top: 20px;
     margin-bottom: 20px;
 /*     text-shadow: -2px 3px 6px rgba(0, 0, 0, 0.81); */
-    font-family: 'Rubik Maps', Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
    font-size: large;
     color: rgb(255, 187, 0);
 
@@ -107,7 +107,10 @@ background: radial-gradient(circle farthest-corner at center center, #f3f3f3 0%,
 background: -webkit-radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);
 background: -moz-radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%); */
 }
-
+.input-cantidad{
+	width: 60px;
+	text-align: center;
+}
 .carousel-caption{
     max-height: 100%;
     top: 0px;
