@@ -26,7 +26,7 @@ public class UsuarioService {
 	}
 	
 	
-public boolean validarEdicion (Usuario user, BindingResult validacion,  @RequestParam("clave2") String clave2) {
+	public boolean validarEdicion (Usuario user, BindingResult validacion,  @RequestParam("clave2") String clave2) {
 		if(!user.getClave().equals(clave2)) validacion.rejectValue("clave", "error.clave.diferente", "Las contraseñas no coinciden");
         if(validacion.hasErrors()) return false;
         else return true;
