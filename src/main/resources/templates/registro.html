@@ -14,6 +14,8 @@
 			<!-- Form Name -->
 			<legend th:text="${usuarioForm.id != 0} ? 'Editar Usuario' : 'Nuevo Usuario'" >Nuevo Usuario</legend>
 
+			<input type="hidden"  th:field="*{id}" name="id" id="id">
+
 
 
 			<!-- Text input-->

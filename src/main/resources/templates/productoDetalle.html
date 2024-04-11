@@ -27,20 +27,23 @@
               <span class=" align-top "  th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'"></span>
             </div>
             <br><br>
-
+       
             <p class="text-success fst-italic mt-3 "><i class="bi bi-check ms-5 me-2 text-success  "></i>Envio gratis!</p>
           
           </div>
           
             <div class="text-center ">
               <div>
-                <label for="cantidad">Cantidad:</label>
- 
-                <input type="number" id="cantidad" name="cantidad" value="0"  class="ms-2 input-cantidad">
-            
-              <a href=""
-                class="btn btn-sm btn-warning  fw-bold ms-3  ">Añadir al carrito
-              </a>
+                
+                
+                <form action="/addCarrito" method="post">
+                  
+                  <label for="cantidad">Cantidad:</label>
+                  <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad">
+                  <input type="hidden" name="id" th:value="${producto.id}" />
+                  <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-3  ">Añadir al carrito</button>
+                </form>
+
             
             </div>
 

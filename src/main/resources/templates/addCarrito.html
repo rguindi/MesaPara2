@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="~{header}"></th:block>
+
+
+
+<main class="justify-content-center  ">
+
+	<div class="container mt-5 p-4">
+
+		<h2 class="mb-4">Añadido a su carrito...</h2>
+		<table style="text-align: center;" class="table-responsive   table">
+			<tr><th></th><th>Nombre</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr>
+			<tr >
+				<td><img th:src="@{${producto.imagen}}" width="100" height="100" /></td>
+				<td class="align-content-center" th:text="${producto.nombre}"></td> 
+				<td class="align-content-center" th:text="${cantidad}"></td>
+				<td class="align-content-center "  th:text="${producto.precio + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
+				<td class="align-content-center "  th:text="${producto.precio * cantidad + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
+			</tr>
+		</table>
+
+	<div class="d-flex justify-content-end   ">
+
+		<a href="/carrito">
+			<button class="btn btn-warning" type="submit">Ir al Carrito</button>
+		  </a>
+	</div>
+	</div>
+
+
+</main>
+
+	
+</div>
+
+<th:block th:insert="~{footer}"></th:block>

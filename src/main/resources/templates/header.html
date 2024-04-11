@@ -38,8 +38,8 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li class="nav-item"><a href="./?productos" name='productos' class="nav-link px-2 link-body-emphasis text-white  fw-bold ">Productos</a></li>
-        <li class="nav-item"><a href="./?info" name='info' class="nav-link px-2 link-body-emphasis text-white fw-bold  ">Información y contacto</a></li>
+        <li class="nav-item"><a href="/productos" name='productos' class="nav-link px-2 link-body-emphasis text-white  fw-bold ">Productos</a></li>
+        <li class="nav-item"><a href="/info" name='info' class="nav-link px-2 link-body-emphasis text-white fw-bold  ">Información y contacto</a></li>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -55,14 +55,19 @@
     <a href="/login" class="d-block link-body-emphasis text-decoration-none">
         <i class="bi bi-person-fill text-light  "></i><span class="ms-2 fw-bold text-light  " >Login</span>
       </a>
+
       
-       <a href="/" class="d-block link-body-emphasis text-decoration-none ms-4">
+       <a href="/carrito" class="d-block link-body-emphasis text-decoration-none ms-4">
         <i class="bi bi-basket text-light  position-relative  ">
         
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-    1
-    <span class="visually-hidden">unread messages</span>
-  </span>
+        
+
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" th:text="${session.cantidadTotal}"></span>
+
+
+
+        
+<!--  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" > 1</span> -->
         
         </i><span class="ms-2 fw-bold text-light" >Carrito </span>
       </a>

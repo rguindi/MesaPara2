@@ -3,6 +3,7 @@ package com.example.demo.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +39,7 @@ public class ProductoController {
 	public String listadoProductos(Model model) {
 		
 		model.addAttribute("listaProductos", productoRepositorio.findAll());
-		return "productos";
+		return "admin/productos";
 	}
 	
 	
@@ -58,7 +59,7 @@ public class ProductoController {
 			BindingResult validacion, @RequestParam("file") MultipartFile file, Model model) {
 		
 		if(validacion.hasErrors()) {
-			model.addAttribute("categorias", CategoriaRepository.findAll());
+			
 			return "registrarProducto";
 		}
 		else {
@@ -73,32 +74,68 @@ public class ProductoController {
 			
 			producto.setFechaAlta(new java.sql.Timestamp(System.currentTimeMillis()));
 			productoRepositorio.save(producto);			
+			
 			return "redirect:/productos";
 		}
 	}
 	
 	
 	//EDICIONES
-	@GetMapping("/editarProducto/{id}")
-	public String editarProducto(@PathVariable Long id, Model model) {
-	
+	@GetMapping("/gestionProducto")
+	public String gestionProducto( Model model, @RequestParam("accion") String valor, @RequestParam("id") Long id) {
+		
+		model.addAttribute("categorias", CategoriaRepository.findAll());
 		Producto producto = productoRepositorio.findById(id).orElse(null);
+		
+		if(valor.equals("editar")) return "redirect:/editarProducto/" + id;
+		else if (valor.equals("eliminar")) {
+			productoRepositorio.softDeleteById(id);
+			return "redirect:/productos";
+		}
+		else if (valor.equals("activar")) {
+			productoRepositorio.reactivateById(id);
+			return "redirect:/productos";
+		}
 		
 		model.addAttribute("productoForm", producto);
 		return "registrarProducto";
 	}
 	
 	
-	@PostMapping("/editarProducto/submit")
-	public String editarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto,  BindingResult validacion) {
+	@GetMapping("/editarProducto/{id}")
+	public String editarProducto(@PathVariable Long id, Model model) {
+		model.addAttribute("categorias", CategoriaRepository.findAll());
+		Producto producto = productoRepositorio.findById(id).orElse(null);
 		
-		if(validacion.hasErrors()) return "registrarProducto";
+
+		model.addAttribute("productoForm", producto);
+		return "registrarProducto";
+	}
+	
+
+	@PostMapping("/editarProducto/submit")
+	public String editarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, @RequestParam("file") MultipartFile file, BindingResult validacion, Model model) {
+		
+		Producto viejo = productoRepositorio.findById(producto.getId()).orElse(null);
+		producto.setFechaAlta(viejo.getFechaAlta());
+		producto.setImagen(viejo.getImagen());
+		
+		if(validacion.hasErrors()) {
+			model.addAttribute("categorias", CategoriaRepository.findAll());
+			return "registrarProducto";
+		}
 		else {
 			
-			productoRepositorio.delete(producto);      
+			if (!file.isEmpty()) {
+				
+				String imagen = storageService.store(file, producto.getId(), producto.getNombre());
+				producto.setImagen(MvcUriComponentsBuilder.fromMethodName(ProductoController.class, "serveFile", imagen).build().toUriString());
+				
+			}
+			
 			productoRepositorio.save(producto);
 			
-			return "redirect:/usuarios";
+			return "redirect:/productos";
 		}
 	}
 	

@@ -12,6 +12,8 @@
 		method="post" th:object="${productoForm}">
 		<fieldset>
 
+			<input name="id" type="hidden" th:value="${productoForm.id}">
+
 			<!-- Categoria -->
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="categoria">Categoria</label>

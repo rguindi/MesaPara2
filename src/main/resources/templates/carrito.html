@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="~{header}"></th:block>
+
+
+
+
+<main class="justify-content-center ">
+
+	<div class="container mt-5 p-4">
+
+		<h2 class="mb-4">Cesta de la Compra</h2>
+		<table style="text-align: center;" class="table-responsive  table ">
+			<tr><th></th><th>Nombre</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr>
+			<tr th:each="entry : ${carrito}">
+				<td><img th:src="@{${entry.key.imagen}}" width="50" height="50" /></td>
+				<td class="align-content-center " th:text="${entry.key.nombre}"></td> 
+				<td class="align-content-center">
+					<form action="/carrito" method="GET"  class="d-inline ">
+						<input id="stock" name="cantidad" style="width: 70px;" class="text-center " type="number" th:value="${entry.value}" min="1" th:max="${entry.key.stock}">
+						<input name="id" type="hidden" th:value="${entry.key.id}" >
+						<input name="modificar" type="hidden" value="si" >
+					</form>
+					<form action="/carrito" method="GET"  class="d-inline ">
+					<button type="submit" name="eliminar" value="eliminar" class="btn btn-sm btn-outline-secondary    ms-2  ">Eliminar</button>
+					<input name="id" type="hidden" th:value="${entry.key.id}" >
+					</form>
+				</td>
+				<td class="align-content-center " th:text="${entry.key.precio + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
+				<td class="align-content-center " th:text="${entry.key.precio * entry.value + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
+			</tr>
+		</table>
+
+		<div class="d-flex justify-content-end   ">
+
+			<a href="/comprar">
+				<button class="btn btn-warning" type="submit">Procesar Compra</button>
+			  </a>
+		</div>
+
+	</div>
+	
+	
+
+</main>
+
+	
+</div>
+
+
+<script src="/js/carrito.js"></script>
+
+<th:block th:insert="~{footer}"></th:block>

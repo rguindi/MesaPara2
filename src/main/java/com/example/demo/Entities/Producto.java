@@ -2,6 +2,7 @@ package com.example.demo.Entities;
 
 
 import java.sql.Timestamp;
+import java.util.Objects;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -50,7 +51,7 @@ public class Producto {
 	private Timestamp fechaAlta;
 	
 	@Column(name = "fecha_baja")
-	private Timestamp fecha_baja;
+	private Timestamp fechaBaja;
 	
 	@Column(name = "impuesto")
 	private float impuesto;
@@ -68,7 +69,7 @@ public class Producto {
 
 
 	public Producto(long id, int id_categoria, String nombre, String descripcion, double precio, int stock,
-			Timestamp fecha_alta, Timestamp fecha_baja, float impuesto, String imagen) {
+			Timestamp fecha_alta, Timestamp fechaBaja, float impuesto, String imagen) {
 		super();
 		this.id = id;
 		this.id_categoria = id_categoria;
@@ -77,7 +78,7 @@ public class Producto {
 		this.precio = precio;
 		this.stock = stock;
 		this.fechaAlta = fecha_alta;
-		this.fecha_baja = fecha_baja;
+		this.fechaBaja = fechaBaja;
 		this.impuesto = impuesto;
 		this.imagen = imagen;
 	}
@@ -168,14 +169,14 @@ public class Producto {
 
 
 
-	public Timestamp getFecha_baja() {
-		return fecha_baja;
+	public Timestamp getFechaBaja() {
+		return fechaBaja;
 	}
 
 
 
-	public void setFecha_baja(Timestamp fecha_baja) {
-		this.fecha_baja = fecha_baja;
+	public void setFechaBaja(Timestamp fechaBaja) {
+		this.fechaBaja = fechaBaja;
 	}
 
 
@@ -207,11 +208,26 @@ public class Producto {
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", id_categoria=" + id_categoria + ", nombre=" + nombre + ", descripcion="
-				+ descripcion + ", precio=" + precio + ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fecha_baja="
-				+ fecha_baja + ", impuesto=" + impuesto + ", imagen=" + imagen + "]";
+				+ descripcion + ", precio=" + precio + ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fechaBaja="
+				+ fechaBaja + ", impuesto=" + impuesto + ", imagen=" + imagen + "]";
 	}
 
+	
+	
+	//Metodos para comprar los objetos en el carrito
 
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj) return true;
+	    if (obj == null || getClass() != obj.getClass()) return false;
+	    Producto producto = (Producto) obj;
+	    return Objects.equals(id, producto.id);
+	}
+	
+	@Override
+	public int hashCode() {
+	    return Objects.hash(id);
+	}
 
 
 
