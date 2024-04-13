@@ -17,7 +17,7 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
-	private int id_usuario;
+	private Long id_usuario;
 	
 	@Column
 	private Timestamp fecha;
@@ -38,10 +38,9 @@ public class Pedido {
 	
 	}
 
-	public Pedido(Long id, int id_usuario, Timestamp fecha, String metodo_pago, String estado, String num_factura,
+	public Pedido(Long id_usuario, Timestamp fecha, String metodo_pago, String estado, String num_factura,
 			double total) {
 		super();
-		this.id = id;
 		this.id_usuario = id_usuario;
 		this.fecha = fecha;
 		this.metodo_pago = metodo_pago;
@@ -58,11 +57,11 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public int getId_usuario() {
+	public Long getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(int id_usuario) {
+	public void setId_usuario(Long id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 

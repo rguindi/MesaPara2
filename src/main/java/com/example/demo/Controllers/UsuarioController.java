@@ -83,21 +83,24 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/login/submit")
-	public String loginSubmit(@RequestParam("user") String user, @RequestParam("pass") String pass, HttpServletRequest request) {
-		  Usuario usuario = usuarioRepositorio.findByEmail(user);		
-		  if(usuario==null) System.out.println("usuario no encontrado");
-		  else if (usuario.getClave().equals(pass)) {
-			  System.out.println("usuario y clave correcta. guardando usuario.");
-			  request.getSession().setAttribute("usuario", usuario);
+	public String loginSubmit(@RequestParam("user") String user, @RequestParam("pass") String pass, HttpServletRequest request, Model model) {
+		
+		if(!usuarioService.validarLogin(user, model, pass)) return "login";
+		if(!usuarioService.comprobarLogin(user, model, pass)) return "login";
+		else {
+			Usuario usuario = usuarioRepositorio.findByEmail(user);	
+			request.getSession().setAttribute("usuario", usuario);
 		}
-		  
-		  else {
-			
-			  System.out.println("usuario encontrado pero clave incorrecta");
-		  }
-		  
-		  return "redirect:/";
-
+		
+		String urlAnterior = (String) request.getSession().getAttribute("urlAnterior");
+        if (urlAnterior != null) {
+            // Redirigir al usuario de vuelta a la URL original después de iniciar sesión correctamente
+            request.getSession().removeAttribute("urlAnterior"); // Limpiar la URL original de la sesión
+            return "redirect:" + urlAnterior;
+        } else {
+            // Si no hay URL original guardada, redirigir al usuario a una página predeterminada
+            return "redirect:/";
+        }
 	}
 	
 	

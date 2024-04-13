@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="~{header}"></th:block>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+confetti({
+	  particleCount: 300,
+	  startVelocity: 35,
+	  gravity: 0.7,
+	  ticks: 350,
+	  zIndex: 999,
+	  spread: 360,
+	  origin: {
+	    x: Math.random(),
+	    // since they fall down, start a bit higher than random
+	    y: Math.random() - 0.4
+	  }
+	});</script>
+
+<main class="justify-content-center ">
+
+	<div class="container mt-5 p-4">
+
+		<h1>Compra con éxito!!!</h1>
+	</div>
+
+    <script>confetti();</script>
+    
+    <script>
+
+  
+
+</script>
+
+	
+
+</main>
+
+
+<th:block th:insert="~{footer}"></th:block>

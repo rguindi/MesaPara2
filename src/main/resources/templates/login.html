@@ -32,28 +32,31 @@
         <form action="/login/submit" method="POST">
             <!-- User input -->
             <div class="form-outline mb-4">
-                <input type="text" id="user" name="user" class="form-control" required />
-                <label class="form-label" for="user">Usuario</label>
+                <input type="text" id="user" name="user" class="form-control"  />
+                <label class="form-label" for="user">Usuario</label><br>
+                <span class="text-danger" th:text="${usuarioRequerido}">></span>
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-                <input type="password" id="pass" class="form-control" name="pass" required />
-                <label class="form-label" for="pass">Contraseña</label>
+                <input type="password" id="pass" class="form-control" name="pass" required  />
+                <label class="form-label" for="pass">Contraseña</label><br>
+                <span class="text-danger"  th:text="${claveRequerida}">></span>
+
             </div>
         
-            <!-- Acepta condiciones de uso -->
+            <!-- Acepta condiciones de uso
             <div class="form-outline  mb-4 text-center">
-                <input type="checkbox" id="recuerda" class=" d-inline " name="recuerda"  />
+                <input type="checkbox" id="recuerda" class=" d-inline " name="recuerda" required />
                 <label class="form-label" for="pass"> Recordar usuario</label>
-            </div>
+            </div> -->
 
 
 
             <div class="text-center">
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-warning  btn-block mb-4" name="Entrar">Entrar</button>
-
+                <button type="submit" class="btn btn-warning  btn-block mb-4" name="Entrar">Entrar</button> <br>
+                <span class="text-danger"  th:text="${incorrecto}">></span>
                 <!-- Register buttons -->
                 <p>Si todavía no eres miembro: <a href="/registro">Regístrate</a></p>
                 <p><a href="/">Volver</a></p>

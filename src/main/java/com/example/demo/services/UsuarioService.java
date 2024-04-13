@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,6 +31,28 @@ public class UsuarioService {
 		if(!user.getClave().equals(clave2)) validacion.rejectValue("clave", "error.clave.diferente", "Las contraseñas no coinciden");
         if(validacion.hasErrors()) return false;
         else return true;
+		
+	}
+	
+	public boolean validarLogin (String user, Model model,  String clave) {
+		if(user.isEmpty()) model.addAttribute("usuarioRequerido", "Campo requerido");
+		if(clave.isEmpty()) model.addAttribute("claveRequerida", "Campo requerido");
+        if(user.isEmpty()||clave.isEmpty()) return false;
+        
+        else return true;
+		
+	}
+	
+	public boolean comprobarLogin (String user, Model model,  String clave) {
+		Usuario usuario = usuarioRepositorio.findByEmail(user);	
+		if(usuario==null || !usuario.getClave().equals(clave)) {
+			model.addAttribute("incorrecto", "Usuario o contraseña incorrecta");
+			 return false;
+		}
+		
+		
+		
+		return true;
 		
 	}
 }

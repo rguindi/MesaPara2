@@ -48,10 +48,28 @@
 
 
       <!-- -------------------------Login------------------------- -->
+      <div class="text-end d-flex " th:if="${session.usuario != null}">
+        <a href="/login" class="d-block link-body-emphasis text-decoration-none">
+            <i class="bi bi-person-fill text-light  "></i><span class="ms-2 fw-bold text-light  " th:text="${session.usuario.nombre}">Login</span>
+          </a>
+    
+          
+           <a href="/carrito" class="d-block link-body-emphasis text-decoration-none ms-4">
+            <i class="bi bi-basket text-light  position-relative  ">
+            
+            
+    
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" th:text="${session.cantidadTotal}"></span>
+
+    
+    
+            
+            </i><span class="ms-2 fw-bold text-light" >Carrito </span>
+          </a>
+        </div>
+
       <!-- -----Si no Login---- -->
-     
-   
-    <div class="text-end d-flex ">
+    <div class="text-end d-flex " th:if="${session.usuario == null}">
     <a href="/login" class="d-block link-body-emphasis text-decoration-none">
         <i class="bi bi-person-fill text-light  "></i><span class="ms-2 fw-bold text-light  " >Login</span>
       </a>
@@ -60,19 +78,17 @@
        <a href="/carrito" class="d-block link-body-emphasis text-decoration-none ms-4">
         <i class="bi bi-basket text-light  position-relative  ">
         
-        
+
 
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" th:text="${session.cantidadTotal}"></span>
 
 
-
-        
-<!--  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" > 1</span> -->
         
         </i><span class="ms-2 fw-bold text-light" >Carrito </span>
       </a>
     </div>
           
+      <!-- -------------------------------------------------- -->
 
 
 

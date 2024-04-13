@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Entities.Producto;
+import com.example.demo.Entities.Usuario;
 import com.example.demo.Repositories.ProductoRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -74,6 +75,19 @@ public class CarritoService {
 			carrito.remove(producto);
 		}
 		return carrito;
+
+	}
+	
+	public boolean userIsLoged(HttpServletRequest request) {
+
+		if(request.getSession().getAttribute("usuario") == null) return false;
+		
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		
+		if (usuario.getId_rol()== 2)return true;
+		
+		
+		return false;
 
 	}
 

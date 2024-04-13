@@ -56,12 +56,24 @@ public class CarritoController {
 	}
 	
 	@GetMapping("/comprar")
-	public String comprar() {
+	public String comprar(HttpServletRequest request) {
+		
+		if(!carritoService.userIsLoged(request)) {
+			request.getSession().setAttribute("urlAnterior", "/carrito");
+			return "redirect:/login";
+		}
+		
+		
 		return "metodoPago";
 	}
 	
 	@GetMapping("/resumenPedido")
-	public String resumenPedido(HttpServletRequest request, Model model) {
+	public String resumenPedido(HttpServletRequest request, Model model, @RequestParam("metodo") String metodo) {
+		
+		if(!carritoService.userIsLoged(request)) return "redirect:/login";
+		
+		request.getSession().setAttribute("metodo", metodo);
+		
 		HashMap<Producto,Integer> carrito = carritoService.recuperarCarrito(request);
 		model.addAttribute("carrito", carrito);
 		return "resumenPedido";

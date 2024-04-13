@@ -10,17 +10,17 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "detalles_pedido")
-public class Detalles_pedido {
+public class DetallePedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column
-	private int id_pedido;
+	private Long id_pedido;
 	
 	@Column
-	private int id_producto;
+	private Long id_producto;
 	
 	@Column
 	private float precio_unidad;
@@ -34,16 +34,15 @@ public class Detalles_pedido {
 	@Column
 	private double total;
 
-	public Detalles_pedido() {
+	public DetallePedido() {
 		super();
 	}
 	
 	
 
-	public Detalles_pedido(Long id, int id_pedido, int id_producto, float precio_unidad, int unidades, float impuesto,
+	public DetallePedido(Long id_pedido, Long id_producto, float precio_unidad, int unidades, float impuesto,
 			double total) {
-		super();
-		this.id = id;
+
 		this.id_pedido = id_pedido;
 		this.id_producto = id_producto;
 		this.precio_unidad = precio_unidad;
@@ -62,19 +61,19 @@ public class Detalles_pedido {
 		this.id = id;
 	}
 
-	public int getId_pedido() {
+	public Long getId_pedido() {
 		return id_pedido;
 	}
 
-	public void setId_pedido(int id_pedido) {
+	public void setId_pedido(Long id_pedido) {
 		this.id_pedido = id_pedido;
 	}
 
-	public int getId_producto() {
+	public Long getId_producto() {
 		return id_producto;
 	}
 
-	public void setId_producto(int id_producto) {
+	public void setId_producto(Long id_producto) {
 		this.id_producto = id_producto;
 	}
 

@@ -28,9 +28,9 @@ public class Configuracion {
 		super();
 	}
 
-	public Configuracion(Long id, String clave, String valor, String tipo) {
+	public Configuracion( String clave, String valor, String tipo) {
 		super();
-		this.id = id;
+	
 		this.clave = clave;
 		this.valor = valor;
 		this.tipo = tipo;
