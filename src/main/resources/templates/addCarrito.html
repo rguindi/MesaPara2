@@ -13,7 +13,7 @@
 		<table style="text-align: center;" class="table-responsive   table">
 			<tr><th></th><th>Nombre</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr>
 			<tr >
-				<td><img th:src="@{${producto.imagen}}" width="100" height="100" /></td>
+				<td> <a href="" th:href="@{'/producto/' + ${producto.id}}"><img th:src="@{${producto.imagen}}" width="100" height="100" /></a></td>
 				<td class="align-content-center" th:text="${producto.nombre}"></td> 
 				<td class="align-content-center" th:text="${cantidad}"></td>
 				<td class="align-content-center "  th:text="${producto.precio + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->

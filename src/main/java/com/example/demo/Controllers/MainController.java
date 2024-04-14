@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.Entities.Categoria;
 import com.example.demo.Entities.Producto;
@@ -40,6 +41,18 @@ public class MainController {
 		return "login";
 	}
 	
+	
+	@GetMapping("/categoria/{categoria}")
+	public String categoria(Model model, @PathVariable String categoria) {
+		
+		List<Producto> productos = productoRepositorio.findByCategoriaAndFechaBajaIsNull(Long.parseLong(categoria));
+		Categoria categoriaActual = categoriaRepositorio.findById(Long.parseLong(categoria)).orElse(null);
+		List<Categoria> categorias = categoriaRepositorio.findAll();
+		model.addAttribute("categorias", categorias);
+		model.addAttribute("categoriaActual", categoriaActual);
+		model.addAttribute("productos", productos);
+		return "productosCategoria";
+	}
 
 	
 }

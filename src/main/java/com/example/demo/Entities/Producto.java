@@ -27,7 +27,7 @@ public class Producto {
 	private long id;
 	
 	@Column(name = "id_categoria")
-	private int id_categoria;
+	private Long id_categoria;
 	
 	@NotEmpty
 	@Length(max = 254, message = "{producto.nombre.longitud}")
@@ -68,7 +68,7 @@ public class Producto {
 
 
 
-	public Producto(long id, int id_categoria, String nombre, String descripcion, double precio, int stock,
+	public Producto(long id, Long id_categoria, String nombre, String descripcion, double precio, int stock,
 			Timestamp fecha_alta, Timestamp fechaBaja, float impuesto, String imagen) {
 		super();
 		this.id = id;
@@ -97,13 +97,13 @@ public class Producto {
 
 
 
-	public int getId_categoria() {
+	public Long getId_categoria() {
 		return id_categoria;
 	}
 
 
 
-	public void setId_categoria(int id_categoria) {
+	public void setId_categoria(Long id_categoria) {
 		this.id_categoria = id_categoria;
 	}
 

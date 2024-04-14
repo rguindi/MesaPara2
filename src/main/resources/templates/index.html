@@ -12,15 +12,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav" th:each="categoria: ${categorias}">
-        <a class="nav-link" href="#" th:text="${categoria.nombre}">Features</a>
+        <a class="nav-link" href="#" th:href="@{/categoria/{id}(id=${categoria.id})}"  th:text="${categoria.nombre}">Features</a>
       </div>
     </div>
   </div>
 </nav>
 
 
-<div class="container m-5 align-self-center " >
-<div class="d-flex flex-column ">
+
+
+  
+<div class="container-md ">
 
 
   <div>
@@ -32,10 +34,10 @@
    
   
 
-
+  
   <div id="myCarousel" class="carousel slide m-5" data-bs-ride="carousel">
-
-
+    
+    
     <div class="carousel-inner">
 
 
@@ -52,11 +54,14 @@
               </div>
             </a>
             <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
-                  
-              <label class="fs-5" for="cantidad">Cantidad:</label>
+            <div>
+              <label class="fs-6" for="cantidad">Cantidad:</label>
               <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
               <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+              <div class="d-flex justify-content-center mt-2  ">
               <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  ">Añadir</button>
+            </div>
+            </div>
             </form>
         </div>
       </div>
@@ -76,11 +81,14 @@
             </div>
           </a>
           <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
-                
-            <label class="fs-5" for="cantidad">Cantidad:</label>
+                <div>
+            <label class="fs-6" for="cantidad">Cantidad:</label>
             <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
             <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+            <div class="d-flex justify-content-center mt-2  ">
             <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  ">Añadir</button>
+            </div>
+          </div>
           </form>
       </div>
     </div>
@@ -100,11 +108,14 @@
             </div>
           </a>
           <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
-                
-            <label class="fs-5" for="cantidad">Cantidad:</label>
+                <div>
+            <label class="fs-6" for="cantidad">Cantidad:</label>
             <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
             <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+            <div class="d-flex justify-content-center mt-2  ">
             <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  ">Añadir</button>
+            </div>
+          </div>
           </form>
       </div>
     </div>
@@ -123,7 +134,8 @@
 
 
  </div>
-  </div>
+
+</div>
 
   </main>
     

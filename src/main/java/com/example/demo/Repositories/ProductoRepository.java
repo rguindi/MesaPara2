@@ -14,6 +14,10 @@ import com.example.demo.Entities.Producto;
 public interface ProductoRepository extends JpaRepository<Producto, Long>  {
 	
 	List<Producto> findTop12ByFechaBajaIsNullOrderByFechaAltaDesc();
+
+
+	@Query("SELECT p FROM Producto p WHERE p.id_categoria = :categoriaId AND p.fechaBaja IS NULL")
+    List<Producto> findByCategoriaAndFechaBajaIsNull(@Param("categoriaId") Long categoriaId);
 	
 
 	@Transactional

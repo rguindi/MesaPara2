@@ -153,7 +153,7 @@ public class ProductoController {
 	public String detalleProducto(@PathVariable Long id, Model model) {
 	
 		Producto producto = productoRepositorio.findById(id).orElse(null);
-		
+		model.addAttribute("categorias", CategoriaRepository.findAll());
 		model.addAttribute("producto", producto);
 		return "productoDetalle";
 	}
