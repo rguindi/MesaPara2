@@ -14,6 +14,8 @@ import com.example.demo.Entities.Producto;
 import com.example.demo.Repositories.CategoriaRepository;
 import com.example.demo.Repositories.ProductoRepository;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 
 @Controller
 public class MainController {
@@ -54,7 +56,12 @@ public class MainController {
 		return "productosCategoria";
 	}
 
-	
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "redirect:/";
+	}
+
 }
 
 

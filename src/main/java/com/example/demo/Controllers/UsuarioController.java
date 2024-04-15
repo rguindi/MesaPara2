@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.example.demo.Entities.Usuario;
 import com.example.demo.Repositories.UsuarioRepository;
@@ -61,7 +62,11 @@ public class UsuarioController {
 	
 	
 	@GetMapping("/editar/{id}")
-	public String editar(@PathVariable Long id, Model model) {
+	public String editar(@PathVariable Long id, Model model, @SessionAttribute("usuario") Usuario usuarioSesion) {
+		
+		
+		if(usuarioSesion.getId() != id) return "redirect:/editar/" + usuarioSesion.getId();
+		
 		Usuario usuario = usuarioRepositorio.findById(id).orElse(null);
 		model.addAttribute("usuarioForm", usuario);
 

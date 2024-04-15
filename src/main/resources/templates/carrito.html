@@ -18,9 +18,10 @@
 				<td class="align-content-center " th:text="${entry.key.nombre}"></td> 
 				<td class="align-content-center">
 					<form action="/carrito" method="GET"  class="d-inline ">
-						<input id="stock" name="cantidad" style="width: 70px;" class="text-center " type="number" th:value="${entry.value}" min="1" th:max="${entry.key.stock}">
+						<input  th:id="'stock-' + ${entry.key.id}" name="cantidad" style="width: 70px;" class="text-center " type="number" th:value="${entry.value}" min="1" th:max="${entry.key.stock}">
 						<input name="id" type="hidden" th:value="${entry.key.id}" >
 						<input name="modificar" type="hidden" value="si" >
+						<button  th:id="'Actualiza-' + ${entry.key.id}" type="submit" name="actualizar" value="actualizar" class="btn btn-sm btn-outline-secondary d-none  ms-2  ">Actualizar carrito</button>
 					</form>
 					<form action="/carrito" method="GET"  class="d-inline ">
 					<button type="submit" name="eliminar" value="eliminar" class="btn btn-sm btn-outline-secondary    ms-2  ">Eliminar</button>
@@ -28,7 +29,7 @@
 					</form>
 				</td>
 				<td class="align-content-center " th:text="${entry.key.precio + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
-				<td class="align-content-center " th:text="${entry.key.precio * entry.value + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
+				<td class="align-content-center " th:text="${#numbers.formatDecimal(entry.key.precio * entry.value, 0, 2)} + '&euro;'"></td> <!-- Multiplicar el precio por la cantidad -->
 			</tr>
 		</table>
 

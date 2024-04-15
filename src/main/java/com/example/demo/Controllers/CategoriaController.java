@@ -28,7 +28,7 @@ public class CategoriaController {
 	public String listadoCategorias(Model model) {
 		
 		model.addAttribute("listaCategorias", categoriaRepositorio.findAll());
-		return "categorias";
+		return "/admin/categorias";
 	}
 	
 	
