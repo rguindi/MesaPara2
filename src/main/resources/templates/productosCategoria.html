@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <th:block th:insert="~{header}"></th:block>
+
+  <main class="d-flex align-content-center flex-column">
+    <nav class="navbar navbar-expand-lg bg-primary-subtle">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Categorías</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav" th:each="categoria: ${categorias}">
+            <a class="nav-link" href="#"  th:href="@{/categoria/{id}(id=${categoria.id})}"  th:text="${categoria.nombre}"
+              >Features</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container-fluid  m-5 justify-content-evenly   d-flex " >
+
+    <div class="flex-shrink-0 p-3 bg-white d-none d-md-block mt-3" style="width: 280px;">
+     
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+              Ordenar por...
+            </button>
+            <div class="collapse " id="home-collapse">
+              <select class="form-select " name="ordenar" id="">
+                <option value="novedad" selected="selected" disabled="disabled">Seleccione...</option>
+                <option value="precioAs">Precio (ascendente)</option>
+                <option value="precioDes">Precio (descendente)</option>
+                <option value="valoracion">Valoración (PENDIENTE DE CODIFICAR)</option>
+                <option value="nombre">Nombre</option>
+              </select>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse2" aria-expanded="false">
+              Precio Máx.
+            </button>
+            <div class="collapse " id="home-collapse2">
+            <span id="valorSeleccionado"></span><span> €</span>
+                <input type="range" class="form-range" min="10" max="100" step="10" id="customRange3" value="100">
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+              Valoración
+            </button>
+            <div class="collapse" id="orders-collapse">
+                <div class="ms-auto text-warning">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+               
+            </div>
+          </li>
+        </ul>
+      </div>
+    
+
+
+    <div  class="container-fluid     mt-3 align-content-center  m-0 p-0">
+      <div class="d-flex flex-column">
+        <div class="container  novedadestitulo">
+          <h1 class="text-center" th:text="${categoriaActual.nombre}">
+            NOMBRE CATEGORIA ACTUAL
+          </h1>
+        </div>
+
+
+
+        <section class="w-100 m-0 " >
+            <div id="contenedorTarjetas" class="container  w-100  py-5 d-flex flex-wrap">
+             
+              
+                <div id="tarjetaProducto" style="max-width: 350px;" class="col-md-6 col-lg-4 m-4 mb-0"  th:each="producto: ${productos}">
+                  <div class="card border-0 shadow ">
+                        <div class="d-flex justify-content-center p-3 mt-2 ">
+                            <a href="" th:href="@{'/producto/' + ${producto.id}}">
+
+                                <img src="" th:src="@{${producto.imagen}}" 
+                                  class=" img-fluid " alt="No se encuentra la imagen" />
+                                
+                            </a>
+                        </div>
+                    <div class="card-body pb-0 ">
+                      <div class="d-flex justify-content-between">
+                        <p class="small"><a href="#!" class="text-muted" th:text="${categoriaActual.nombre}">Categoria actual</a></p>
+                        <p class="small text-danger"><s>Campo a valorar para ofertas</s></p>
+                      </div>
+          
+                      <div class="d-flex justify-content-between mb-3">
+                        <h5 id="nombreProducto" class="mb-0" th:text="${producto.nombre}">Nombre producto</h5>
+                        <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
+                      <p id="precio" class="d-none  " th:text="${producto.precio}"></p>
+                    </div>
+          
+                      <div class="d-flex justify-content-between mb-2">
+                        <p class="text-muted mb-0" th:text="${producto.stock >5} ? 'En Stock' : 'Pocas unidades'" th:class="${producto.stock > 5} ? 'text-success' : 'text-danger'">Stock</p>
+                        <div class="ms-auto text-warning">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star"></i>
+                          <i class="bi bi-star"></i>
+                        </div>
+                      </div>
+                      <form action="/addCarrito" method="post" class="justify-content-center d-flex align-content-center align-items-center ">
+                        
+                    <label class="fs-6" for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
+                    <input type="hidden" name="id" th:value="${producto.id}" />
+                    <div class="d-flex justify-content-center   ">
+                    <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-4  ">Añadir</button>
+                    
+                  </div>
+                  </form>
+                    </div>
+                  </div>
+                </div>
+         
+
+            </div>
+          </section>
+
+
+
+        
+
+
+      </div>
+    </div>
+
+    </div>
+
+    
+  </main>
+  <script src="/js/productosCategoria.js"></script>
+  <th:block th:insert="~{footer}"></th:block>
+</html>
