@@ -16,53 +16,7 @@
 
 <div class="container-fluid m-0 p-0 d-flex">
 
-    <div
-      class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-      style="width: 280px; height: 100vh;"
-    >
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="/productos" class="nav-link active" aria-current="page">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#home" />
-            </svg>
-            Productos
-          </a>
-        </li>
-        <li>
-          <a href="/pedidos" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16" >
-              <use xlink:href="#speedometer2" />
-            </svg>
-            Pedidos
-          </a>
-        </li>
-        <li>
-          <a href="/categorias" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#table" />
-            </svg>
-            Categorias
-          </a>
-        </li>
-        <li>
-          <a href="/empleados" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#grid" />
-            </svg>
-            Empleados
-          </a>
-        </li>
-        <li>
-          <a href="/clientes" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#people-circle" />
-            </svg>
-            Clientes
-          </a>
-        </li>
-      </ul>
-    </div>
+  <th:block th:insert="~{admin/leftNav}"></th:block>
 
     <div class="container">
       <div class="starter-template">

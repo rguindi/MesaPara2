@@ -19,7 +19,7 @@ public class pedidosController {
 	
 	@GetMapping("/pedidos")
 	public String pedidos(Model model) {
-		
+		model.addAttribute("pag", "pedido");
 		model.addAttribute("listaPedidos", pedidoRepository.findAll());
 		
 		return "/admin/controlPedidos";

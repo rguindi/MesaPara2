@@ -38,6 +38,7 @@ public class ProductoController {
 	
 	@GetMapping("/productos")
 	public String listadoProductos(Model model) {
+		model.addAttribute("pag", "producto");
 		model.addAttribute("IMG", Global.URL);
 		model.addAttribute("listaProductos", productoRepositorio.findAll());
 		return "admin/productos";

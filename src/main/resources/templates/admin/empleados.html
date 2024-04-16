@@ -8,7 +8,7 @@
     <meta name="description" content="Mesa Para 2" />
     <meta name="author" content=" Raul Ferrero Vicebte" />
 
-    <title>Productos</title>
+    <title>Empleados</title>
   </head>
   
   <body>
@@ -16,64 +16,16 @@
 
 <div class="container-fluid m-0 p-0 d-flex">
 
-    <div
-      class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-      style="width: 280px; height: 100vh;"
-    >
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="/productos" class="nav-link text-white" aria-current="page">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#home" />
-            </svg>
-            Productos
-          </a>
-        </li>
-        <li>
-          <a href="/pedidos" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16" >
-              <use xlink:href="#speedometer2" />
-            </svg>
-            Pedidos
-          </a>
-        </li>
-        <li>
-          <a href="/categorias" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#table" />
-            </svg>
-            Categorias
-          </a>
-        </li>
-        <li>
-          <a href="/empleados" class="nav-link active text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#grid" />
-            </svg>
-            Empleados
-          </a>
-        </li>
-        <li>
-          <a href="/clientes" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#people-circle" />
-            </svg>
-            Clientes
-          </a>
-        </li>
-      </ul>
-    </div>
+  <th:block th:insert="~{admin/leftNav}"></th:block>
 
     
     <div class="container">
 
       <div class="starter-template">
-        <h1>Listado de Usuarios</h1>
+        <h1>Listado de Empleados</h1>
         
         <table class="table table-striped table-responsive table-hover">
         	<thead>
-        	<tr><th>Id</th>
-        	<th>Id_ROl</th>
         <th>Email</th>
         	<th>Clave</th>
         	<th>Nombre</th>
@@ -83,14 +35,16 @@
         	<th>provincia</th>
         	<th>localidad</th>
         	<th>teleffon</th>
-        	<th>Dni</th></tr>
+        	<th>Dni</th>
+        	<th>Opción</th>
+        
+        </tr>
         	
        </thead>
        
        <tbody>
        		<tr th:each="usuario: ${listaUsuarios}" >
-       		<td th:text="${usuario.id}"></td>	
-       			<td th:text="${usuario.id_rol}"></td>
+
        			<td th:text="${usuario.email}"></td>
        			<td th:text="${usuario.clave}"></td>
        			<td th:text="${usuario.nombre}"></td>
@@ -101,6 +55,29 @@
        			<td th:text="${usuario.localidad}"></td>
        			<td th:text="${usuario.telefono}"></td>
        			<td th:text="${usuario.dni}"></td>
+            <td>
+              <form action="/gestionEmpleado" method="POST">
+                <input type="hidden" name="id" th:value="${usuario.id}" />
+              <span th:if="${usuario.fechaBaja == null}">
+                <button
+                  name="accion"
+                  value="eliminar"
+                  class="btn btn-sm btn-success"
+                >
+                  Desactivar
+                </button>
+              </span>
+              <span th:if="${usuario.fechaBaja != null}">
+                <button
+                  name="accion"
+                  value="activar"
+                  class="btn btn-sm btn-danger"
+                >
+                  Activar
+                </button>
+              </span>
+            </form>
+            </td>
        			
        		
        		</tr>

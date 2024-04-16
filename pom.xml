@@ -51,7 +51,11 @@
 			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
 		</dependency>
 		
-		
+		<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <scope>provided</scope>
+</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -89,7 +93,6 @@
 			<artifactId>webjars-locator</artifactId>
 			<version>0.52</version>
 		</dependency>
-
 
 	</dependencies>
 

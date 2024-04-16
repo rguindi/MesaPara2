@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.example.demo.Entities.Producto;
 import com.example.demo.Entities.Usuario;
 import com.example.demo.Repositories.UsuarioRepository;
 import com.example.demo.services.UsuarioService;
@@ -33,13 +34,23 @@ public class UsuarioController {
 
 	@GetMapping("/empleados")
 	public String empleados(Model model) {
-		model.addAttribute("listaUsuarios", usuarioRepositorio.findAll());
+		model.addAttribute("pag", "empleado");
+		model.addAttribute("listaUsuarios", usuarioRepositorio.findByRol(3));
 		return "/admin/empleados";
 	}
 	
+	@GetMapping("/administradores")
+	public String administradores(Model model) {
+		model.addAttribute("pag", "admin");
+		model.addAttribute("listaUsuarios", usuarioRepositorio.findByRol(1));
+		return "/admin/administradores";
+	}
+	
+	
 	@GetMapping("/clientes")
 	public String clientes(Model model) {
-		model.addAttribute("listaUsuarios", usuarioRepositorio.findAll());
+		model.addAttribute("pag", "cliente");
+		model.addAttribute("listaUsuarios", usuarioRepositorio.findByRol(2));
 		return "/admin/clientes";
 	}
 	
@@ -113,7 +124,21 @@ public class UsuarioController {
         }
 	}
 	
-	
+	@PostMapping("/gestionEmpleado")
+	public String gestionEmpleado(@RequestParam("id") Long id, @RequestParam("accion") String accion) {
+
+		
+		if(accion.equals("activar")) {
+			usuarioService.activarUsuario(id);
+			return "redirect:/empleados";
+		}
+		
+		if(accion.equals("eliminar")) {
+			usuarioService.desactivarUsuario(id);
+			return "redirect:/empleados";
+		}
+		return "redirect:/empleados";
+	}
 	
 	
 }

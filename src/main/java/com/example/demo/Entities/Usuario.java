@@ -4,6 +4,8 @@ package com.example.demo.Entities;
 
 
 
+import java.sql.Timestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +14,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@Data @AllArgsConstructor @NoArgsConstructor
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
@@ -67,15 +74,18 @@ public class Usuario {
 	@NotEmpty
 	private String dni;
 	
+	@Column(name = "fecha_baja")
+	private Timestamp fechaBaja;
+	
+	/*
 	public Usuario() {
 
 	}
 	
-	
 	public Usuario(String email, String clave, String nombre, String apellido1, String apellido2,
 			String direccion, String provincia, String localidad, String telefono, String dni) {
 		
-		this.id_rol = 1;
+		this.id_rol = 2;
 		this.email = email;
 		this.clave = clave;
 		this.nombre = nombre;
@@ -86,6 +96,7 @@ public class Usuario {
 		this.localidad = localidad;
 		this.telefono = telefono;
 		this.dni = dni;
+		
 	}
 
 	public Long getId() {
@@ -183,6 +194,22 @@ public class Usuario {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
+	
+	
+	public Timestamp getFechaBaja() {
+		return fechaBaja;
+	}
+
+
+	public void setFechaBaja(Timestamp fechaBaja) {
+		this.fechaBaja = fechaBaja;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 
 	@Override
 	public String toString() {
@@ -193,7 +220,7 @@ public class Usuario {
 	}
 	
 	
-	
+	*/
 	
 
 

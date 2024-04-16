@@ -44,15 +44,24 @@ public class UsuarioService {
 	}
 	
 	public boolean comprobarLogin (String user, Model model,  String clave) {
-		Usuario usuario = usuarioRepositorio.findByEmail(user);	
+		Usuario usuario = usuarioRepositorio.findByEmailAndFechaBajaIsNull(user).orElse(null);	
 		if(usuario==null || !usuario.getClave().equals(clave)) {
 			model.addAttribute("incorrecto", "Usuario o contraseña incorrecta");
 			 return false;
-		}
-		
-		
-		
-		return true;
-		
+		}		
+		return true;	
+	}
+	
+	public boolean activarUsuario (Long id ) {
+		Usuario usuario = usuarioRepositorio.findById(id).orElse(null);	
+		usuario.setFechaBaja(null);
+		usuarioRepositorio.save(usuario);
+		return true;	
+	}
+	public boolean desactivarUsuario (Long id ) {
+		Usuario usuario = usuarioRepositorio.findById(id).orElse(null);	
+		usuario.setFechaBaja(new java.sql.Timestamp(System.currentTimeMillis()));
+		usuarioRepositorio.save(usuario);
+		return true;	
 	}
 }

@@ -25,7 +25,7 @@ public class CategoriaController {
 	
 	@GetMapping("/categorias")
 	public String listadoCategorias(Model model) {
-		
+		model.addAttribute("pag", "categoria");
 		model.addAttribute("listaCategorias", categoriaRepositorio.findAll());
 		return "/admin/categorias";
 	}
