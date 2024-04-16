@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.Config.Global;
 import com.example.demo.Entities.Producto;
 import com.example.demo.Repositories.ProductoRepository;
 import com.example.demo.services.CarritoService;
@@ -30,7 +31,7 @@ public class CarritoController {
 	
 	@PostMapping("/addCarrito")
 	public String addCarrito(@RequestParam("id") Long id, @RequestParam("cantidad") int cantidad, HttpServletRequest request, Model model) {
-		
+		model.addAttribute("IMG", Global.URL);
 		Producto producto = productorepository.findById(id).orElse(null);
 		HashMap<Producto,Integer> carrito = carritoService.recuperarCarrito(request);
 		carrito = carritoService.addProducto(carrito, producto, cantidad);
@@ -46,7 +47,7 @@ public class CarritoController {
 	
 	@GetMapping("/carrito")
 	public String carrito(HttpServletRequest request, Model model,@RequestParam(value = "id", required = false) Long id, @RequestParam(value = "cantidad", required = false) Integer cantidad, @RequestParam(value = "modificar", required = false) String modificar, @RequestParam(value = "eliminar", required = false) String eliminar) {
-		
+		model.addAttribute("IMG", Global.URL);
 		HashMap<Producto,Integer> carrito = carritoService.recuperarCarrito(request);
 		carrito = carritoService.actualizarProducto(carrito, id, cantidad, modificar, eliminar);
 		model.addAttribute("carrito", carrito);
@@ -71,9 +72,8 @@ public class CarritoController {
 	public String resumenPedido(HttpServletRequest request, Model model, @RequestParam("metodo") String metodo) {
 		
 		if(!carritoService.userIsLoged(request)) return "redirect:/login";
-		
+		model.addAttribute("IMG", Global.URL);
 		request.getSession().setAttribute("metodo", metodo);
-		
 		HashMap<Producto,Integer> carrito = carritoService.recuperarCarrito(request);
 		model.addAttribute("carrito", carrito);
 		return "resumenPedido";

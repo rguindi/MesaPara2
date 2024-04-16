@@ -8,7 +8,7 @@
     <meta name="description" content="Mesa Para 2" />
     <meta name="author" content=" Raul Ferrero Vicebte" />
 
-    <title>Catgorias</title>
+    <title>Categorias</title>
   </head>
   
   <body>
@@ -21,7 +21,7 @@
       >
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="/productos" class="nav-link active" aria-current="page">
+            <a href="/productos" class="nav-link text-white" aria-current="page">
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#home" />
               </svg>
@@ -37,7 +37,7 @@
             </a>
           </li>
           <li>
-            <a href="/categorias" class="nav-link text-white">
+            <a href="/categorias" class="nav-link active text-white">
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#table" />
               </svg>
@@ -45,7 +45,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a href="/empleados" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#grid" />
               </svg>
@@ -53,7 +53,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a href="/clientes" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#people-circle" />
               </svg>
@@ -75,18 +75,25 @@
         <table class="table table-striped table-responsive table-hover">
         	<thead>
         	<tr>
-            <th>Id</th>
         	<th>Nombre</th>
         	<th>Descripción</th>
+        	<th>Opción</th>
         	</tr>
         	
        </thead>
        
        <tbody>
        		<tr th:each="categoria: ${listaCategorias}" >
-       		<td th:text="${categoria.id}"></td>	
        			<td th:text="${categoria.nombre}"></td>
        			<td th:text="${categoria.descripcion}"></td>
+
+            <td>
+              <form action="/gestionCategoria" method="POST">
+              <input name="id" type="hidden" th:value="${categoria.id}">
+              <button class=" btn btn-sm btn-warning " type="submit" name="action" value="editar">Editar</button>
+        <button class="btn btn-sm btn-danger " type="submit" name="action" value="eliminar">Eliminar</button>
+      </form>
+            </td>
        			
        		</tr>
        </tbody>

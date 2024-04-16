@@ -46,11 +46,12 @@
         <div class="d-flex  align-items-center justify-content-evenly">
         <div th:each="producto,iterStat : ${novedades}" th:if="${iterStat.index < 4}">
           <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
-              <img src="" th:src="@{${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+              <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
               <div class=" text-center bg-succes  fs-4 ">
                 <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
                   
                 </p>
+                <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
               </div>
             </a>
             <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
@@ -73,11 +74,12 @@
         <div class="d-flex align-items-center justify-content-evenly">
         <div th:each="producto,iterStat : ${novedades}" th:if="${iterStat.index > 3 and iterStat.index < 8}" >
           <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
-            <img src="" th:src="@{${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+            <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
             <div class=" text-center bg-succes  fs-4 ">
               <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
                 
               </p>
+              <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
             </div>
           </a>
           <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
@@ -100,11 +102,12 @@
         <div class="d-flex align-items-center justify-content-evenly">
         <div th:each="producto,iterStat : ${novedades}" th:if="${iterStat.index > 7 and iterStat.index < 12}" >
           <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
-            <img src="" th:src="@{${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+            <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
             <div class=" text-center bg-succes  fs-4 ">
               <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
                 
               </p>
+              <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
             </div>
           </a>
           <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">

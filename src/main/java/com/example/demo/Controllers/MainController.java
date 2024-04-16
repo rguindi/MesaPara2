@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.demo.Config.Global;
 import com.example.demo.Entities.Categoria;
 import com.example.demo.Entities.Producto;
 import com.example.demo.Repositories.CategoriaRepository;
@@ -30,6 +31,8 @@ public class MainController {
 	public String home(Model model) {
 		
 		List<Producto> novedades = productoRepositorio.findTop12ByFechaBajaIsNullOrderByFechaAltaDesc();
+		
+		model.addAttribute("IMG", Global.URL);
 		
 		List<Categoria> categorias = categoriaRepositorio.findAll();
 		model.addAttribute("categorias", categorias);
@@ -53,6 +56,7 @@ public class MainController {
 		model.addAttribute("categorias", categorias);
 		model.addAttribute("categoriaActual", categoriaActual);
 		model.addAttribute("productos", productos);
+		model.addAttribute("IMG", Global.URL);
 		return "productosCategoria";
 	}
 

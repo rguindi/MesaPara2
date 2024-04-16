@@ -14,7 +14,7 @@
 		<table style="text-align: center;" class="table-responsive  table ">
 			<tr><th></th><th>Nombre</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr>
 			<tr th:each="entry : ${carrito}">
-				<td><img th:src="@{${entry.key.imagen}}" width="50" height="50" /></td>
+				<td><img th:src="@{${IMG} + ${entry.key.imagen}}" width="50" height="50" /></td>
 				<td class="align-content-center " th:text="${entry.key.nombre}"></td> 
 				<td class="align-content-center" th:text="${entry.value}"></td>
 				<td class="align-content-center " th:text="${entry.key.precio + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->

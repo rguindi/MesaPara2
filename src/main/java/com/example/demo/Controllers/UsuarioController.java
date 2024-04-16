@@ -31,12 +31,17 @@ public class UsuarioController {
 	
 	
 
-	@GetMapping("/usuarios")
-	public String listado(Model model) {
+	@GetMapping("/empleados")
+	public String empleados(Model model) {
 		model.addAttribute("listaUsuarios", usuarioRepositorio.findAll());
-		return "usuarios";
+		return "/admin/empleados";
 	}
 	
+	@GetMapping("/clientes")
+	public String clientes(Model model) {
+		model.addAttribute("listaUsuarios", usuarioRepositorio.findAll());
+		return "/admin/clientes";
+	}
 	
 	
 	
@@ -55,7 +60,7 @@ public class UsuarioController {
 		else {
 			user.setId_rol(1);
 			usuarioRepositorio.save(user);
-			return "redirect:/usuarios";
+			return "redirect:/login";
 		}
 	}
 	
@@ -83,7 +88,7 @@ public class UsuarioController {
 		else {
 			user.setId_rol(1);    
 			usuarioRepositorio.save(user);
-			return "redirect:/usuarios";
+			return "redirect:/";
 		}
 	}
 	

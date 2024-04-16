@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
+import com.example.demo.Config.Global;
 import com.example.demo.Entities.Producto;
 import com.example.demo.Repositories.CategoriaRepository;
 import com.example.demo.Repositories.ProductoRepository;
@@ -37,7 +38,7 @@ public class ProductoController {
 	
 	@GetMapping("/productos")
 	public String listadoProductos(Model model) {
-		
+		model.addAttribute("IMG", Global.URL);
 		model.addAttribute("listaProductos", productoRepositorio.findAll());
 		return "admin/productos";
 	}
@@ -68,10 +69,9 @@ public class ProductoController {
 			if (!file.isEmpty()) {
 				
 				String imagen = storageService.store(file, producto.getId(), producto.getNombre());
-				producto.setImagen(MvcUriComponentsBuilder.fromMethodName(ProductoController.class, "serveFile", imagen).build().toUriString());
+				producto.setImagen(imagen);
 				
 			}
-			
 			producto.setFechaAlta(new java.sql.Timestamp(System.currentTimeMillis()));
 			productoRepositorio.save(producto);			
 			
@@ -83,7 +83,7 @@ public class ProductoController {
 	//EDICIONES
 	@GetMapping("/gestionProducto")
 	public String gestionProducto( Model model, @RequestParam("accion") String valor, @RequestParam("id") Long id) {
-		
+		model.addAttribute("IMG", Global.URL);
 		model.addAttribute("categorias", CategoriaRepository.findAll());
 		Producto producto = productoRepositorio.findById(id).orElse(null);
 		
@@ -115,10 +115,12 @@ public class ProductoController {
 
 	@PostMapping("/editarProducto/submit")
 	public String editarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, @RequestParam("file") MultipartFile file, BindingResult validacion, Model model) {
-		
+		model.addAttribute("IMG", Global.URL);
 		Producto viejo = productoRepositorio.findById(producto.getId()).orElse(null);
 		producto.setFechaAlta(viejo.getFechaAlta());
 		producto.setImagen(viejo.getImagen());
+		
+		
 		
 		if(validacion.hasErrors()) {
 			model.addAttribute("categorias", CategoriaRepository.findAll());
@@ -129,7 +131,7 @@ public class ProductoController {
 			if (!file.isEmpty()) {
 				
 				String imagen = storageService.store(file, producto.getId(), producto.getNombre());
-				producto.setImagen(MvcUriComponentsBuilder.fromMethodName(ProductoController.class, "serveFile", imagen).build().toUriString());
+				producto.setImagen(imagen);
 				
 			}
 			
@@ -151,7 +153,7 @@ public class ProductoController {
 	//DETALLE PRODUCTO
 	@GetMapping("/producto/{id}")
 	public String detalleProducto(@PathVariable Long id, Model model) {
-	
+		model.addAttribute("IMG", Global.URL);
 		Producto producto = productoRepositorio.findById(id).orElse(null);
 		model.addAttribute("categorias", CategoriaRepository.findAll());
 		model.addAttribute("producto", producto);

@@ -46,7 +46,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link text-white">
+          <a href="/empleados" class="nav-link text-white">
             <svg class="bi pe-none me-2" width="16" height="16">
               <use xlink:href="#grid" />
             </svg>
@@ -54,7 +54,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link text-white">
+          <a href="/clientes" class="nav-link text-white">
             <svg class="bi pe-none me-2" width="16" height="16">
               <use xlink:href="#people-circle" />
             </svg>
@@ -93,7 +93,7 @@
             <tr th:each="producto: ${listaProductos}">
               <form action="/gestionProducto" method="get">
                 <td>
-                  <img th:src="@{${producto.imagen}}" width="50" height="50" />
+                  <img th:src="@{${IMG} +${producto.imagen}}" width="50" height="50" />
                 </td>
                 <td th:text="${producto.id}"></td>
                 <td th:text="${producto.id_categoria}"></td>

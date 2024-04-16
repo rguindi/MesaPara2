@@ -8,7 +8,7 @@
     <meta name="description" content="Mesa Para 2" />
     <meta name="author" content=" Raul Ferrero Vicebte" />
 
-    <title>Pedidos</title>
+    <title>Productos</title>
   </head>
   
   <body>
@@ -30,7 +30,7 @@
           </a>
         </li>
         <li>
-          <a href="/pedidos" class="nav-link active text-white">
+          <a href="/pedidos" class="nav-link text-white">
             <svg class="bi pe-none me-2" width="16" height="16" >
               <use xlink:href="#speedometer2" />
             </svg>
@@ -46,7 +46,7 @@
           </a>
         </li>
         <li>
-          <a href="/empleados" class="nav-link text-white">
+          <a href="/empleados" class="nav-link active text-white">
             <svg class="bi pe-none me-2" width="16" height="16">
               <use xlink:href="#grid" />
             </svg>
@@ -64,47 +64,55 @@
       </ul>
     </div>
 
+    
     <div class="container">
-      <div class="starter-template">
-        <h2>Listado de Pedidos</h2>
 
+      <div class="starter-template">
+        <h1>Listado de Usuarios</h1>
+        
         <table class="table table-striped table-responsive table-hover">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Usuario</th>
-              <th>Fecha</th>
-              <th>Método de Pago</th>
-              <th>Estado</th>
-              <th>Número de Factura</th>
-              <th>Total</th>
-              <th>Opción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr th:each="pedido: ${listaPedidos}">
-              <form action="/gestionPedido" method="get">
-                <td th:text="${pedido.id}"></td>
-                <td th:text="${pedido.id_usuario}"></td>
-                <td th:text="${pedido.fecha}"></td>
-                <td th:text="${pedido.metodo_pago}"></td>
-                <td th:text="${pedido.estado}"></td>
-                <td th:text="${pedido.num_factura}"></td>
-                <td th:text="${pedido.total}"></td>
-                <td>
-                  <button
-                    name="accion"
-                    value="editar"
-                    class="btn btn-sm btn-warning"
-                  >
-                    Editar
-                  </button>
-                </td>
-            </tr>
-          </tbody>
+        	<thead>
+        	<tr><th>Id</th>
+        	<th>Id_ROl</th>
+        <th>Email</th>
+        	<th>Clave</th>
+        	<th>Nombre</th>
+        	<th>Ape1</th>
+        	<th>Ape2</th>
+        	<th>Direccion</th>
+        	<th>provincia</th>
+        	<th>localidad</th>
+        	<th>teleffon</th>
+        	<th>Dni</th></tr>
+        	
+       </thead>
+       
+       <tbody>
+       		<tr th:each="usuario: ${listaUsuarios}" >
+       		<td th:text="${usuario.id}"></td>	
+       			<td th:text="${usuario.id_rol}"></td>
+       			<td th:text="${usuario.email}"></td>
+       			<td th:text="${usuario.clave}"></td>
+       			<td th:text="${usuario.nombre}"></td>
+       			<td th:text="${usuario.apellido1}"></td>
+       			<td th:text="${usuario.apellido2}"></td>
+       			<td th:text="${usuario.direccion}"></td>
+       			<td th:text="${usuario.provincia}"></td>
+       			<td th:text="${usuario.localidad}"></td>
+       			<td th:text="${usuario.telefono}"></td>
+       			<td th:text="${usuario.dni}"></td>
+       			
+       		
+       		</tr>
+       </tbody>
+
         </table>
+        
+        
       </div>
-    </div>
+
+    </div><!-- /.container -->
+
 </div>
   </body>
 </html>
