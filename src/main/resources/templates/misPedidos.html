@@ -26,21 +26,24 @@
 			</thead>
 			<tbody>
 			  <tr th:each="pedido: ${listaPedidos}">
-				<form action="" method="get">
+				<form action="/cancelarPedido" method="POST">
 				  <td th:text="${pedido.fecha}"></td>
 				  <td th:text="${pedido.metodo_pago}"></td>
 				  <td th:text="${pedido.estado}"></td>
 				  <td th:text="${pedido.num_factura}"></td>
-				  <td th:text="${pedido.total}"></td>
+				  <td th:text="${#numbers.formatDecimal(pedido.total, 0, 2)}"></td>
 				  <td>
+					<input type="hidden" name="id" th:value="${pedido.id}">
 					<button
-					  name="accion"
+					type="submit"
+					  name="cancelar"
 					  value="editar"
-					  class="btn btn-sm btn-warning"
+					  class="btn btn-sm btn-secondary"
 					>
-					  Editar
+					  Solicitar cancelación
 					</button>
 				  </td>
+				</form>
 			  </tr>
 			</tbody>
 		  </table>
