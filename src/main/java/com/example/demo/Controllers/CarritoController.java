@@ -72,6 +72,7 @@ public class CarritoController {
 	public String resumenPedido(HttpServletRequest request, Model model, @RequestParam("metodo") String metodo) {
 		
 		if(!carritoService.userIsLoged(request)) return "redirect:/login";
+		model.addAttribute("metodo", metodo);
 		model.addAttribute("IMG", Global.URL);
 		request.getSession().setAttribute("metodo", metodo);
 		HashMap<Producto,Integer> carrito = carritoService.recuperarCarrito(request);

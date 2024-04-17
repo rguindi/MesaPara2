@@ -1,0 +1,55 @@
+<div
+class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
+style="width: 280px; height: 100vh;"
+>
+<ul class="nav nav-pills flex-column mb-auto">
+  <li class="nav-item">
+    <a href="/productos" class="nav-link text-white" th:classappend="${pag == 'producto' ? 'active' : ''}" aria-current="page">
+      <svg class="bi pe-none me-2" width="16" height="16">
+        <use xlink:href="#home" />
+      </svg>
+      Productos
+    </a>
+  </li>
+  <li>
+    <a href="/pedidos" class="nav-link text-white"  th:classappend="${pag == 'pedido' ? 'active' : ''}">
+      <svg class="bi pe-none me-2" width="16" height="16" >
+        <use xlink:href="#speedometer2" />
+      </svg>
+      Pedidos
+    </a>
+  </li>
+  <li>
+    <a href="/categorias" class="nav-link text-white" th:classappend="${pag == 'categoria' ? 'active' : ''}">
+      <svg class="bi pe-none me-2" width="16" height="16">
+        <use xlink:href="#table" />
+      </svg>
+      Categorias
+    </a>
+  </li>
+  <li>
+    <a href="/empleados" class="nav-link text-white" th:classappend="${pag == 'empleado' ? 'active' : ''}">
+      <svg class="bi pe-none me-2" width="16" height="16">
+        <use xlink:href="#grid" />
+      </svg>
+      Empleados
+    </a>
+  </li>
+  <li>
+    <a href="/clientes" class="nav-link text-white" th:classappend="${pag == 'cliente' ? 'active' : ''}">
+      <svg class="bi pe-none me-2" width="16" height="16">
+        <use xlink:href="#people-circle" />
+      </svg>
+      Clientes
+    </a>
+  </li>
+  <li>
+    <a href="/administradores" class="nav-link text-white" th:classappend="${pag == 'admin' ? 'active' : ''}">
+      <svg class="bi pe-none me-2" width="16" height="16">
+        <use xlink:href="#people-circle" />
+      </svg>
+      Administradores
+    </a>
+  </li>
+</ul>
+</div>

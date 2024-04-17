@@ -37,12 +37,18 @@ public class pedidosController {
 		return "/misPedidos";
 	}
 	
-	@PostMapping("/cancelarPedido")
-	public String cancelarPedido(Model model, @SessionAttribute("usuario") Usuario usuario, @RequestParam("id") Long id) {
+	@PostMapping("/gestionPedido")
+	public String cancelarPedido(Model model, @SessionAttribute("usuario") Usuario usuario, @RequestParam("id") Long id, @RequestParam("gestion") String gestion) {
 		
-		pedidoRepository.cambiarEstadoAPC(id);
-		model.addAttribute("listaPedidos", pedidoRepository.buscarPorIdUsuario(usuario.getId()));
+		if(gestion.equals("cancelar")) {
+			pedidoRepository.cambiarEstadoAPC(id);
+			model.addAttribute("listaPedidos", pedidoRepository.buscarPorIdUsuario(usuario.getId()));
+			return "/misPedidos";
+		}
 		
+		if(gestion.equals("ver")) {
+			return "/detallePedido";
+		}
 		return "/misPedidos";
 	}
 

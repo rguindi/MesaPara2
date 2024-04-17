@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.Entities.Usuario;
 import com.example.demo.Repositories.UsuarioRepository;
+import org.jasypt.util.password.StrongPasswordEncryptor;
 
 @Service
 public class UsuarioService {
@@ -45,7 +46,7 @@ public class UsuarioService {
 	
 	public boolean comprobarLogin (String user, Model model,  String clave) {
 		Usuario usuario = usuarioRepositorio.findByEmailAndFechaBajaIsNull(user).orElse(null);	
-		if(usuario==null || !usuario.getClave().equals(clave)) {
+		if(usuario==null || !this.comprobarClaveEncriptada(clave, usuario.getClave())) {
 			model.addAttribute("incorrecto", "Usuario o contraseña incorrecta");
 			 return false;
 		}		
@@ -64,4 +65,18 @@ public class UsuarioService {
 		usuarioRepositorio.save(usuario);
 		return true;	
 	}
+	
+	
+	public String encriptar(String pass) {
+		StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+		String encriptada = passwordEncryptor.encryptPassword(pass);
+		return encriptada;
+	}
+	
+	public boolean comprobarClaveEncriptada(String pass, String passencriptado) {
+		StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+		if (passwordEncryptor.checkPassword(pass, passencriptado)) return true;
+		else return false;
+	}
+	
 }

@@ -39,9 +39,14 @@
               <form action="/gestionPedido" method="get">
                 <td th:text="${pedido.fecha}"></td>
                 <td th:text="${pedido.metodo_pago}"></td>
-                <td th:text="${pedido.estado}"></td>
+                <td>
+                  <th:block th:if="${pedido.estado eq 'PE'}">Pendiente de envío</th:block>
+                  <th:block th:if="${pedido.estado eq 'PC'}">Cancelación solicitada</th:block>
+                  <th:block th:if="${pedido.estado eq 'E'}">Enviado!</th:block>
+                  <th:block th:if="${pedido.estado eq 'C'}">Cancelado!</th:block>
+                  </td>
                 <td th:text="${pedido.num_factura}"></td>
-                <td th:text="${pedido.total}"></td>
+                <td th:text="${#numbers.formatDecimal(pedido.total, 0, 2)}"></td>
                 <td>
                   <button
                     name="accion"

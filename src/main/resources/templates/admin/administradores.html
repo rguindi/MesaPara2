@@ -8,7 +8,7 @@
     <meta name="description" content="Mesa Para 2" />
     <meta name="author" content=" Raul Ferrero Vicebte" />
 
-    <title>Clientes</title>
+    <title>Administradores</title>
   </head>
   
   <body>
@@ -22,10 +22,11 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Listado de Clientes</h1>
+        <h1>Listado de Administradores</h1>
         
         <table class="table table-striped table-responsive table-hover">
         	<thead>
+
         <th>Email</th>
         	<th>Nombre</th>
         	<th>Ape1</th>
@@ -34,7 +35,10 @@
         	<th>provincia</th>
         	<th>localidad</th>
         	<th>teleffon</th>
-        	<th>Dni</th></tr>
+        	<th>Dni</th>
+        	<th>Opción</th>
+        
+        </tr>
         	
        </thead>
        
@@ -49,6 +53,29 @@
        			<td th:text="${usuario.localidad}"></td>
        			<td th:text="${usuario.telefono}"></td>
        			<td th:text="${usuario.dni}"></td>
+            <td>
+              <form action="/gestionEmpleado" method="POST">
+                <input type="hidden" name="id" th:value="${usuario.id}" />
+              <span th:if="${usuario.fechaBaja == null}">
+                <button
+                  name="accion"
+                  value="eliminar"
+                  class="btn btn-sm btn-success"
+                >
+                  Desactivar
+                </button>
+              </span>
+              <span th:if="${usuario.fechaBaja != null}">
+                <button
+                  name="accion"
+                  value="activar"
+                  class="btn btn-sm btn-danger"
+                >
+                  Activar
+                </button>
+              </span>
+            </form>
+            </td>
        			
        		
        		</tr>

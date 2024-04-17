@@ -70,6 +70,7 @@ public class UsuarioController {
         if(!usuarioService.validarRegistro(user, validacion, clave2)) return "registro";
 		else {
 			user.setId_rol(1);
+			user.setClave(usuarioService.encriptar(user.getClave()));
 			usuarioRepositorio.save(user);
 			return "redirect:/login";
 		}
@@ -98,6 +99,7 @@ public class UsuarioController {
 		if(!usuarioService.validarEdicion(user, validacion, clave2)) return "registro";
 		else {
 			user.setId_rol(1);    
+			user.setClave(usuarioService.encriptar(user.getClave()));
 			usuarioRepositorio.save(user);
 			return "redirect:/";
 		}

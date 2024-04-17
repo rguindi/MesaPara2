@@ -15,32 +15,46 @@
 		  <table class="table table-striped table-responsive table-hover">
 			<thead>
 			  <tr>
-		
+				<th>Nº pedido</th>
 				<th>Fecha</th>
 				<th>Método de Pago</th>
 				<th>Estado</th>
-				<th>Número de Factura</th>
+				<th>Id factura</th>
 				<th>Total</th>
 				<th>Opción</th>
 			  </tr>
 			</thead>
 			<tbody>
 			  <tr th:each="pedido: ${listaPedidos}">
-				<form action="/cancelarPedido" method="POST">
-				  <td th:text="${pedido.fecha}"></td>
+				<form action="/gestionPedido" method="POST">
+				  <td th:text="${pedido.id}"></td>
+				  <td th:text="${#dates.format(pedido.fecha, 'dd/MM/yyyy')}"></td>
 				  <td th:text="${pedido.metodo_pago}"></td>
-				  <td th:text="${pedido.estado}"></td>
+				  <td>
+					<th:block th:if="${pedido.estado eq 'PE'}">Pendiente de envío</th:block>
+					<th:block th:if="${pedido.estado eq 'PC'}">Cancelación solicitada</th:block>
+					<th:block th:if="${pedido.estado eq 'E'}">Enviado!</th:block>
+					<th:block th:if="${pedido.estado eq 'C'}">Cancelado!</th:block>
+				  </td>
 				  <td th:text="${pedido.num_factura}"></td>
 				  <td th:text="${#numbers.formatDecimal(pedido.total, 0, 2)}"></td>
 				  <td>
 					<input type="hidden" name="id" th:value="${pedido.id}">
 					<button
 					type="submit"
-					  name="cancelar"
-					  value="editar"
+					  name="gestion"
+					  value="cancelar"
 					  class="btn btn-sm btn-secondary"
 					>
 					  Solicitar cancelación
+					</button>
+					<button
+					type="submit"
+					  name="gestion"
+					  value="ver"
+					  class="btn btn-sm btn-secondary"
+					>
+					  Ver detalles
 					</button>
 				  </td>
 				</form>
