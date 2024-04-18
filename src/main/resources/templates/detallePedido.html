@@ -15,7 +15,7 @@
 		<h4>Productos: </h4>
 		<table style="text-align: center;" class="table-responsive  table ">
 			<tr><th></th><th>Nombre</th><th>Cantidad</th><th>IVA</th><th>Precio</th><th>Total</th></tr>
-			<tr th:each="entry : ${carrito}">
+			<tr th:each="entry : ${productos}">
 				<td><img th:src="@{${IMG} + ${entry.key.imagen}}" width="50" height="50" /></td>
 				<td class="align-content-center " th:text="${entry.key.nombre}"></td> 
 				<td class="align-content-center" th:text="${entry.value}"></td>
@@ -27,11 +27,9 @@
 
 		<div class="d-flex justify-content-end   ">
 		
-		<h5 class="me-5">Precio sin iva: <span class="ms-2"></span> </h5> <h4 class="fw-bold me-5">Total:  <span class="ms-2"></span></h4>
+		<h5 class="me-5" >IVA: <span class="ms-2" th:text="${#numbers.formatDecimal(totalSinIva, 0, 2)}+ '€'"></span> </h5> <h4 class="fw-bold me-5" >Total:  <span class="ms-2" th:text="${#numbers.formatDecimal(totalConIva, 0, 2)} + '€'"></span></h4>
 
-			<a href="/procesarCompra">
-				<button id="finalizarCompraBtn"  class="ms-5 btn btn-warning" type="submit">Finalizar Compra</button>
-			  </a>
+
 		</div>
 		
 	</div>

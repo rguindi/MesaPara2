@@ -25,6 +25,7 @@
 		</table>
 
 		<div class="d-flex justify-content-end   ">
+			<h5 class="me-5" >IVA: <span class="ms-2" th:text="${#numbers.formatDecimal(totalSinIva, 0, 2)}"></span> </h5> <h4 class="fw-bold me-5" >Total:  <span class="ms-2" th:text="${#numbers.formatDecimal(totalConIva, 0, 2)}"></span></h4>
 
 			<a href="/procesarCompra">
 				<button id="finalizarCompraBtn"  class="btn btn-warning" type="submit">Finalizar Compra</button>

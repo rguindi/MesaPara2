@@ -36,7 +36,7 @@
           </thead>
           <tbody>
             <tr th:each="pedido: ${listaPedidos}">
-              <form action="/gestionPedido" method="get">
+              <form action="/" method="get">
                 <td th:text="${pedido.fecha}"></td>
                 <td th:text="${pedido.metodo_pago}"></td>
                 <td>
@@ -53,7 +53,7 @@
                     value="editar"
                     class="btn btn-sm btn-warning"
                   >
-                    Editar
+                    Guardar
                   </button>
                 </td>
             </tr>
