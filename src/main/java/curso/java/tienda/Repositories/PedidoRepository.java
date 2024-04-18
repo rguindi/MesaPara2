@@ -18,5 +18,21 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 	    @Modifying
 	    @Transactional
 	    void cambiarEstadoAPC(Long idPedido);
+	 
+	 @Query("UPDATE Pedido p SET p.estado = :nuevoEstado WHERE p.id = :idPedido")
+	 @Modifying
+	 @Transactional
+	 void cambiarEstado(Long idPedido, String nuevoEstado);
+	 
+	 
+	 @Query("SELECT p FROM Pedido p WHERE p.id_usuario = :idUsuario AND p.fecha >= TIMESTAMPADD(DAY, -30, CURRENT_TIMESTAMP)  ORDER BY p.id DESC")
+	    List<Pedido> buscarPorIdUsuarioYUltimos30Dias(Long idUsuario);
+
+	 @Query("SELECT p FROM Pedido p WHERE p.id_usuario = :idUsuario AND p.fecha >= TIMESTAMPADD(DAY, -90, CURRENT_TIMESTAMP) ORDER BY p.id DESC")
+	    List<Pedido> buscarPorIdUsuarioYUltimos90Dias(Long idUsuario);
+
+
+	 @Query("SELECT p FROM Pedido p WHERE p.id_usuario = :idUsuario AND p.fecha >= TIMESTAMPADD(DAY, -365, CURRENT_TIMESTAMP)  ORDER BY p.id DESC")
+	    List<Pedido> buscarPorIdUsuarioYUltimos365Dias(Long idUsuario);
 
 }

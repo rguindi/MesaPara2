@@ -36,14 +36,17 @@
           </thead>
           <tbody>
             <tr th:each="pedido: ${listaPedidos}">
-              <form action="/" method="get">
+              <form action="/cambiarEstado" method="POST">
+                <input type="hidden" name="id" th:value="${pedido.id}">
                 <td th:text="${pedido.fecha}"></td>
                 <td th:text="${pedido.metodo_pago}"></td>
                 <td>
-                  <th:block th:if="${pedido.estado eq 'PE'}">Pendiente de envío</th:block>
-                  <th:block th:if="${pedido.estado eq 'PC'}">Cancelación solicitada</th:block>
-                  <th:block th:if="${pedido.estado eq 'E'}">Enviado!</th:block>
-                  <th:block th:if="${pedido.estado eq 'C'}">Cancelado!</th:block>
+                  <select class="form-control form-select" name="estado" id="estado">
+                    <option value="PE" th:selected="${pedido.estado eq 'PE'}">Pendiente de envío</option>
+                    <option value="PC"  th:selected="${pedido.estado eq 'PC'}">Cancelación solicitada</option>
+                    <option value="E"  th:selected="${pedido.estado eq 'E'}">Enviado</option>
+                    <option value="C"  th:selected="${pedido.estado eq 'C'}">Cancelado</option>
+                  </select>
                   </td>
                 <td th:text="${pedido.num_factura}"></td>
                 <td th:text="${#numbers.formatDecimal(pedido.total, 0, 2)}"></td>
@@ -56,6 +59,7 @@
                     Guardar
                   </button>
                 </td>
+              </form>
             </tr>
           </tbody>
         </table>

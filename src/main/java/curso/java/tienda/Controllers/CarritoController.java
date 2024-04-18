@@ -77,7 +77,7 @@ public class CarritoController {
 	
 	
 	@GetMapping("/resumenPedido")
-	public String resumenPedido(HttpServletRequest request, Model model, @RequestParam("metodo") String metodo) {
+	public String resumenPedido(HttpServletRequest request, Model model,  @RequestParam(value = "metodo", required = false) String metodo) {
 		
 		if(!usuarioService.clienteIsLoged(request)) return "redirect:/login";
 		model.addAttribute("metodo", metodo);
@@ -89,7 +89,6 @@ public class CarritoController {
 		model.addAttribute("totalConIva", totalConIva);
 		double totalSinIva = carritoService.TotalSinIva(carrito);
 		model.addAttribute("totalSinIva", totalSinIva);
-		
 		return "resumenPedido";
 	}
 	

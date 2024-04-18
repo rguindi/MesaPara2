@@ -38,8 +38,8 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li class="nav-item"><a href="/productos" name='productos' class="nav-link px-2 link-body-emphasis text-white  fw-bold ">Productos</a></li>
-        <li class="nav-item"><a href="/info" name='info' class="nav-link px-2 link-body-emphasis text-white fw-bold  ">Información y contacto</a></li>
+        <li class="nav-item"><a href="/productos" name='productos' class="nav-link px-2 link-body-emphasis text-white  fw-bold "  th:text="${session.idioma != null ? session.idioma['Productos'] : 'Productos'}">Productos</a></li>
+        <li class="nav-item"><a href="/info" name='info' class="nav-link px-2 link-body-emphasis text-white fw-bold  "  th:text="${session.idioma != null ? session.idioma['Informacion'] : 'Información y contacto'}">Información y contacto</a></li>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -54,9 +54,9 @@
             <i class="bi bi-person-fill text-light  "></i><span class="ms-2 fw-bold text-light  " th:text="${session.usuario.nombre}">Login</span>
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" th:href="@{/editar/{userId}(userId=${session.usuario.id})}">Mi perfil</a></li>
-            <li><a class="dropdown-item" href="/misPedidos">Pedidos</a></li>
-            <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+            <li><a class="dropdown-item" href="#" th:href="@{/editar/{userId}(userId=${session.usuario.id})}"  th:text="${session.idioma != null ? session.idioma['Perfil'] : 'Mi perfil'}">Mi perfil</a></li>
+            <li><a class="dropdown-item" href="/misPedidos"  th:text="${session.idioma != null ? session.idioma['Pedidos'] : 'Pedidos'}">Pedidos</a></li>
+            <li><a class="dropdown-item" href="/logout"  th:text="${session.idioma != null ? session.idioma['Cerrar'] : 'Cerrar sesión'}">Cerrar sesión</a></li>
           </ul>
         </div>
           
@@ -72,14 +72,14 @@
     
     
             
-            </i><span class="ms-2 fw-bold text-light" >Carrito </span>
+            </i><span class="ms-2 fw-bold text-light"  th:text="${session.idioma != null ? session.idioma['Carrito'] : 'Carrito'}">Carrito </span>
           </a>
         </div>
 
       <!-- -----Si no Login---- -->
     <div class="text-end d-flex " th:if="${session.usuario == null}">
     <a href="/login" class="d-block link-body-emphasis text-decoration-none">
-        <i class="bi bi-person-fill text-light  "></i><span class="ms-2 fw-bold text-light  " >Login</span>
+        <i class="bi bi-person-fill text-light  "></i><span class="ms-2 fw-bold text-light  " th:text="${session.idioma != null ? session.idioma['Entrar'] : 'Entrar'}" >Entrar</span>
       </a>
 
       
@@ -92,8 +92,12 @@
 
 
         
-        </i><span class="ms-2 fw-bold text-light" >Carrito </span>
+        </i><span class="ms-2 fw-bold text-light" th:text="${session.idioma != null ? session.idioma['Carrito'] : 'Carrito'}">Carrito </span>
       </a>
+    </div>
+    <div class="pb-2 ms-4">
+      <a href="/esp"><img src="/img/spanish.png" alt="Español"></a>
+      <a href="/eng"><img src="/img/english.png" alt="Inglés"></a>
     </div>
           
       <!-- -------------------------------------------------- -->

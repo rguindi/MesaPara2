@@ -32,7 +32,7 @@ public class CategoriaController {
 	
 	@GetMapping("/registrarCategoria")
 	public String registarCategoria(Model model) {
-		
+		model.addAttribute("pag", "categoria");
 		model.addAttribute("categoriaForm", new Categoria());
 		return "registrarCategoria";
 	}
@@ -54,11 +54,11 @@ public class CategoriaController {
 	
 	@GetMapping("/editarCategoria/{id}")
 	public String editarCategoria(@PathVariable Long id, Model model) {
-	
+		model.addAttribute("pag", "categoria");
 		Categoria categoria = categoriaService.recuperarCategoria(id);
 		
 		model.addAttribute("categoriaForm", categoria);
-		return "registrarCategoria";
+		return "/admin/registrarCategoria";
 	}
 	
 	

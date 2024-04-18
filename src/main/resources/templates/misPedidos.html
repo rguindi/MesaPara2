@@ -11,6 +11,23 @@
 	<div class="container mt-5">
 		<div class="starter-template">
 		  <h2>Listado de Pedidos</h2>
+		  <form action="/misPedidos" class="form mt-3 mb-3" id="filtroForm">
+    <label class="d-inline" for="rango">Filtrar pedidos:
+        <select class="form-control w-auto" name="rango" id="rango">
+            <option th:selected="${todos}" th:value="todos">Todos</option>
+            <option th:selected="${unMes}" th:value="1mes">Último mes</option>
+            <option th:selected="${tresMeses}" th:value="3meses">Últimos 3 meses</option>
+            <option th:selected="${doceMeses}" th:value="12meses">Último año</option>
+        </select>
+    </label>
+</form>
+
+		  <script>
+			var form = document.getElementById('filtroForm');
+			document.getElementById('rango').addEventListener('change', function() {
+				form.submit();
+			});
+		</script>
   
 		  <table class="table table-striped table-responsive table-hover">
 			<thead>
@@ -63,8 +80,6 @@
 		  </table>
 		</div>
 	  </div>
-	
-
 </main>
 
 

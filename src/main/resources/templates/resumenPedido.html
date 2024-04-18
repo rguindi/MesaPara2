@@ -33,6 +33,12 @@
 		</div>
 		
 	</div>
+
+	<div class="container mt-5 p-4" th:if="${errorStock}">
+
+		<h2 class="mb-4" th:text="${errorStock}">Error</h2>
+	
+	</div>
 	
 
 </main>

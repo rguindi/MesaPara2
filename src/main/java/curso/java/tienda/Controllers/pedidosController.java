@@ -49,8 +49,13 @@ public class pedidosController {
 	
 	
 	@GetMapping("/misPedidos")
-	public String misPedidos(Model model, @SessionAttribute("usuario") Usuario usuario) {
-		model.addAttribute("listaPedidos", pedidoService.porUsuario(usuario.getId()));
+	public String misPedidos(Model model, @SessionAttribute("usuario") Usuario usuario,  @RequestParam(name = "rango", required = false) String rango) {
+		if (rango != null) {
+			model.addAttribute("listaPedidos", pedidoService.porUsuarioYRango(usuario.getId(), rango, model));
+				}else {
+			model.addAttribute("listaPedidos", pedidoService.porUsuario(usuario.getId()));
+		}
+		
 		return "/misPedidos";
 	}
 	
@@ -84,6 +89,13 @@ public class pedidosController {
 			return "/detallePedido";
 		}
 		return "/misPedidos";
+	}
+	
+	
+	@PostMapping("/cambiarEstado")
+	public String cambiarEstado( @RequestParam("id") Long id,  @RequestParam("estado") String estado) {
+		pedidoService.cambiarEstado(id, estado);
+		return "redirect:/pedidos";
 	}
 
 }

@@ -33,6 +33,23 @@ public class conf {
     }
 	
 	@Bean
+    public MessageSource spanish() {
+        ReloadableResourceBundleMessageSource message =  new ReloadableResourceBundleMessageSource();
+        message.setBasename("classpath:spanish");
+        message.setDefaultEncoding("UTF-8");
+        return message;
+    }
+	
+	@Bean
+    public MessageSource english() {
+        ReloadableResourceBundleMessageSource message =  new ReloadableResourceBundleMessageSource();
+        message.setBasename("classpath:english");
+        message.setDefaultEncoding("UTF-8");
+        return message;
+    }
+	
+	
+	@Bean
 	public LocalValidatorFactoryBean getValidator() {
 		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
 		bean.setValidationMessageSource(messageSource());

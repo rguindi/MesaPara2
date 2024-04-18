@@ -2,6 +2,7 @@ package curso.java.tienda.Controllers;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -10,10 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import curso.java.tienda.Entities.Categoria;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.services.CategoriaService;
+import curso.java.tienda.services.MainService;
 import curso.java.tienda.services.ProductoService;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -21,11 +22,16 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 public class MainController {
 	
+	 
+	
 	 @Autowired
 	    private MessageSource variables;
 	
 		@Autowired
 		ProductoService productoService;
+		
+		@Autowired
+		MainService mainService;
 		
 		@Autowired
 		CategoriaService categoriaService;
@@ -39,6 +45,20 @@ public class MainController {
 		model.addAttribute("categorias", categorias);
 		model.addAttribute("novedades", novedades);
 		return "index";
+	}
+	
+	@GetMapping("/esp")
+	public String esp(HttpServletRequest request) {
+		Map<String, String> spa = mainService.cargarPropertiesComoMapa("spanish");
+		request.getSession().setAttribute("idioma", spa);
+		return "redirect:/";
+	}
+	
+	@GetMapping("/eng")
+	public String eng(HttpServletRequest request) {
+		Map<String, String> eng = mainService.cargarPropertiesComoMapa("english");
+		request.getSession().setAttribute("idioma", eng);
+		return "redirect:/";
 	}
 
 	
