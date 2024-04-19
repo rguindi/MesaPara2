@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import curso.java.tienda.Entities.Categoria;
 import curso.java.tienda.Entities.Producto;
+import curso.java.tienda.Repositories.Opciones_menuRespository;
+import curso.java.tienda.Repositories.RolRepository;
 import curso.java.tienda.services.CategoriaService;
 import curso.java.tienda.services.MainService;
 import curso.java.tienda.services.ProductoService;
@@ -36,6 +38,15 @@ public class MainController {
 		@Autowired
 		CategoriaService categoriaService;
 	
+		@Autowired
+		RolRepository rolRepo;
+		
+		@Autowired
+		Opciones_menuRespository menRepo;
+	
+		
+	
+		
 	@GetMapping("/")
 	public String home(Model model) {
 		

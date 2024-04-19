@@ -17,7 +17,7 @@
 				<td class="align-content-center" th:text="${producto.nombre}"></td> 
 				<td class="align-content-center" th:text="${cantidad}"></td>
 				<td class="align-content-center "  th:text="${producto.precio + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
-				<td class="align-content-center "  th:text="${producto.precio * cantidad + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
+				<td class="align-content-center "  th:text="${#numbers.formatDecimal(producto.precio * cantidad,0,2) + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
 			</tr>
 		</table>
 

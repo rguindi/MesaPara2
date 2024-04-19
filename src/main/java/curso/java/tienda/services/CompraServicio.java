@@ -37,27 +37,37 @@ public class CompraServicio {
 
 		HashMap<Producto, Integer> carrito = carritoService.recuperarCarrito(request);
 
-		Double total = 0.00;
-		for (Entry<Producto, Integer> entry : carrito.entrySet()) {
-			Producto key = entry.getKey();
-			Integer val = entry.getValue();
-			total += key.getPrecio() * val;
-		}
+		Double total = carritoService.TotalConIva(carrito);
+
 
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 		String metodoPago = (String) request.getSession().getAttribute("metodo");
-		String numFactura;
-
-		Configuracion configuracion = new Configuracion("", "", "Factura");
-		configuracionRepository.save(configuracion);
-
-		numFactura = "FAC" + configuracion.getId();
-
+		
+		String numFactura = this.generarNumFactura();		
+		
 		Pedido pedido = new Pedido(usuario.getId(), new java.sql.Timestamp(System.currentTimeMillis()), metodoPago,
 				"PE", numFactura, total);
 
 		return pedido;
 
+	}
+	
+	public String generarNumFactura() {
+		String numFactura;
+		Configuracion confFactura = configuracionRepository.findFirstByClave("factura").orElse(null);
+		if(confFactura == null) {
+			Configuracion configuracion = new Configuracion("factura", "1", "");
+			configuracionRepository.save(configuracion);
+			confFactura = configuracionRepository.findFirstByClave("factura").orElse(null);
+		}
+		
+
+		int numero = Integer.parseInt(confFactura.getValor());
+		numFactura = "FAC" + numero;
+		numero++;
+		confFactura.setValor(String.valueOf(numero));
+		configuracionRepository.save(confFactura);
+		return numFactura;
 	}
 
 	public void generarLineas(HttpServletRequest request, Pedido pedido) {
