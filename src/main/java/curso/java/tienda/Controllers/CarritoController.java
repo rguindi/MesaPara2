@@ -80,9 +80,17 @@ public class CarritoController {
 	public String resumenPedido(HttpServletRequest request, Model model,  @RequestParam(value = "metodo", required = false) String metodo) {
 		
 		if(!usuarioService.clienteIsLoged(request)) return "redirect:/login";
-		model.addAttribute("metodo", metodo);
+		if (metodo != null) {
+			model.addAttribute("metodo", metodo);
+			request.getSession().setAttribute("metodo", metodo);
+		}else {																			//Si venimos de error al procesar compra no hay metodo. Lo recuperamos de la sesion.
+			String metodo2 = (String) request.getSession().getAttribute("metodo");
+			model.addAttribute("metodo", metodo2);
+			model.addAttribute("errorStock", "El Stock ha sido modificado. Revise su carrito.");
+		}
+		
+		
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
-		request.getSession().setAttribute("metodo", metodo);
 		HashMap<Producto,Integer> carrito = carritoService.recuperarCarrito(request);
 		model.addAttribute("carrito", carrito);
 		double totalConIva = carritoService.TotalConIva(carrito);

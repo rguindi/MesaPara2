@@ -65,7 +65,7 @@ public class UsuarioController {
 	public String registroSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user, BindingResult validacion,  @RequestParam("clave2") String clave2) {
         if(!usuarioService.validarRegistro(user, validacion, clave2)) return "registro";
 		else {
-			user.setId_rol(1);
+			user.setId_rol(2);
 			user.setClave(usuarioService.encriptar(user.getClave()));
 			usuarioService.guardar(user);
 			return "redirect:/login";

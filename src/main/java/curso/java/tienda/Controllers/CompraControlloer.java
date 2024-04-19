@@ -42,13 +42,14 @@ public class CompraControlloer {
 		if(!compraServicio.modificarStock(request)) {
 			HashMap<Producto, Integer> carrito = (HashMap<Producto, Integer>) request.getSession().getAttribute("carrito");
 			carrito = compraServicio.regenerarStock(carrito);
-			model.addAttribute("errorStock", "Error al revisar el Stock del producto. Compruebe su cesta.");
+			request.getSession().setAttribute("carrito", carrito);
 			return "redirect:/resumenPedido";
 		}
 		
 		Pedido pedido = compraServicio.generaPedido(request);
 		pedidoService.guardar(pedido);
 		compraServicio.generarLineas(request, pedido); 
+		request.getSession().removeAttribute("metodo");
 		request.getSession().removeAttribute("carrito");
 		request.getSession().removeAttribute("cantidadTotal");
 

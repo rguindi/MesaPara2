@@ -98,19 +98,27 @@ public class CompraServicio {
 	}
 	
 	public HashMap<Producto, Integer> regenerarStock(HashMap<Producto, Integer> carrito) {
-		
-		for (Map.Entry<Producto, Integer> entry : carrito.entrySet()) {
-			Producto key = entry.getKey();
-			Integer val = entry.getValue();
+	    for (Map.Entry<Producto, Integer> entry : carrito.entrySet()) {
+	        Producto producto = entry.getKey();
+	        Integer cantidad = entry.getValue();
 
-			Producto producto = productoRepository.findById(key.getId()).orElse(null);  
-			key.setStock(producto.getStock());
-			val = producto.getStock();
-
-		}
-
-		return carrito;
-
+	        Producto productoBD = productoRepository.findById(producto.getId()).orElse(null);
+	        
+	        // Verificar si el producto se encuentra en la base de datos
+	        if (productoBD != null) {
+	            // Actualizar el stock del producto en el carrito con el valor obtenido de la base de datos
+	            producto.setStock(productoBD.getStock());
+	            // Actualizar la cantidad en el carrito si es necesario
+	            if (productoBD.getStock() < cantidad) {
+	                carrito.put(producto, productoBD.getStock());
+	            }
+	        } else {
+	            // Si el producto no se encuentra en la base de datos, eliminarlo del carrito
+	            carrito.remove(producto);
+	        }
+	    }
+	    return carrito;
 	}
+
 
 }
