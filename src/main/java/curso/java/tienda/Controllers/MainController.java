@@ -11,11 +11,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import curso.java.tienda.Entities.Categoria;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Repositories.Opciones_menuRespository;
 import curso.java.tienda.Repositories.RolRepository;
 import curso.java.tienda.services.CategoriaService;
+import curso.java.tienda.services.LoggingService;
 import curso.java.tienda.services.MainService;
 import curso.java.tienda.services.ProductoService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -43,7 +47,9 @@ public class MainController {
 		
 		@Autowired
 		Opciones_menuRespository menRepo;
-	
+
+		@Autowired
+		LoggingService log;
 		
 	
 		
@@ -55,6 +61,8 @@ public class MainController {
 		List<Categoria> categorias = categoriaService.recuperarCategorias();
 		model.addAttribute("categorias", categorias);
 		model.addAttribute("novedades", novedades);
+		log.logError("Probando el primer error");
+		log.logInfo("enviando mensaje de información");
 		return "index";
 	}
 	
@@ -77,6 +85,28 @@ public class MainController {
 	public String login (Model model) {
 		return "login";
 	}
+	
+	@GetMapping("/contacto")
+	public String contacto (Model model) {
+		return "contacto";
+	}
+	
+	//Formulario de contacto
+	@PostMapping("/contacto")
+	public String contactoSubmit(Model model, @RequestParam("email") String email, @RequestParam("nombre") String nombre, @RequestParam("consulta") String consulta) {
+		
+		if(email.isBlank()||nombre.isBlank()||consulta.isBlank()) {
+			   model = mainService.validar(email, nombre, consulta, model);
+			return "contacto";
+		}
+		
+		mainService.sendEmail(email, nombre, consulta);
+		
+		model.addAttribute("enviado", "Hemos recibido correctamente su consulta. En breve nos pondremos en contacto con usted. Muchas gracias.");
+		
+		return "contacto";
+	}
+	
 	
 	
 	@GetMapping("/categoria/{categoria}")

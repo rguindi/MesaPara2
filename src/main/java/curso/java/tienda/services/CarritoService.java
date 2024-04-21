@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import curso.java.tienda.Entities.Producto;
-import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.Repositories.ProductoRepository;
 import jakarta.servlet.http.HttpServletRequest;
 

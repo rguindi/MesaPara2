@@ -13,7 +13,7 @@ import curso.java.tienda.Entities.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Long>  {
 	
-	List<Producto> findTop12ByFechaBajaIsNullOrderByFechaAltaDesc();
+	List<Producto> findTop12ByFechaBajaIsNullAndStockGreaterThanOrderByFechaAltaDesc(int stock);
 
 
 	@Query("SELECT p FROM Producto p WHERE p.id_categoria = :categoriaId AND p.fechaBaja IS NULL")

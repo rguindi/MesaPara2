@@ -85,7 +85,7 @@
           <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
                 <div>
             <label class="fs-6" for="cantidad">Cantidad:</label>
-            <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
+            <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="0" th:max="${producto.stock}">
             <input type="hidden" name="id" th:value="${producto.id}" /> <br>
             <div class="d-flex justify-content-center mt-2  ">
             <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  ">Añadir</button>

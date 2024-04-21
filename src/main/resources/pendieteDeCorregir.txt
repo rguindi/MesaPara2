@@ -1,1 +1,2 @@
 Si añado todo el Stock de un producto al carrito luego me deja añadirlo nuevamente
+Q no deje añadir negativo

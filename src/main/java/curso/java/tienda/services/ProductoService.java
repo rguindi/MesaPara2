@@ -24,7 +24,7 @@ public class ProductoService {
 	
 	public List <Producto> Ultimos12 () {
 		
-		return productoRepositorio.findTop12ByFechaBajaIsNullOrderByFechaAltaDesc();
+		return productoRepositorio.findTop12ByFechaBajaIsNullAndStockGreaterThanOrderByFechaAltaDesc(0);
 		
 	}
 	
