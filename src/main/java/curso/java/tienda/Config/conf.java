@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
@@ -13,6 +14,8 @@ import curso.java.tienda.upload.storage.StorageProperties;
 @Configuration
 @EnableConfigurationProperties(StorageProperties.class)
 public class conf {
+	
+	
 	
 	@Bean
 	public MessageSource messageSource() {
