@@ -61,8 +61,8 @@ public class MainController {
 		List<Categoria> categorias = categoriaService.recuperarCategorias();
 		model.addAttribute("categorias", categorias);
 		model.addAttribute("novedades", novedades);
-		log.logError("Probando el primer error");
-		log.logInfo("enviando mensaje de información");
+		log.logError("Probando Log-ERROR desde /");
+		log.logInfo("Probando Log-INFO desde /");
 		return "index";
 	}
 	

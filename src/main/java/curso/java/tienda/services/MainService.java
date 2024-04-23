@@ -18,6 +18,9 @@ public class MainService {
 	
 	@Autowired
     private JavaMailSender mailSender;
+	
+	@Autowired
+	LoggingService log;
 
 	   public Map<String, String> cargarPropertiesComoMapa(String nombreArchivo) {
 	        Map<String, String> mapaProperties = new HashMap<>();
@@ -52,6 +55,7 @@ public class MainService {
 	              mailSender.send(email);
 	              System.out.println("Email enviado con éxito a: " + to);
 	          } catch (Exception e) {
+	        	  log.logError("Error al enviar el correo electrónico");
 	              System.out.println("Error al enviar el correo electrónico: " + e.getMessage());
 	          }
 	    }

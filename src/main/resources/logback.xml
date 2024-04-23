@@ -24,7 +24,8 @@
 	<!-- Configuración del appender para el archivo de nivel ERROR -->
 	<appender name="ERROR_FILE"
 		class="ch.qos.logback.core.FileAppender">
-		<file>/Users/raul/Desktop/log/error.log</file>
+<!-- 		<file>/Users/raul/Desktop/log/error.log</file> -->
+		<file>./log/Logging-error.log</file>
 		<encoder>
 			<pattern>%d [%thread] %-5level %logger{35} - %msg%n</pattern>
 		</encoder>
@@ -36,7 +37,8 @@
 	<!-- Configuración del appender para el archivo de nivel DEBUG -->
 	<appender name="INFO_FILE"
 		class="ch.qos.logback.core.FileAppender" additivity="false">
-		<file>/Users/raul/Desktop/log/debug.log</file>
+<!-- 		<file>/Users/raul/Desktop/log/debug.log</file> -->
+		<file>./log/Logging-INFO.log</file>
 		<encoder>
 			<pattern>%d [%thread] %-5level %logger{35} - %msg%n</pattern>
 		</encoder>

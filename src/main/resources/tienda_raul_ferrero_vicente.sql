@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2024 a las 21:26:12
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Servidor: localhost
+-- Tiempo de generación: 23-04-2024 a las 08:15:12
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,7 +65,13 @@ CREATE TABLE `configuracion` (
 --
 
 INSERT INTO `configuracion` (`id`, `clave`, `valor`, `tipo`) VALUES
-(20, 'factura', '3', '');
+(20, 'factura', '3', ''),
+(21, 'nombreTienda', 'Mesa Para 2', NULL),
+(22, 'cifTienda', '11971683E', NULL),
+(23, 'direccionTienda', 'Avenida Valladolid 3, B2, P1, 2ºD', NULL),
+(24, 'cpTienda', '49029', NULL),
+(25, 'poblacionTienda', 'Zamora', NULL),
+(26, 'tlfTienda', '607307943', NULL);
 
 -- --------------------------------------------------------
 
@@ -247,7 +253,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `id_categoria`, `nombre`, `descripcion`, `precio`, `stock`, `fecha_alta`, `fecha_baja`, `impuesto`, `imagen`) VALUES
-(8, 3, 'Jenga', '¡El juego clásico que consiste en crear una pila de bloques y derrumbarla! ¿Cómo apilar contra la ley de la gravedad? Apilad los bloques de madera en una torre firme, después retirad los bloques uno a uno por turnos hasta que la pila se venga abajo. ', 16.69, 0, '2024-04-16 14:14:28', NULL, 21, '8.jpg'),
+(8, 3, 'Jenga', '¡El juego clásico que consiste en crear una pila de bloques y derrumbarla! ¿Cómo apilar contra la ley de la gravedad? Apilad los bloques de madera en una torre firme, después retirad los bloques uno a uno por turnos hasta que la pila se venga abajo. ', 16.69, 200, '2024-04-16 14:14:28', NULL, 21, '8.jpg'),
 (9, 5, 'Monopoly', 'Es un básico para las noches familiares de juegos Los jugadores compran, venden, sueñan y preparan su camino hacia las riquezas con el juego Monopoly', 27.24, 0, '2024-04-16 14:14:28', NULL, 21, '9.jpg'),
 (11, 8, 'Sushi Go', '¿Te gusta el sushi? Sin duda es un elemento a tener en cuenta, pues si es así, disfrutarás de cada una de las opciones de este menú. Sushi Go! ', 9.99, 4, '2024-04-16 14:14:28', NULL, 21, '11.jpg'),
 (12, 5, 'Tragabolas', '¿Qué hipopótamo será el más glotón en Tragabolas? Trata de moverte rápido cuando las bolas se suelten en el tablero de juego, ¡si tu hipopótamo es el que traga el mayor número de bolitas ganarás! Los hipopótamos están preparados para devorar bolitas.', 22.71, 5, '2024-04-16 14:14:28', NULL, 21, '12.jpg'),
@@ -451,7 +457,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `configuracion`
 --
 ALTER TABLE `configuracion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `descuentos`
