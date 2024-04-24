@@ -96,7 +96,7 @@ public class CompraServicio {
 			
 			Producto producto = productoRepository.findById(key.getId()).orElse(null);         //recuperamos de nuevo el producto para tener un stock actualizado en el proceso de compra
 			
-			if (producto == null || producto.getStock()<val) return false;
+			if (producto == null || producto.getStock()<val || val<1) return false;
 			
 			producto.setStock(producto.getStock() - val);
 			
@@ -116,12 +116,20 @@ public class CompraServicio {
 	        
 	        // Verificar si el producto se encuentra en la base de datos
 	        if (productoBD != null) {
+	        	
 	            // Actualizar el stock del producto en el carrito con el valor obtenido de la base de datos
 	            producto.setStock(productoBD.getStock());
 	            // Actualizar la cantidad en el carrito si es necesario
 	            if (productoBD.getStock() < cantidad) {
 	                carrito.put(producto, productoBD.getStock());
 	            }
+	            //Si aguien malintencionadamente pone un stock negativo ponemos en 1
+	            if (productoBD.getStock() >0 && cantidad<0) {
+	                carrito.put(producto, 1);
+	            }
+	            
+	            
+	            
 	        } else {
 	            // Si el producto no se encuentra en la base de datos, eliminarlo del carrito
 	            carrito.remove(producto);

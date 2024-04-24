@@ -91,6 +91,19 @@ public class MainController {
 		return "contacto";
 	}
 	
+	@GetMapping("/about")
+	public String about (Model model) {
+		
+		Map<String, String> datosEmpresa = mainService.datosEmpresa();
+		model.addAttribute("nombre", datosEmpresa.get("nombre"));
+		model.addAttribute("cif", datosEmpresa.get("cif"));
+		model.addAttribute("direccion", datosEmpresa.get("direccion"));
+		model.addAttribute("cp", datosEmpresa.get("cp"));
+		model.addAttribute("poblacion", datosEmpresa.get("poblacion"));
+		model.addAttribute("tlf", datosEmpresa.get("tlf"));
+		return "about";
+	}
+	
 	//Formulario de contacto
 	@PostMapping("/contacto")
 	public String contactoSubmit(Model model, @RequestParam("email") String email, @RequestParam("nombre") String nombre, @RequestParam("consulta") String consulta) {

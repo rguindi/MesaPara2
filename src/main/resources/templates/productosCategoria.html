@@ -103,7 +103,9 @@
                     <div class="card-body pb-0 ">
                       <div class="d-flex justify-content-between">
                         <p class="small"><a href="#!" class="text-muted" th:text="${categoriaActual.nombre}">Categoria actual</a></p>
-                        <p class="small text-danger"><s>Campo a valorar para ofertas</s></p>
+						
+						  <p ><i class="bi bi-check ms-5 me-2 text-success  "></i><span class="text-success fst-italic mt-3 " th:text="${session.idioma != null ? session.idioma['Envio'] : 'Envio Gratis!'}">Envio Gratis!</span></p>
+						
                       </div>
           
                       <div class="d-flex justify-content-between mb-3">

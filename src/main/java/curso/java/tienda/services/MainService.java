@@ -11,6 +11,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import curso.java.tienda.Repositories.ConfiguracionRespository;
+
 
 
 @Service
@@ -18,6 +20,10 @@ public class MainService {
 	
 	@Autowired
     private JavaMailSender mailSender;
+	
+
+	@Autowired
+    private ConfiguracionRespository configuracionRepository;
 	
 	@Autowired
 	LoggingService log;
@@ -60,6 +66,27 @@ public class MainService {
 	          }
 	    }
 		
+	    //Devluelve en un mapa los datos de la empresa
+	    public Map<String, String> datosEmpresa() {
+	        Map<String, String> datosEmpresa= new HashMap<>();
+	        
+	       String nombre = configuracionRepository.findFirstByClave("nombreTienda").orElse(null).getValor();
+	       String cif = configuracionRepository.findFirstByClave("cifTienda").orElse(null).getValor();
+	       String direccion = configuracionRepository.findFirstByClave("direccionTienda").orElse(null).getValor();
+	       String cp = configuracionRepository.findFirstByClave("cpTienda").orElse(null).getValor();
+	       String poblacion = configuracionRepository.findFirstByClave("poblacionTienda").orElse(null).getValor();
+	       String tlf = configuracionRepository.findFirstByClave("tlfTienda").orElse(null).getValor();
+	        
+	            datosEmpresa.put("nombre", nombre);
+	            datosEmpresa.put("cif", cif);
+	            datosEmpresa.put("direccion", direccion);
+	            datosEmpresa.put("cp", cp);
+	            datosEmpresa.put("poblacion", poblacion);
+	            datosEmpresa.put("tlf", tlf);
+	        
+	        return datosEmpresa;
+	    }
+	    
 	   
 	   
 }

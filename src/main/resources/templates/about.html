@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="~{header}"></th:block>
+
+<main>
+<div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5 ">
+	
+	<p>Mesa para 2 es un proyecto creado de Abril a Mayo del 2024 en las instalaciones de Serbatic, en Zamora. <br>
+	Para su desarrollo se han utilizado tecnologías como Spring Boot, JavasCript, Bootstrap o CSS. <br>
+</p>
+
+<p><span class="fw-bold ">Nombre tienda: </span><span th:text="${nombre}"></span></p>
+<p><span class="fw-bold ">NIF: </span><span th:text="${cif}"></span></p>
+<p><span class="fw-bold ">Dirección: </span><span th:text="${direccion}"></span></p>
+<p><span class="fw-bold ">Cp: </span><span th:text="${cp}"></span></p>
+<p><span class="fw-bold ">Población: </span><span th:text="${poblacion}"></span></p>
+<p><span class="fw-bold ">Teléfono: </span><span th:text="${tlf}"></span></p>
+
+
+
+
+
+</div>
+</main>
+
+<th:block th:insert="~{footer}"></th:block>
