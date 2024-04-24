@@ -82,20 +82,50 @@ public class UsuarioController {
 		
 		Usuario usuario = usuarioService.buscarPorId(id);
 		model.addAttribute("usuarioForm", usuario);
+		
 
 		return "registro";
 	}
 	
+	@GetMapping("/cambiarPass")
+	public String cambiarPass() {		
+		return "cambiarPass";
+	}
+	
+	@PostMapping("/cambiarPass/submit")
+	public String registroSubmit(Model model, HttpServletRequest request,  @RequestParam("opass") String old,  @RequestParam("pass") String clave,  @RequestParam("rpass") String clave2) {
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		if (!usuarioService.comprobarClaveEncriptada(old, usuario.getClave())) {
+			model.addAttribute("old", "La clave es incorrecta");
+			return "cambiarPass";
+		}
+		if(clave.isEmpty()) {
+			model.addAttribute("clave", "La clave no puede estar vacía");
+			return "cambiarPass";
+		}
+		if(clave2.isEmpty()) {
+			model.addAttribute("clave2", "La clave no puede estar vacía");
+			return "cambiarPass";
+		}
+		
+		if(!clave.equals(clave2)) {
+			model.addAttribute("nocoinciden", "Las claves no coinciden");
+			return "cambiarPass";
+		}
+		
+		return "redirect:/";
+	}
+	
+	
 	
 	
 	@PostMapping("/editar/submit")
-	public String editarSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user,  BindingResult validacion,  @RequestParam("clave2") String clave2) {
-		
-		if(!user.getClave().equals(clave2)) validacion.rejectValue("clave", "error.clave.diferente", "Las contraseñas no coinciden");
-		if(!usuarioService.validarEdicion(user, validacion, clave2)) return "registro";
+	public String editarSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user,  BindingResult validacion) {
+		Usuario usuarioViejo = usuarioService.buscarPorId(user.getId());	
+		if(!usuarioService.validarEdicion(user, validacion)) return "registro";
 		else {
 			user.setId_rol(1);    
-			user.setClave(usuarioService.encriptar(user.getClave()));
+			user.setClave(usuarioViejo.getClave());
 			usuarioService.guardar(user);
 			return "redirect:/";
 		}

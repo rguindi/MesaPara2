@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -68,10 +69,12 @@ public class Usuario {
 	private String localidad;
 	
 	@Column(name = "telefono")
+	@Pattern(regexp = "\\d{9}", message = "El número de teléfono debe tener 9 dígitos")
 	private String telefono;
 	
 	@Column(name = "dni")
-	@NotEmpty
+	@NotEmpty(message = "El DNI no puede estar vacío")
+	@Pattern(regexp = "\\d{8}[A-Za-z]", message = "El DNI debe tener 8 dígitos seguidos de una letra")
 	private String dni;
 	
 	@Column(name = "fecha_baja")

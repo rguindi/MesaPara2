@@ -30,7 +30,7 @@
 			</div>
 
 				<!-- Password input-->
-				<div class="form-group">
+				<div class="form-group" th:if="${usuarioForm.id == 0}">
 					<label class="col-md-4  control-label" for="clave">Contraseña</label>
 					<div class="col-md-4 w-100">
 						<input id="clave" name="clave" type="password"
@@ -41,7 +41,7 @@
 				</div>
 				
 				<!-- REPITE Password input-->
-				<div class="form-group">
+				<div class="form-group" th:if="${usuarioForm.id == 0}">
 					<label class="col-md-4  control-label" for="clave2">Repite Contraseña</label>
 					<div class="col-md-4 w-100">
 						<input id="clave2" name="clave2" type="password"
@@ -129,7 +129,7 @@
 					<input id="telefono" name="telefono" type="text"
 						placeholder="Telefono" class="form-control input-md"
 						th:field="*{telefono}">
-
+						<span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="text-danger" id="telefono-error">Errores</span>
 				</div>
 			</div>
 
@@ -144,12 +144,11 @@
 			</div>
 
 			<!-- Button -->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="singlebutton">Single
-					Button</label>
-				<div class="col-md-4">
+			<div class="form-group mt-4">
+				<div>
 					<button id="enviar" name="enviar" type="submit"
-						class="btn btn-primary">Enviar</button>
+						class="btn btn-primary ">Enviar</button>
+						<a href="/cambiarPass" class="btn btn-warning d-inline text-end text-nowrap">Cambiar contraseña</a>
 				</div>
 			</div>
 
