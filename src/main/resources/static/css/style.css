@@ -99,7 +99,7 @@ background: -moz-radial-gradient(circle farthest-corner at center center, #f3f3f
     margin: 1em;
     margin-bottom: 3em;
     border-radius: 1em;
-    box-shadow: 0 0 1em #000000;
+    /* box-shadow: 0 0 1em #000000; */
 /* 
 background: #f3f3f3;
 background: radial-gradient(circle farthest-corner at center center, #f3f3f3 0%, #c0c0c0 80%);

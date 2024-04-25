@@ -7,9 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
+import curso.java.tienda.Entities.Valoracion;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.ValoracionService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,6 +42,16 @@ public class ValoracionController {
 		model.addAttribute("producto", producto);
 		
 		return "valorar";
+	}
+	
+	@PostMapping("/valoracion/submit")
+	public String valorarSubmit(Model model, @RequestParam Long id, @RequestParam String select, @RequestParam String descripcion, HttpServletRequest request) {
+		
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		Valoracion val = new Valoracion(null, id, user.getId(), Integer.parseInt(select), descripcion);
+		valoracionService.guardar(val);
+		
+		return "redirect:/misPedidos";
 	}
 
 }

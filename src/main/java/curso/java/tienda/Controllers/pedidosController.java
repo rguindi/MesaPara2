@@ -19,6 +19,7 @@ import curso.java.tienda.services.CarritoService;
 import curso.java.tienda.services.DetalleService;
 import curso.java.tienda.services.PedidoService;
 import curso.java.tienda.services.ProductoService;
+import curso.java.tienda.services.ValoracionService;
 
 @Controller
 public class pedidosController {
@@ -37,6 +38,9 @@ public class pedidosController {
 	
 	@Autowired
 	CarritoService carritoServicio;
+	
+	@Autowired
+	ValoracionService valSer;
 	
 	@GetMapping("/pedidos")
 	public String pedidos(Model model) {
@@ -77,8 +81,9 @@ public class pedidosController {
 			for (DetallePedido detallePedido : detalles) {
 				Producto producto = (Producto) productoService.recuperarProducto(detallePedido.getId_producto());
 				productos.put(producto, detallePedido.getUnidades());
-				model.addAttribute("productos", productos);
+				if(valSer.esValorado(usuario.getId(), producto.getId())) model.addAttribute(producto.getNombre(), "valorado"); //Si el producto ya ha sido valorado informamos al modelo
 			}
+			model.addAttribute("productos", productos);
 			String metodo = pedidoService.porId(id).getMetodo_pago();
 			model.addAttribute("metodo", metodo);
 			double totalConIva = carritoServicio.TotalConIva(productos);

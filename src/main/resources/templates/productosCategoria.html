@@ -62,11 +62,11 @@
             </button>
             <div class="collapse show" id="orders-collapse">
                 <div class="ms-auto text-warning">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"><input id="filtro1" type="hidden" value="1"></i>
+                    <i class="bi bi-star"><input id="filtro2" type="hidden" value="2"></i>
+                    <i class="bi bi-star"><input id="filtro3" type="hidden" value="3"></i>
+                    <i class="bi bi-star"><input id="filtro4" type="hidden" value="4"></i>
+                    <i class="bi bi-star"><input id="filtro5" type="hidden" value="5"></i>
                   </div>
                
             </div>
@@ -119,14 +119,32 @@
                           <p class=" mb-0 text-success " th:if="${producto.stock > 5}" th:text="${session.idioma != null ? session.idioma['Stock'] : 'En Stock'}">En Stock</p>
 			                  	<p class=" mb-0 " th:if="${producto.stock > 0 and producto.stock <= 5}" th:text="${session.idioma != null ? session.idioma['Ultimas'] : 'Últimas unidades disponibles'}">Últimas unidades disponibles</p>
 			                    <p class="mb-0 text-danger " th:if="${producto.stock <= 0}" th:text="${session.idioma != null ? session.idioma['SinStock'] : 'Sin Stock'}">Sin Stock</p>
-                        
-                        <div class="ms-auto text-warning">
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star-fill"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
+                        <div>
+                          <p id="valoracionEs" class="d-none  " th:text="${#vars['media' + producto.id.toString()]}"></p>
+          
                         </div>
+
+                        <div class="ms-auto text-warning text-nowrap me-2">
+                          <i th:id="'est1' + ${producto.id}" class="bi"
+                             th:classappend="${#vars['media' + producto.id.toString()] >= 1 ? 'bi-star-fill' : 'bi-star'}"></i>
+                          <i th:id="'est2' + ${producto.id}" class="bi"
+                             th:classappend="${#vars['media' + producto.id.toString()] >= 2 ? 'bi-star-fill' : 
+                                             (#vars['media' + producto.id.toString()] > 1 ? 'bi-star-half' : 'bi-star')}"></i>
+                          <i th:id="'est3' + ${producto.id}" class="bi"
+                             th:classappend="${#vars['media' + producto.id.toString()] >= 3 ? 'bi-star-fill' : 
+                                             (#vars['media' + producto.id.toString()] > 2 ? 'bi-star-half' : 'bi-star')}"></i>
+                          <i th:id="'est4' + ${producto.id}" class="bi"
+                             th:classappend="${#vars['media' + producto.id.toString()] >= 4 ? 'bi-star-fill' : 
+                                             (#vars['media' + producto.id.toString()] > 3 ? 'bi-star-half' : 'bi-star')}"></i>
+                          <i th:id="'est5' + ${producto.id}" class="bi"
+                             th:classappend="${#vars['media' + producto.id.toString()] >= 5 ? 'bi-star-fill' : 
+                                             (#vars['media' + producto.id.toString()] > 4 ? 'bi-star-half' : 'bi-star')}"></i>
+                      </div>
+                      
+
+
+                        <span th:text="'(' + ${#vars['num' + producto.id.toString()]} + ')'"></span>
+
                       </div>
                       <form th:if="${producto.stock > 0}" action="/addCarrito" method="post" class="justify-content-center d-flex align-content-center align-items-center ">
                         

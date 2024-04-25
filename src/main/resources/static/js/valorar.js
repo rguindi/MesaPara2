@@ -19,7 +19,7 @@ stars.forEach(star => {
     });
     
     // Marcamos el option correspondiente como seleccionado
-    const option = document.getElementById(`o${clickedId}`);
+    const option = document.getElementById("o"+clickedId);
     option.selected = true;
   });
 });

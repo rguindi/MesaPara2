@@ -1,7 +1,11 @@
 package curso.java.tienda.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import curso.java.tienda.Entities.Valoracion;
 import curso.java.tienda.Repositories.ValoracionesRespository;
 
 @Service
@@ -30,7 +34,29 @@ public class ValoracionService {
 		
 	}
 	
+	public void guardar(Valoracion val) {
+		
+		valRepos.save(val);
+		
+	}
+	
+public double valoracionMedia(Long id) {
+		
+		return valRepos.obtenerValoracionMediaDecimalPorIdProducto(id);
+		
+	}
 
+public Long numeroDeValoraciones(Long id) {
+	
+	return valRepos.countByProductId(id);
+	
+}
+
+public List<Valoracion> todasPorIdProducto(Long id) {
+	
+	return (List<Valoracion>) valRepos.findByProductoId(id);
+	
+}
 	
 	
 

@@ -1,5 +1,7 @@
 package curso.java.tienda.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -15,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import curso.java.tienda.Entities.Producto;
+import curso.java.tienda.Entities.Usuario;
+import curso.java.tienda.Entities.Valoracion;
 import curso.java.tienda.services.CategoriaService;
 import curso.java.tienda.services.ProductoService;
+import curso.java.tienda.services.UsuarioService;
+import curso.java.tienda.services.ValoracionService;
 import curso.java.tienda.upload.storage.StorageService;
 
 import org.springframework.core.io.Resource;
@@ -36,6 +42,13 @@ public class ProductoController {
 	
 	@Autowired
 	CategoriaService categoriaService;
+	
+	@Autowired
+	ValoracionService valoracionService;
+
+	@Autowired
+	UsuarioService usuarioService;
+	
 	
 	@GetMapping("/productos")
 	public String listadoProductos(Model model) {
@@ -149,6 +162,14 @@ public class ProductoController {
 		Producto producto = productoService.recuperarProducto(id);
 		model.addAttribute("categorias", categoriaService.recuperarCategorias());
 		model.addAttribute("producto", producto);
+		model.addAttribute("valoracion", valoracionService.valoracionMedia(id));
+		model.addAttribute("Nvaloraciones", valoracionService.numeroDeValoraciones(id));
+		List<Valoracion> valoraciones = valoracionService.todasPorIdProducto(id);
+		for (Valoracion valoracion : valoraciones) {
+			Usuario user = usuarioService.buscarPorId(valoracion.getId_usuario());
+			model.addAttribute(valoracion.getId().toString(), user.getNombre());
+		}
+		model.addAttribute("valoraciones", valoraciones);
 		return "productoDetalle";
 	}
 	

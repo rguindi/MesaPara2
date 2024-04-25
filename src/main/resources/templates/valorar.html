@@ -39,8 +39,9 @@
         <i id="i4" class="bi bi-star"></i>
         <i id="i5" class="bi bi-star"></i>
       </div>
-      <form action="/valoracion/submit" class="mt-4">
-        <select hidden name="select" id="select">
+      <form action="/valoracion/submit" class="mt-4" method="POST">
+        <input type="hidden" name="id" th:value="${producto.getId()}">
+        <select hidden name="select" id="select" >
           <option value="1" name="1" id="o1"></option>
           <option value="2" name="2" id="o2"></option>
           <option value="3" name="3" id="o3"></option>

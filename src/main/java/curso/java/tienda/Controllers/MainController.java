@@ -22,6 +22,7 @@ import curso.java.tienda.services.CategoriaService;
 import curso.java.tienda.services.LoggingService;
 import curso.java.tienda.services.MainService;
 import curso.java.tienda.services.ProductoService;
+import curso.java.tienda.services.ValoracionService;
 import jakarta.servlet.http.HttpServletRequest;
 
 
@@ -50,6 +51,9 @@ public class MainController {
 
 		@Autowired
 		LoggingService log;
+		
+		@Autowired
+		ValoracionService valoracionService;
 		
 	
 		
@@ -132,6 +136,16 @@ public class MainController {
 		model.addAttribute("categoriaActual", categoriaActual);
 		model.addAttribute("productos", productos);
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
+		
+		//Añadimos el numero de valoraciones y valoracion de cada producto al modelo
+		for (Producto producto : productos) {
+			Long valoraciones = valoracionService.numeroDeValoraciones(producto.getId());
+			Double media = valoracionService.valoracionMedia(producto.getId());
+			// Ajusta media a tramos de 0.5
+			media = Math.ceil(media * 2) / 2.0;
+			model.addAttribute("num"+producto.getId(), valoraciones);
+			model.addAttribute("media"+producto.getId(), media);
+		}
 		return "productosCategoria";
 	}
 

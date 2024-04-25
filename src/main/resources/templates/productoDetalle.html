@@ -35,9 +35,9 @@
         <h1 th:text="${producto.nombre}">
         </h1>
       </div>
-      <div class="d-flex row">
+      <div class="d-flex row mt-5">
         <figure class="imagenproducto col-6">
-          <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagenproducto rounded-5 shadow " style="max-height: 500px;" >
+          <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagenproducto rounded-4  " style="max-height: 500px;" >
         </figure>
         <div class="col-6 container" style="color: black;">
           <h4>Descripcion</h4>
@@ -80,13 +80,31 @@
 
        
 
-          <div class="ms-auto text-warning">
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star"></i>
-            <i class="bi bi-star"></i>
+          <div id="estrellas" class="ms-auto text-warning">
+            <i id="i1" class="bi bi-star"></i>
+            <i id="i2" class="bi bi-star"></i>
+            <i id="i3" class="bi bi-star"></i>
+            <i id="i4" class="bi bi-star"></i>
+            <i id="i5" class="bi bi-star"></i>
+            <p hidden id="valoracion" th:text="${valoracion}"></p>
+            <span class="text-black " th:text="'(' + ${Nvaloraciones} + ')'"></span>
           </div>
+
+        </div>
+        <div  th:if="${Nvaloraciones}>0">
+          <h4 class="mt-5 text-decoration-underline ">Valoraciones</h4>
+
+
+          <div class="p-2 border  border-black mt-2 mb-2" th:each="valoracion: ${valoraciones}">
+            <div class="mb-3">
+
+              <i class="bi bi-star-fill text-warning " ></i><span th:text="'(' + ${valoracion.valoracion} + ')'"></span>
+              <span>Usuario: </span> <span class="fw-bold" th:text="${#vars[valoracion.id.toString()]}"></span>
+              <p class="mt-2" th:text="${valoracion.comentario}"></p>
+            </div>
+        </div>
+        
+
 
         </div>
 
@@ -97,6 +115,7 @@
   </main>
 
 <script src="/js/carrito.js"></script>
+<script src="/js/estrellas.js"></script>
     
 <th:block th:insert="~{footer}"></th:block>
 
