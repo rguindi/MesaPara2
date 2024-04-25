@@ -29,14 +29,16 @@ public class UsuarioController {
 	
 
 	@GetMapping("/empleados")
-	public String empleados(Model model) {
+	public String empleados(Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request)  && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "empleado");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(3));
 		return "/admin/empleados";
 	}
 	
 	@GetMapping("/administradores")
-	public String administradores(Model model) {
+	public String administradores(Model model, HttpServletRequest request) {
+		if(!usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "admin");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(1));
 		return "/admin/administradores";
@@ -44,7 +46,8 @@ public class UsuarioController {
 	
 	
 	@GetMapping("/clientes")
-	public String clientes(Model model) {
+	public String clientes(Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "cliente");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(2));
 		return "/admin/clientes";
@@ -53,7 +56,8 @@ public class UsuarioController {
 	
 	
 	@GetMapping("/registro")
-	public String registro(Model model) {
+	public String registro(Model model,  HttpServletRequest request) {
+		if(request.getSession().getAttribute("usuario") != null) return "redirect:/home";
 		model.addAttribute("usuarioForm", new Usuario());
 		return "registro";
 	}
@@ -77,7 +81,7 @@ public class UsuarioController {
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable Long id, Model model, @SessionAttribute("usuario") Usuario usuarioSesion) {
 		
-		
+		//Validamos que no se acceda al usuario equivocado
 		if(usuarioSesion.getId() != id) return "redirect:/editar/" + usuarioSesion.getId();
 		
 		Usuario usuario = usuarioService.buscarPorId(id);
@@ -88,7 +92,8 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/cambiarPass")
-	public String cambiarPass() {		
+	public String cambiarPass( HttpServletRequest request) {	
+		if(request.getSession().getAttribute("usuario") == null) return "redirect:/home";
 		return "cambiarPass";
 	}
 	
@@ -134,8 +139,8 @@ public class UsuarioController {
 	@PostMapping("/login/submit")
 	public String loginSubmit(@RequestParam("user") String user, @RequestParam("pass") String pass, HttpServletRequest request, Model model) {
 		
-		if(!usuarioService.validarLogin(user, model, pass)) return "login";
-		if(!usuarioService.comprobarLogin(user, model, pass)) return "login";
+		if(!usuarioService.validarLogin(user, model, pass)) return "login";  //Validamos los campos
+		if(!usuarioService.comprobarLogin(user, model, pass)) return "login";  //Comprobamos credenciales
 		else {
 			Usuario usuario = usuarioService.buscarPorEmail(user);	
 			request.getSession().setAttribute("usuario", usuario);
@@ -148,14 +153,17 @@ public class UsuarioController {
             return "redirect:" + urlAnterior;
         } else {
             // Si no hay URL original guardada, redirigir al usuario a una página predeterminada
+        	
+        	if(usuarioService.adminIsLoged(request)||usuarioService.empleadoIsLoged(request)||usuarioService.superAdminIsLoged(request)) return "redirect:/home";
             return "redirect:/";
         }
 	}
 	
 	@PostMapping("/gestionEmpleado")
-	public String gestionEmpleado(@RequestParam("id") Long id, @RequestParam("accion") String accion) {
+	public String gestionEmpleado(@RequestParam("id") Long id, @RequestParam("accion") String accion, HttpServletRequest request) {
 
-		
+		if(!usuarioService.adminIsLoged(request)&& !usuarioService.superAdminIsLoged(request)) return "redirect:/";
+
 		if(accion.equals("activar")) {
 			usuarioService.activarUsuario(id);
 			return "redirect:/empleados";
@@ -168,5 +176,39 @@ public class UsuarioController {
 		return "redirect:/empleados";
 	}
 	
+	@PostMapping("/gestionAdministrador")
+	public String gestionAdministrador(@RequestParam("id") Long id, @RequestParam("accion") String accion, HttpServletRequest request) {
+
+		if(!usuarioService.superAdminIsLoged(request)) return "redirect:/";
+
+		if(accion.equals("activar")) {
+			usuarioService.activarUsuario(id);
+			return "redirect:/administradores";
+		}
+		
+		if(accion.equals("eliminar")) {
+			usuarioService.desactivarUsuario(id);
+			return "redirect:/administradores";
+		}
+		return "redirect:/administradores";
+	}
+	
+	@PostMapping("/gestionCliente")
+	public String gestionCliente(@RequestParam("id") Long id, @RequestParam("accion") String accion, HttpServletRequest request) {
+
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
+
+
+		if(accion.equals("activar")) {
+			usuarioService.activarUsuario(id);
+			return "redirect:/clientes";
+		}
+		
+		if(accion.equals("eliminar")) {
+			usuarioService.desactivarUsuario(id);
+			return "redirect:/clientes";
+		}
+		return "redirect:/clientes";
+	}
 	
 }

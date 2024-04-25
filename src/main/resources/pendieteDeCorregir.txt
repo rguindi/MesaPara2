@@ -1,2 +1,5 @@
-Si añado todo el Stock de un producto al carrito luego me deja añadirlo nuevamente
-Q no deje añadir negativo
+
+@PostMapping("/cambiarEstado")   no valora quien esta cambiando ni a que estado esta cambjiado
+la contraseña no esta cambiando
+enviaremail utiliza el email para enviar pero no para recibir
+terminar menu dinamico

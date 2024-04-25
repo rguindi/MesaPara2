@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import curso.java.tienda.Entities.Categoria;
 import curso.java.tienda.services.CategoriaService;
+import curso.java.tienda.services.UsuarioService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
@@ -21,9 +23,12 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaService categoriaService;
 	
+	@Autowired
+	UsuarioService usuarioService;
 	
 	@GetMapping("/categorias")
-	public String listadoCategorias(Model model) {
+	public String listadoCategorias(Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "categoria");
 		model.addAttribute("listaCategorias", categoriaService.recuperarCategorias());
 		return "/admin/categorias";
@@ -31,17 +36,19 @@ public class CategoriaController {
 	
 	
 	@GetMapping("/registrarCategoria")
-	public String registarCategoria(Model model) {
+	public String registarCategoria(Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "categoria");
 		model.addAttribute("categoriaForm", new Categoria());
-		return "registrarCategoria";
+		return "/admin/registrarCategoria";
 	}
 	
 	
 	@PostMapping("/registrarCategoria/submit")
 	public String registrarCategoriaSubmit(@Valid @ModelAttribute("categoriaForm") Categoria categoria, 
-			BindingResult validacion) {
-		
+			BindingResult validacion, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
+
 		if(validacion.hasErrors()) {
 			return "registrarCategoria";
 		}
@@ -53,7 +60,8 @@ public class CategoriaController {
 	}
 	
 	@GetMapping("/editarCategoria/{id}")
-	public String editarCategoria(@PathVariable Long id, Model model) {
+	public String editarCategoria(@PathVariable Long id, Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "categoria");
 		Categoria categoria = categoriaService.recuperarCategoria(id);
 		
@@ -63,8 +71,9 @@ public class CategoriaController {
 	
 	
 	@PostMapping("/editarCategoria/submit")
-	public String editarCategoriaSubmit(@Valid @ModelAttribute("categoriaForm") Categoria categoria,  BindingResult validacion) {
-		
+	public String editarCategoriaSubmit(@Valid @ModelAttribute("categoriaForm") Categoria categoria,  BindingResult validacion,  HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
+
 		if(validacion.hasErrors()) return "registrarCategoria";
 		else {
     
@@ -75,8 +84,8 @@ public class CategoriaController {
 	}
 	
 	@PostMapping("/gestionCategoria")
-	public String egstionCategoria(@RequestParam String action, @RequestParam Long id) {
-		
+	public String egstionCategoria(@RequestParam String action, @RequestParam Long id,  HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		if (action.equals("editar")) {
 			return "redirect:/editarCategoria/" + id;
 	    } else if (action.equals("eliminar")) {

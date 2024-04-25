@@ -27,6 +27,7 @@ import curso.java.tienda.upload.storage.StorageService;
 
 import org.springframework.core.io.Resource;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @Controller
@@ -51,7 +52,8 @@ public class ProductoController {
 	
 	
 	@GetMapping("/productos")
-	public String listadoProductos(Model model) {
+	public String listadoProductos(Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "producto");
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
 		model.addAttribute("listaProductos", productoService.todos());
@@ -62,8 +64,8 @@ public class ProductoController {
 	//REGISTROS
 	
 	@GetMapping("/registrarProducto")
-	public String registarProducto(Model model) {
-		
+	public String registarProducto(Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("categorias", categoriaService.recuperarCategorias());
 		
 		model.addAttribute("productoForm", new Producto());
@@ -72,8 +74,9 @@ public class ProductoController {
 	
 	@PostMapping("/registrarProducto/submit")
 	public String registrarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, 
-			BindingResult validacion, @RequestParam("file") MultipartFile file, Model model) {
-		
+			BindingResult validacion, @RequestParam("file") MultipartFile file, Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
+
 		if(validacion.hasErrors()) {
 			
 			return "registrarProducto";
@@ -97,7 +100,8 @@ public class ProductoController {
 	
 	//EDICIONES
 	@GetMapping("/gestionProducto")
-	public String gestionProducto( Model model, @RequestParam("accion") String valor, @RequestParam("id") Long id) {
+	public String gestionProducto( Model model, @RequestParam("accion") String valor, @RequestParam("id") Long id, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
 		model.addAttribute("categorias", categoriaService.recuperarCategorias());
 		Producto producto = productoService.recuperarProducto(id);
@@ -117,7 +121,8 @@ public class ProductoController {
 	
 	
 	@GetMapping("/editarProducto/{id}")
-	public String editarProducto(@PathVariable Long id, Model model) {
+	public String editarProducto(@PathVariable Long id, Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("categorias", categoriaService.recuperarCategorias());
 		Producto producto = productoService.recuperarProducto(id);
 		model.addAttribute("productoForm", producto);
@@ -126,7 +131,8 @@ public class ProductoController {
 	
 
 	@PostMapping("/editarProducto/submit")
-	public String editarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, @RequestParam("file") MultipartFile file, BindingResult validacion, Model model) {
+	public String editarProductoSubmit(@Valid @ModelAttribute("productoForm") Producto producto, HttpServletRequest request, @RequestParam("file") MultipartFile file, BindingResult validacion, Model model) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
 		Producto viejo = productoService.recuperarProducto(producto.getId());  
 		producto.setFechaAlta(viejo.getFechaAlta());

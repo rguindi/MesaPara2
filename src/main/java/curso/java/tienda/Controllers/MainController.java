@@ -22,6 +22,7 @@ import curso.java.tienda.services.CategoriaService;
 import curso.java.tienda.services.LoggingService;
 import curso.java.tienda.services.MainService;
 import curso.java.tienda.services.ProductoService;
+import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -55,6 +56,9 @@ public class MainController {
 		@Autowired
 		ValoracionService valoracionService;
 		
+		@Autowired
+		UsuarioService usuarioService;
+		
 	
 		
 	@GetMapping("/")
@@ -67,7 +71,7 @@ public class MainController {
 		model.addAttribute("novedades", novedades);
 		log.logError("Probando Log-ERROR desde /");
 		log.logInfo("Probando Log-INFO desde /");
-		return "index";
+		return "home";
 	}
 	
 	@GetMapping("/esp")
@@ -154,6 +158,13 @@ public class MainController {
 		request.getSession().invalidate();
 		return "redirect:/";
 	}
+	
+	@GetMapping("/home")
+	public String home(HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
+		return "/admin/home";
+	}
+
 
 }
 

@@ -115,7 +115,7 @@ public class UsuarioService {
 	public boolean superAdminIsLoged(HttpServletRequest request) {
 		if(request.getSession().getAttribute("usuario") == null) return false;
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-		if (usuario.getId_rol()== 1 && usuario.getEmail().equals("superadmin@superadmin.com"))return true;
+		if (usuario.getId_rol()== 4 && usuario.getEmail().equals("superAdmin@superAdmin.com"))return true;
 		return false;
 
 	}

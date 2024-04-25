@@ -33,12 +33,11 @@
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" type="submit" name='home' class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none me-4  ">
-        <h3 class="slogan text-center " >Mesa Para <br><span style="color: red; font-size: 2em;"> 2</span></h3>
+        <h3 class="slogan text-center fw-bold  " >Mesa Para <br><span style="color: red; font-size: 2em;"> 2</span></h3>
         <img class="img-fluid " style="width: 100px;" src="/img/logo.png" alt="No se encuentra la imagen">
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li class="nav-item"><a href="/productos" name='productos' class="nav-link px-2 link-body-emphasis text-white  fw-bold "  th:text="${session.idioma != null ? session.idioma['Productos'] : 'Productos'}">Productos</a></li>
         <li class="nav-item"><a href="/contacto" name='info' class="nav-link px-2 link-body-emphasis text-white fw-bold  "  th:text="${session.idioma != null ? session.idioma['Contacto'] : 'Contacto'}">Contacto</a></li>
         <li class="nav-item"><a href="/about" name='info' class="nav-link px-2 link-body-emphasis text-white fw-bold  "  th:text="${session.idioma != null ? session.idioma['Nosotros'] : 'Sobre Nosotros'}">Sobre Nosotros</a></li>
       </ul>

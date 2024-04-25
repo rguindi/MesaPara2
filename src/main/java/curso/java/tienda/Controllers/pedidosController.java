@@ -19,7 +19,9 @@ import curso.java.tienda.services.CarritoService;
 import curso.java.tienda.services.DetalleService;
 import curso.java.tienda.services.PedidoService;
 import curso.java.tienda.services.ProductoService;
+import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class pedidosController {
@@ -42,8 +44,12 @@ public class pedidosController {
 	@Autowired
 	ValoracionService valSer;
 	
+	@Autowired
+	UsuarioService usuarioService;
+	
 	@GetMapping("/pedidos")
-	public String pedidos(Model model) {
+	public String pedidos(Model model, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "pedido");
 		model.addAttribute("listaPedidos", pedidoService.todos());
 		

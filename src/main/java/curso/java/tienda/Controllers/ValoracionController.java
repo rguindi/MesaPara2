@@ -34,7 +34,7 @@ public class ValoracionController {
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 		//Comprobamos si el usuario ha comprado el producto
 		if(!valoracionService.esComprado(usuario.getId(), id))return "redirect:/";
-
+		//Comprobamos si el usuario ya ha valorado el producto
 		if(valoracionService.esValorado(usuario.getId(), id))return "redirect:/";
 		
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
