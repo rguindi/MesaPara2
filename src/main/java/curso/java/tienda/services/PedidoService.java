@@ -7,13 +7,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import curso.java.tienda.Entities.Pedido;
+import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.Repositories.PedidoRepository;
+import jakarta.servlet.http.HttpServletRequest;
 
 
 @Service
 public class PedidoService {
 	@Autowired
 	private PedidoRepository pedidoRepository;
+	
+	@Autowired
+	private CompraServicio compraServicio;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	public void guardar (Pedido pedido) {
 		pedidoRepository.save(pedido);
@@ -55,8 +63,23 @@ public class PedidoService {
 
 	}
 	
-	public void cambiarEstado (Long id, String estado) {
+	public String cambiarEstado (Long id, String estado, HttpServletRequest request) {
+		
+		//Controlamos el accceso de cada usuario
+		//Cliente
+		if(usuarioService.clienteIsLoged(request)&& !estado.equals("PC")) return "redirect:/";
+		//Empleado
+		if(usuarioService.empleadoIsLoged(request) && !estado.equals("E")) return "redirect:/pedidos";
+	
+		//Si se cambia a Enviado generamos el numero de factura y lo guardamos
+		Pedido pedido = this.porId(id);
+		if(estado.equals("E")) {
+			 String numFactura = compraServicio.generarNumFactura();
+			 pedido.setNum_factura(numFactura);
+			 guardar(pedido);
+		}
 		pedidoRepository.cambiarEstado(id, estado);
+		return "ok";
 	}
 	
 

@@ -10,6 +10,6 @@ import curso.java.tienda.Entities.Rol;
 
 public interface Opciones_menuRespository extends JpaRepository<Opciones_menu, Long> {
 	
-	 @Query("SELECT om FROM Opciones_menu om WHERE om.id_rol = ?1")
-	    List<Opciones_menu> findByIdRol(Long rol);
+	@Query(value = "SELECT * FROM opciones_menu WHERE id_rol = :rol", nativeQuery = true)
+    List<Opciones_menu> findRol(int rol);
 }

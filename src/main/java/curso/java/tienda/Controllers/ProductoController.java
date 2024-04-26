@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import curso.java.tienda.Entities.Opciones_menu;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.Entities.Valoracion;
 import curso.java.tienda.services.CategoriaService;
+import curso.java.tienda.services.Opcion_menuService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
@@ -50,6 +53,9 @@ public class ProductoController {
 	@Autowired
 	UsuarioService usuarioService;
 	
+	@Autowired
+	Opcion_menuService menServ;
+	
 	
 	@GetMapping("/productos")
 	public String listadoProductos(Model model, HttpServletRequest request) {
@@ -57,6 +63,9 @@ public class ProductoController {
 		model.addAttribute("pag", "producto");
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
 		model.addAttribute("listaProductos", productoService.todos());
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
 		return "admin/productos";
 	}
 	
@@ -69,7 +78,10 @@ public class ProductoController {
 		model.addAttribute("categorias", categoriaService.recuperarCategorias());
 		
 		model.addAttribute("productoForm", new Producto());
-		return "registrarProducto";
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
+		return "/admin/registrarProducto";
 	}
 	
 	@PostMapping("/registrarProducto/submit")
@@ -116,7 +128,7 @@ public class ProductoController {
 			return "redirect:/productos";
 		}
 		model.addAttribute("productoForm", producto);
-		return "registrarProducto";
+		return "/admin/registrarProducto";
 	}
 	
 	
@@ -126,7 +138,10 @@ public class ProductoController {
 		model.addAttribute("categorias", categoriaService.recuperarCategorias());
 		Producto producto = productoService.recuperarProducto(id);
 		model.addAttribute("productoForm", producto);
-		return "registrarProducto";
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
+		return "/admin/registrarProducto";
 	}
 	
 
@@ -139,7 +154,7 @@ public class ProductoController {
 		producto.setImagen(viejo.getImagen());
 		if(validacion.hasErrors()) {
 			model.addAttribute("categorias", categoriaService.recuperarCategorias());
-			return "registrarProducto";
+			return "/admin/registrarProducto";
 		}
 		else {
 			if (!file.isEmpty()) {

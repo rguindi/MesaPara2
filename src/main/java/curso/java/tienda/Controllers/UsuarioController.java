@@ -1,6 +1,8 @@
 package curso.java.tienda.Controllers;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import curso.java.tienda.Entities.Opciones_menu;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.Repositories.UsuarioRepository;
+import curso.java.tienda.services.Opcion_menuService;
 import curso.java.tienda.services.UsuarioService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 //import com.example.demo.Servicios.UsuarioServicio;
 
@@ -26,6 +31,9 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	@Autowired
+	Opcion_menuService menServ;
+	
 	
 
 	@GetMapping("/empleados")
@@ -33,6 +41,9 @@ public class UsuarioController {
 		if(!usuarioService.adminIsLoged(request)  && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "empleado");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(3));
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
 		return "/admin/empleados";
 	}
 	
@@ -41,6 +52,9 @@ public class UsuarioController {
 		if(!usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "admin");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(1));
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
 		return "/admin/administradores";
 	}
 	
@@ -50,6 +64,9 @@ public class UsuarioController {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "cliente");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(2));
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
 		return "/admin/clientes";
 	}
 	
@@ -91,6 +108,19 @@ public class UsuarioController {
 		return "registro";
 	}
 	
+	@GetMapping("/perfil")
+	public String perfil(Model model, @SessionAttribute("usuario") Usuario usuarioSesion, HttpServletRequest request) {
+		
+		
+		Usuario usuario = usuarioService.buscarPorId(usuarioSesion.getId());
+		model.addAttribute("usuarioForm", usuario);
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
+		return "/admin/perfil";
+	}
+	
+	
 	@GetMapping("/cambiarPass")
 	public String cambiarPass( HttpServletRequest request) {	
 		if(request.getSession().getAttribute("usuario") == null) return "redirect:/home";
@@ -98,8 +128,9 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/cambiarPass/submit")
-	public String registroSubmit(Model model, HttpServletRequest request,  @RequestParam("opass") String old,  @RequestParam("pass") String clave,  @RequestParam("rpass") String clave2) {
-		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+	public String registroSubmit(Model model, HttpSession miSesion,  @RequestParam("opass") String old,  @RequestParam("pass") String clave,  @RequestParam("rpass") String clave2, HttpServletRequest request) {
+		
+		Usuario usuario = (Usuario) miSesion.getAttribute("usuario");
 		if (!usuarioService.comprobarClaveEncriptada(old, usuario.getClave())) {
 			model.addAttribute("old", "La clave es incorrecta");
 			return "cambiarPass";
@@ -118,6 +149,9 @@ public class UsuarioController {
 			return "cambiarPass";
 		}
 		
+		usuario.setClave(usuarioService.encriptar(clave));
+		usuarioService.guardar(usuario);
+		if(usuarioService.adminIsLoged(request)||usuarioService.empleadoIsLoged(request)||usuarioService.superAdminIsLoged(request)) return "redirect:/perfil";
 		return "redirect:/";
 	}
 	
@@ -125,13 +159,15 @@ public class UsuarioController {
 	
 	
 	@PostMapping("/editar/submit")
-	public String editarSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user,  BindingResult validacion) {
+	public String editarSubmit(@Valid @ModelAttribute("usuarioForm") Usuario user,  BindingResult validacion, HttpSession miSesion, HttpServletRequest request) {
 		Usuario usuarioViejo = usuarioService.buscarPorId(user.getId());	
+		user.setId_rol(usuarioViejo.getId_rol());    
 		if(!usuarioService.validarEdicion(user, validacion)) return "registro";
 		else {
-			user.setId_rol(1);    
-			user.setClave(usuarioViejo.getClave());
+			
 			usuarioService.guardar(user);
+			miSesion.setAttribute("usuario", user);
+			if(usuarioService.adminIsLoged(request)||usuarioService.empleadoIsLoged(request)||usuarioService.superAdminIsLoged(request)) return "redirect:/perfil";
 			return "redirect:/";
 		}
 	}

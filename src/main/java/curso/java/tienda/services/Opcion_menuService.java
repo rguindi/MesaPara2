@@ -14,8 +14,8 @@ public class Opcion_menuService {
 	@Autowired
 	Opciones_menuRespository opRep;
 	
-	public List<Opciones_menu> opcinesPorRol(Long rol){
+	public List<Opciones_menu> opcinesPorRol(int rol){
 		
-		return opRep.findByIdRol(rol);
+		return opRep.findRol(rol);
 	}
 }

@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Mesa Para 2" />
+    <meta name="author" content=" Raul Ferrero Vicebte" />
 
-<th:block th:insert="~{header}"></th:block>
+    <title>Perfil</title>
+  </head>
+  
+  <body>
+	  <th:block th:insert="~{admin/header}"></th:block>
 
+<div class="container-fluid m-0 p-0 d-flex">
 
-<div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
+  <th:block th:insert="~{admin/leftNav}"></th:block>
+  <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
 
     <!-- Si el id es igual a 0 es que es un nuevo usuario, si es diferente estamos editando --> 
 	<form class="form-horizontal" action="#" th:action="${usuarioForm.id != 0} ? @{/editar/submit} : @{/registro/submit}" method="post"  
@@ -164,5 +177,7 @@
 		</fieldset>
 	</form>
 </div>
-
-<th:block th:insert="~{footer}"></th:block>
+ 
+</div>
+  </body>
+</html>

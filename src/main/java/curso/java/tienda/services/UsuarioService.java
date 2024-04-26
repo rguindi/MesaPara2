@@ -31,6 +31,8 @@ public class UsuarioService {
 		
 	}
 	
+
+	
 	
 	public boolean validarEdicion (Usuario user, BindingResult validacion) {
         if(validacion.hasErrors()) return false;

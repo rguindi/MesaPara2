@@ -43,7 +43,7 @@ public class CompraServicio {
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 		String metodoPago = (String) request.getSession().getAttribute("metodo");
 		
-		String numFactura = this.generarNumFactura();		
+		String numFactura = "En trámite";
 		
 		Pedido pedido = new Pedido(usuario.getId(), new java.sql.Timestamp(System.currentTimeMillis()), metodoPago,
 				"PE", numFactura, total);

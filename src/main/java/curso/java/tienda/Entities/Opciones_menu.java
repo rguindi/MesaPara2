@@ -23,8 +23,8 @@ public class Opciones_menu {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne @JoinColumn(name = "id_rol")
-	private Rol id_rol;
+	@Column(name = "id_rol")
+	private Long rol;
 	
 	@Column
 	private String nombre_opcion;

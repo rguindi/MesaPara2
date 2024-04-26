@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import curso.java.tienda.Entities.DetallePedido;
+import curso.java.tienda.Entities.Opciones_menu;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.services.CarritoService;
 import curso.java.tienda.services.DetalleService;
+import curso.java.tienda.services.Opcion_menuService;
 import curso.java.tienda.services.PedidoService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
@@ -47,12 +49,17 @@ public class pedidosController {
 	@Autowired
 	UsuarioService usuarioService;
 	
+	@Autowired
+	Opcion_menuService menServ;
+	
 	@GetMapping("/pedidos")
 	public String pedidos(Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		model.addAttribute("pag", "pedido");
 		model.addAttribute("listaPedidos", pedidoService.todos());
-		
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
 		return "/admin/controlPedidos";
 	}
 	
@@ -104,8 +111,8 @@ public class pedidosController {
 	
 	
 	@PostMapping("/cambiarEstado")
-	public String cambiarEstado( @RequestParam("id") Long id,  @RequestParam("estado") String estado) {
-		pedidoService.cambiarEstado(id, estado);
+	public String cambiarEstado( @RequestParam("id") Long id,  @RequestParam("estado") String estado, HttpServletRequest request) {
+		pedidoService.cambiarEstado(id, estado, request);
 		return "redirect:/pedidos";
 	}
 

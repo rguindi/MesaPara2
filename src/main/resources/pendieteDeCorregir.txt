@@ -1,5 +1,4 @@
 
 @PostMapping("/cambiarEstado")   no valora quien esta cambiando ni a que estado esta cambjiado
-la contraseña no esta cambiando
-enviaremail utiliza el email para enviar pero no para recibir
-terminar menu dinamico
+cambiar el orden de pedidos en la tabla pedidos a descendente
+Cambiat que el total factura se genera despues?

@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import curso.java.tienda.Entities.Categoria;
+import curso.java.tienda.Entities.Opciones_menu;
 import curso.java.tienda.Entities.Producto;
-import curso.java.tienda.Repositories.Opciones_menuRespository;
-import curso.java.tienda.Repositories.RolRepository;
+import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.services.CategoriaService;
 import curso.java.tienda.services.LoggingService;
 import curso.java.tienda.services.MainService;
+import curso.java.tienda.services.Opcion_menuService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
@@ -43,12 +44,9 @@ public class MainController {
 		
 		@Autowired
 		CategoriaService categoriaService;
-	
-		@Autowired
-		RolRepository rolRepo;
 		
 		@Autowired
-		Opciones_menuRespository menRepo;
+		Opcion_menuService menServ;
 
 		@Autowired
 		LoggingService log;
@@ -121,7 +119,7 @@ public class MainController {
 			return "contacto";
 		}
 		
-		mainService.sendEmail(email, nombre, consulta);
+		mainService.sendEmail("raul_fv@hotmail.com", nombre, consulta + "El email remitente es " + email);
 		
 		model.addAttribute("enviado", "Hemos recibido correctamente su consulta. En breve nos pondremos en contacto con usted. Muchas gracias.");
 		
@@ -160,8 +158,12 @@ public class MainController {
 	}
 	
 	@GetMapping("/home")
-	public String home(HttpServletRequest request) {
+	public String home(HttpServletRequest request, Model model) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
+		
 		return "/admin/home";
 	}
 
