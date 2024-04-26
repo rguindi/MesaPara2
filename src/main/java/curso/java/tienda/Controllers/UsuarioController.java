@@ -39,7 +39,7 @@ public class UsuarioController {
 	@GetMapping("/empleados")
 	public String empleados(Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request)  && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
-		model.addAttribute("pag", "empleado");
+		//model.addAttribute("pag", "empleado");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(3));
 		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
 		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
@@ -50,7 +50,7 @@ public class UsuarioController {
 	@GetMapping("/administradores")
 	public String administradores(Model model, HttpServletRequest request) {
 		if(!usuarioService.superAdminIsLoged(request)) return "redirect:/";
-		model.addAttribute("pag", "admin");
+	//	model.addAttribute("pag", "admin");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(1));
 		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
 		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
@@ -62,7 +62,7 @@ public class UsuarioController {
 	@GetMapping("/clientes")
 	public String clientes(Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
-		model.addAttribute("pag", "cliente");
+	//	model.addAttribute("pag", "cliente");
 		model.addAttribute("listaUsuarios", usuarioService.buscarPorRol(2));
 		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
 		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());

@@ -60,7 +60,7 @@ public class ProductoController {
 	@GetMapping("/productos")
 	public String listadoProductos(Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
-		model.addAttribute("pag", "producto");
+		//model.addAttribute("pag", "producto");
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
 		model.addAttribute("listaProductos", productoService.todos());
 		Usuario user = (Usuario) request.getSession().getAttribute("usuario");

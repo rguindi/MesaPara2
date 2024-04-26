@@ -57,6 +57,12 @@ public void reactivar (Long id) {
 	 productoRepositorio.reactivateById(id); 
 	
 }
+
+public List <Producto> buscar (String busca) {
+	
+	return productoRepositorio.findByNombreOrDescripcionContainingIgnoreCase(busca);
+	
+}
 	
 	
 	

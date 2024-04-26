@@ -29,5 +29,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long>  {
 	    @Modifying
 	    @Query("UPDATE Producto p SET p.fechaBaja = null WHERE p.id = :productoId")
 	    void reactivateById(@Param("productoId") Long productoId);
+	 
+	 @Query("SELECT p FROM Producto p WHERE lower(p.nombre) LIKE lower(concat('%', :texto, '%')) OR lower(p.descripcion) LIKE lower(concat('%', :texto, '%'))")
+	    List<Producto> findByNombreOrDescripcionContainingIgnoreCase(@Param("texto") String texto);
 	
 }

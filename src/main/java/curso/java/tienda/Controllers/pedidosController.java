@@ -55,7 +55,7 @@ public class pedidosController {
 	@GetMapping("/pedidos")
 	public String pedidos(Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
-		model.addAttribute("pag", "pedido");
+		//model.addAttribute("pag", "pedido");
 		model.addAttribute("listaPedidos", pedidoService.todos());
 		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
 		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());

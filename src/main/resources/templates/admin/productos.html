@@ -37,7 +37,7 @@
               <th>Precio</th>
               <th>Stock</th>
               <th>Fecha de alta</th>
-              <th>Activo</th>
+              <th th:if="${session.usuario.id_rol}!=3">Activo</th>
               <th>Impuesto</th>
               <th>Url</th>
               <th>Opción</th>
@@ -60,7 +60,7 @@
                 <td th:text="${producto.precio}"></td>
                 <td th:text="${producto.stock}"></td>
                 <td th:text="${producto.fechaAlta}"></td>
-                <td>
+                <td th:if="${session.usuario.id_rol}!=3">
                   <span th:if="${producto.fechaBaja == null}">
                     <button
                       name="accion"

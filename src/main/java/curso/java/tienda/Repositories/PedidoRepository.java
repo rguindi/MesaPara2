@@ -14,6 +14,8 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 	 @Query("SELECT p FROM Pedido p WHERE p.id_usuario = :idUsuario ORDER BY p.id DESC")
 	    List<Pedido> buscarPorIdUsuario(Long idUsuario);
 	 
+	 List<Pedido> findAllByOrderByIdDesc();
+	 
 	 @Query("UPDATE Pedido p SET p.estado = 'PC' WHERE p.id = :idPedido")
 	    @Modifying
 	    @Transactional

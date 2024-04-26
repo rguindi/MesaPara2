@@ -79,9 +79,15 @@
     <div  class="container-fluid     mt-3 align-content-center  m-0 p-0">
       <div class="d-flex flex-column">
         <div class="container  novedadestitulo">
-          <h1 class="text-center" th:text="${categoriaActual.nombre}">
-            NOMBRE CATEGORIA ACTUAL
-          </h1>
+          
+          <h1 class="text-center"  th:if="${categoriaActual != null}" th:text="${categoriaActual.nombre}">
+              NOMBRE CATEGORIA ACTUAL
+            </h1>
+            <h1 class="text-center" th:text="${tituloBusqueda}">
+              BUSQUEDA
+            </h1>
+
+         
         </div>
 
 
@@ -102,7 +108,7 @@
                         </div>
                     <div class="card-body pb-0 ">
                       <div class="d-flex justify-content-between">
-                        <p class="small"><a href="#!" class="text-muted" th:text="${categoriaActual.nombre}">Categoria actual</a></p>
+                        <p class="small"><a href="#!" class="text-muted" th:if="${categoriaActual != null}"   th:text="${categoriaActual.nombre}">Categoria actual</a></p>
 						
 						  <p ><i class="bi bi-check ms-5 me-2 text-success  "></i><span class="text-success fst-italic mt-3 " th:text="${session.idioma != null ? session.idioma['Envio'] : 'Envio Gratis!'}">Envio Gratis!</span></p>
 						

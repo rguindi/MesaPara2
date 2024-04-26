@@ -72,6 +72,29 @@ public class MainController {
 		return "home";
 	}
 	
+	@GetMapping("/buscar")
+	public String buscar(Model model, @RequestParam String busqueda) {
+		
+		List<Producto> productos = productoService.buscar(busqueda);
+		List<Categoria> categorias = categoriaService.recuperarCategorias();
+		model.addAttribute("categorias", categorias);
+		model.addAttribute("tituloBusqueda", "Mostrando resultados...");
+		model.addAttribute("productos", productos);
+		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
+		
+		//Añadimos el numero de valoraciones y valoracion de cada producto al modelo
+		for (Producto producto : productos) {
+			Long valoraciones = valoracionService.numeroDeValoraciones(producto.getId());
+			Double media = valoracionService.valoracionMedia(producto.getId());
+			// Ajusta media a tramos de 0.5
+			media = Math.ceil(media * 2) / 2.0;
+			model.addAttribute("num"+producto.getId(), valoraciones);
+			model.addAttribute("media"+producto.getId(), media);
+		}
+		return "productosCategoria";
+	}
+	
+	
 	@GetMapping("/esp")
 	public String esp(HttpServletRequest request) {
 		Map<String, String> spa = mainService.cargarPropertiesComoMapa("spanish");

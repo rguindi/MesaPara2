@@ -37,7 +37,7 @@ public class CategoriaController {
 	@GetMapping("/categorias")
 	public String listadoCategorias(Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
-		model.addAttribute("pag", "categoria");
+		//model.addAttribute("pag", "categoria");
 		model.addAttribute("listaCategorias", categoriaService.recuperarCategorias());
 		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
 		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
@@ -49,7 +49,7 @@ public class CategoriaController {
 	@GetMapping("/registrarCategoria")
 	public String registarCategoria(Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
-		model.addAttribute("pag", "categoria");
+		//model.addAttribute("pag", "categoria");
 		model.addAttribute("categoriaForm", new Categoria());
 		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
 		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
@@ -76,7 +76,7 @@ public class CategoriaController {
 	@GetMapping("/editarCategoria/{id}")
 	public String editarCategoria(@PathVariable Long id, Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
-		model.addAttribute("pag", "categoria");
+	//	model.addAttribute("pag", "categoria");
 		Categoria categoria = categoriaService.recuperarCategoria(id);
 		
 		model.addAttribute("categoriaForm", categoria);

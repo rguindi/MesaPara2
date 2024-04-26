@@ -23,12 +23,15 @@ public class PedidoService {
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	@Autowired
+	private MainService mainService;
+	
 	public void guardar (Pedido pedido) {
 		pedidoRepository.save(pedido);
 	}
 	
 	public List<Pedido> todos () {
-		return pedidoRepository.findAll();
+		return pedidoRepository.findAllByOrderByIdDesc();
 	}
 	
 	public List<Pedido> porUsuario (Long id) {
@@ -70,16 +73,29 @@ public class PedidoService {
 		if(usuarioService.clienteIsLoged(request)&& !estado.equals("PC")) return "redirect:/";
 		//Empleado
 		if(usuarioService.empleadoIsLoged(request) && !estado.equals("E")) return "redirect:/pedidos";
-	
-		//Si se cambia a Enviado generamos el numero de factura y lo guardamos
 		Pedido pedido = this.porId(id);
+		
+		//Si ya se ha generado el numero no generamos otro
+		if(!pedido.getNum_factura().equals("En trámite")) return "redirect:/pedidos";
+		
+		//Si se cambia a Enviado generamos el numero de factura y lo guardamos, y mandamos un email a usuario.
 		if(estado.equals("E")) {
 			 String numFactura = compraServicio.generarNumFactura();
 			 pedido.setNum_factura(numFactura);
 			 guardar(pedido);
+		//	 this.emailPedidoEnviado(pedido);    //Enviar email. se comenta la linea para el desarrollo 
 		}
 		pedidoRepository.cambiarEstado(id, estado);
 		return "ok";
+	}
+	
+	public void emailPedidoEnviado(Pedido pedido) {
+		Usuario user = usuarioService.buscarPorId(pedido.getId_usuario());
+		
+		String to = user.getEmail();
+		String subject = "Pedido " + pedido.getId() + " enviado.";
+		String content = "Su pedido con número " + pedido.getId() + " ha salido de nuestras instalaciones. Pronto lo recibirá en su domicilio.";
+		mainService.sendEmail(to, subject, content);
 	}
 	
 

@@ -1,4 +1,11 @@
-
-@PostMapping("/cambiarEstado")   no valora quien esta cambiando ni a que estado esta cambjiado
-cambiar el orden de pedidos en la tabla pedidos a descendente
-Cambiat que el total factura se genera despues?
+Altas y modificaciones de clientes, empleados y administradores
+Control de modificar pedido
+Descuentos
+estadisticas
+excel
+proveedores
+Hilos para chat, y para cambiar de PE a E
+carga automatica del script
+generar facturas
+cancelacion parcial
+Mostrar solicitar cancelacion solo si el pedido esta PE
