@@ -45,7 +45,7 @@
               <form action="/gestionCategoria" method="POST">
               <input name="id" type="hidden" th:value="${categoria.id}">
               <button class=" btn btn-sm btn-warning " type="submit" name="action" value="editar">Editar</button>
-        <button class="btn btn-sm btn-danger " type="submit" name="action" value="eliminar">Eliminar</button>
+        <button  th:unless="${session.usuario.id_rol == 3}" class="btn btn-sm btn-danger " type="submit" name="action" value="eliminar">Eliminar</button>
       </form>
             </td>
        			

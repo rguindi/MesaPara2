@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 26-04-2024 a las 21:27:14
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Servidor: localhost
+-- Tiempo de generación: 27-04-2024 a las 18:33:45
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -195,7 +195,7 @@ CREATE TABLE `pedidos` (
 
 INSERT INTO `pedidos` (`id`, `id_usuario`, `fecha`, `metodo_pago`, `estado`, `num_factura`, `total`) VALUES
 (24, 6, '2024-04-26 14:25:00', 'Tarjeta', 'PE', 'En trámite', 33.35),
-(25, 6, '2024-04-26 14:25:31', 'Paypal', 'PE', 'En trámite', 192.7),
+(25, 6, '2024-04-26 14:25:31', 'Paypal', 'PC', 'En trámite', 192.7),
 (26, 9, '2024-04-26 18:37:58', 'Tarjeta', 'E', 'FAC7', 52.57),
 (27, 9, '2024-04-26 18:40:04', 'Paypal', 'E', 'FAC8', 11.95),
 (28, 9, '2024-04-26 18:47:10', 'Tarjeta', 'PC', 'FAC9', 9.99);
@@ -229,7 +229,7 @@ INSERT INTO `productos` (`id`, `id_categoria`, `nombre`, `descripcion`, `precio`
 (11, 8, 'Sushi Go', '¿Te gusta el sushi? Sin duda es un elemento a tener en cuenta, pues si es así, disfrutarás de cada una de las opciones de este menú. Sushi Go! ', 9.99, 3, '2024-04-16 14:14:28', NULL, 21, 'Sushi Go11.jpg'),
 (12, 5, 'Tragabolas', '¿Qué hipopótamo será el más glotón en Tragabolas? Trata de moverte rápido cuando las bolas se suelten en el tablero de juego, ¡si tu hipopótamo es el que traga el mayor número de bolitas ganarás! Los hipopótamos están preparados para devorar bolitas.', 22.71, 5, '2024-04-16 14:14:28', NULL, 21, 'Tragabolas12.jpg'),
 (14, 6, 'Chuchelandia', 'Crea y saborea las golosinas más deliciosas. Ahora con más contenido y atractivas propuestas de juego. Incluye set de trabajo y todos los elementos necesarios para crear tus chuches preferidas', 34.99, 0, '2024-04-16 14:14:28', NULL, 21, 'Chuchelandia14.jpg'),
-(15, 8, 'Uno', 'Durante más de 50 años, UNO ha conectado a personas de todo el mundo a través de juegos icónicos que trascienden la edad, el género y el idioma. Es fácil de aprender, fácil de jugar y fácil de disfrutar.', 9.69, 0, '2024-04-16 14:14:28', NULL, 21, 'Uno15.jpg'),
+(15, 8, 'Uno', 'Durante más de 50 años, UNO ha conectado a personas de todo el mundo a través de juegos icónicos que trascienden la edad, el género y el idioma. Es fácil de aprender, fácil de jugar y fácil de disfrutar.', 9.69, 1, '2024-04-16 14:14:28', NULL, 21, 'Uno15.jpg'),
 (16, 2, 'Catán', 'Sois los primeros colonos en llegar a la isla de Catan. Muy pronto empiezan a aparecer los primeros poblados y las primeras carreteras', 9.69, 0, '2024-04-16 14:14:28', NULL, 21, 'Catán16.jpg'),
 (17, 5, 'Gestos', '¡Hacer payasadas nunca había sido tan divertido! Descubre Gestos, el divertido y rápido juego de mímica.Los jugadores de cada equipo tendrán que adivinar el máximo número de palabras cuando el reloj se ponga en marcha.', 20.99, 80, '2024-04-16 14:14:28', NULL, 21, 'Gestos17.jpg'),
 (18, 7, 'Cluedo', 'El solitario millonario Samuel Black ha sido asesinado en su mansión. Ahora, depende de ti resolver el caso. Haz preguntas sobre todo para aclarar el misterio y ser el ganador del CLUEDO.', 27.95, 80, '2024-04-16 14:14:28', NULL, 21, 'Cluedo18.jpg'),
@@ -305,12 +305,13 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `id_rol`, `email`, `clave`, `nombre`, `apellido1`, `apellido2`, `direccion`, `provincia`, `localidad`, `telefono`, `dni`, `fecha_baja`) VALUES
-(1, 1, 'admin@admin.com', 'gpn3LFcXVudSyUK/YyWCgLDEp02pxNpCRD1rKoetMnUu+lTJaQGwqtjCliWTUftO', 'Raul Administrador', 'Ferrero', 'Vicente', 'asfds', 'ry', 'asdf', '123123123', '12312312A', NULL),
-(3, 3, 'empleado@empleado.com', 'j2+WWOYTj1PflVOrMlffyChPmXsiNYbziwb8tGH/CTs98VYnX3SUPZ7whQxJiuqi', 'Raul Empleado', 'Empleado', 'Empleado', 'Empleado', 'Empleado', 'Empleado', '607307943', '21234765P', NULL),
-(6, 2, 'cliente@cliente.com', 'SLyJpFoEU8v0IpC7PKMqryCyANhzN8YdyoyYs/tY7bQj8VwYHT0ZRHdH+s4/NygW', 'Raul Cliente', 'fERRERO', 'Ferrero Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11878787y', NULL),
+(1, 1, 'admin@admin.com', 'gpn3LFcXVudSyUK/YyWCgLDEp02pxNpCRD1rKoetMnUu+lTJaQGwqtjCliWTUftO', 'Raul Administrador', 'Ferrero', 'Vicente', 'calle larga', 'Za', 'asdf', '123123123', '12312312A', NULL),
+(3, 3, 'empleado@empleado.com', 'j2+WWOYTj1PflVOrMlffyChPmXsiNYbziwb8tGH/CTs98VYnX3SUPZ7whQxJiuqi', 'Raul Empleado', 'Empleado', 'Ap', 'Empleado', 'Empleado', 'Empleado', '607307943', '21234765P', NULL),
+(6, 2, 'cliente@cliente.com', 'YsJqMnSKXshDjYlkFPRgJzr+JgmJCQr1kImaRHNAlMUSoxrl0qy+w48E2PN8zNBd', 'Raul Cliente', 'Ferrero', 'Vicente', 'Avd. Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11878787y', NULL),
 (7, 4, 'superAdmin@superAdmin.com', 'HKwS96rY5P/YKXqRvybj4zrToOvpP1wlNbG2took0bqVjn0uNRnx8xus6Fqcu/Ka', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '76576576o', NULL),
-(8, 2, 'cliente2@cliente2', 'qj+PVuN9qz+NGLQnLS4q03qpcC06PoenheRRKJUhHA63VS5kXLmDCnsqOrgNFtep', 'Raul cliente2', 'c', 'Ferrero Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11972683e', NULL),
-(9, 2, 'raul_fv@hotmail.com', '8xv2UY7ZLzj7OuD0fMZwMbPk7IA/3FdytpqVDPQQQuprGfwtfkqiHqXlOIZw58U8', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11971683e', NULL);
+(8, 2, 'cliente2@cliente2', 'T2Q4tFDxTlhCySTS/gV1GpZtOg2C1yinYxbPJVg1FNTUUcyxmxjqJvOH93LofKrb', 'Cliente2', 'Ape1', 'Ape2', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11972683e', NULL),
+(9, 2, 'raul_fv@hotmail.com', '8xv2UY7ZLzj7OuD0fMZwMbPk7IA/3FdytpqVDPQQQuprGfwtfkqiHqXlOIZw58U8', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11971683e', NULL),
+(10, 2, 'cliente3@cliente3.com', 'Ghlxoq5RFaIORQWETP50f6KnMc8gC40oYXDuh+nUNoK3rW3B/c+CQ6l/3RORGjY+', 'Cliente3', 'Ape1', 'Ferrero Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Tabara', '607307943', '12345678O', NULL);
 
 -- --------------------------------------------------------
 
@@ -500,7 +501,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `valoraciones`

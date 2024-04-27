@@ -1,5 +1,3 @@
-Altas y modificaciones de clientes, empleados y administradores
-Control de modificar pedido
 Descuentos
 estadisticas
 excel
@@ -8,4 +6,5 @@ Hilos para chat, y para cambiar de PE a E
 carga automatica del script
 generar facturas
 cancelacion parcial
-Mostrar solicitar cancelacion solo si el pedido esta PE
+mejorar index
+REST??

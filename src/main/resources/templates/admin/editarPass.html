@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Mesa Para 2" />
+    <meta name="author" content=" Raul Ferrero Vicebte" />
+
+    <title>Registrar Categoría</title>
+  </head>
+
+  <body>
+    <th:block th:insert="~{admin/header}"></th:block>
+    <div class="container-fluid m-0 p-0 d-flex">
+    <th:block th:insert="~{admin/leftNav}"></th:block>
+
+    <div class="container-fluid m-0 p-0 d-flex">
+   
+
+      <div class="container col-md-6 col-xl-5 col-xxl-4  p-3 mt-5">
+        <!-- Si el id es igual a 0 es que es un nuevo usuario, si es diferente estamos editando -->
+        <form
+          class="form-horizontal"
+          action="/editarPassSubmit"
+          enctype="multipart/form-data"
+                    method="post"
+          th:object="${categoriaForm}"
+        >
+        
+            <!-- Form Name -->
+            <legend
+            >
+              Editar Contraseña
+            </legend>
+            <input name="id" type="hidden" th:value="${id}" />
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="nombre">Contraseña nueva</label>
+              <div class="col-md-12">
+                <input
+                  id="clave"
+                  name="clave"
+                  type="password"
+                  placeholder="Teclee la contraseña nueva"
+                  class="form-control input-md"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="nombre">Repita la contraseña</label>
+              <div class="col-md-12">
+                <input
+                  id="clave2"
+                  name="clave2"
+                  type="password"
+                  placeholder="Repita la contraseña"
+                  class="form-control input-md"
+                />
+              </div>
+            </div>
+
+            <span th:text="${errores}" class="text-danger" id="nombre-error">Errores</span>
+            
+
+            <!-- Botón de submit -->
+            <div class="form-group">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary mt-3">
+                  Guardar
+                </button>
+              </div>
+            </div>
+         
+        </form>
+      </div>
+    </div>
+  </div>
+    <th:block th:insert="footer"></th:block>
+  </body>
+</html>

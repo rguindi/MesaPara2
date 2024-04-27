@@ -24,7 +24,8 @@
       <div class="starter-template">
        <div>
           <h2 class="text-center mt-3">Listado de Clientes</h2>
-        
+
+          <a class="btn btn-danger mb-2" href="/nuevoUsuario?rol=2">Nuevo cliente</a>
 
         </div>
         
@@ -56,24 +57,36 @@
        			<td th:text="${usuario.telefono}"></td>
        			<td th:text="${usuario.dni}"></td>
        			<td>
-              <form action="/gestionCliente" method="POST">
+              <form action="/gestionCliente" method="POST" class=" d-flex flex-nowrap  ">
                 <input type="hidden" name="id" th:value="${usuario.id}" />
-              <span th:if="${usuario.fechaBaja == null}">
-                <button
-                  name="accion"
-                  value="eliminar"
-                  class="btn btn-sm btn-success"
-                >
-                  Desactivar
-                </button>
-              </span>
-              <span th:if="${usuario.fechaBaja != null}">
-                <button
+                <div th:unless="${session.usuario.id_rol == 3}">
+
+                  <span th:if="${usuario.fechaBaja == null}">
+                    <button
+                    name="accion"
+                    value="eliminar"
+                    class="btn btn-sm btn-success"
+                    >
+                    Desactivar
+                  </button>
+                </span>
+                <span th:if="${usuario.fechaBaja != null}">
+                  <button
                   name="accion"
                   value="activar"
                   class="btn btn-sm btn-danger"
-                >
+                  >
                   Activar
+                </button>
+              </span>
+            </div>
+              <span >
+                <button
+                  name="accion"
+                  value="editar"
+                  class="btn btn-sm btn-warning ms-2 "
+                >
+                  Editar
                 </button>
               </span>
             </form>
