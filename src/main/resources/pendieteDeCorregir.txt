@@ -3,8 +3,10 @@ estadisticas
 excel
 proveedores
 Hilos para chat, y para cambiar de PE a E
-carga automatica del script
+carga automatica del script y usuarios
 generar facturas
 cancelacion parcial
 mejorar index
 REST??
+Actualizar el stock al cancelar un pedido
+que deje valorar el producto solo si está enviado

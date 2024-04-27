@@ -67,6 +67,8 @@ public class MainController {
 		List<Categoria> categorias = categoriaService.recuperarCategorias();
 		model.addAttribute("categorias", categorias);
 		model.addAttribute("novedades", novedades);
+		model.addAttribute("masValorados", productoService.masValorados());
+		model.addAttribute("masVendidos", productoService.masVendidos());
 		log.logError("Probando Log-ERROR desde /");
 		log.logInfo("Probando Log-INFO desde /");
 		return "home";

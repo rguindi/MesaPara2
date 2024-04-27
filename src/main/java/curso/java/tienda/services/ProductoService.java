@@ -63,6 +63,18 @@ public List <Producto> buscar (String busca) {
 	return productoRepositorio.findByNombreOrDescripcionContainingIgnoreCase(busca);
 	
 }
+
+public List <Producto> masValorados () {
+	
+	return productoRepositorio.findTop12ByNumValoracionesOrderByNumValoracionesDescAndFechaBajaIsNull();
+	
+}
+
+public List <Producto> masVendidos () {
+	
+	return productoRepositorio.findTop12ByUnidadesVendidasOrderByUnidadesVendidasDescAndFechaBajaIsNull();
+}
+	
 	
 	
 	

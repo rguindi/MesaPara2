@@ -18,23 +18,22 @@
   </div>
 </nav>
 
+<div class="container-xxl ">
+  <a href="/producto/25">
 
-
+    <img src="/img/HeroQuest.png" alt="HQuest" class="img-fluid ">
+  </a>
+</div>
 
   
 <div class="container-md ">
-
 
   <div>
     <div class="novedadestitulo">
       <h1 class="text-center " th:text="${session.idioma != null ? session.idioma['Novedades'] : 'ULTIMAS NOVEDADES'}">ULTIMAS NOVEDADES</h1>
     </div>
   </div>
- 
-   
-  
 
-  
   <div id="myCarousel" class="carousel slide m-5" data-bs-ride="carousel">
     
     
@@ -139,6 +138,253 @@
  </div>
 
 </div>
+
+
+
+<div class="container-md ">
+
+
+  <div>
+    <div class="novedadestitulo">
+      <h1 class="text-center " th:text="${session.idioma != null ? session.idioma['MasValorados'] : 'LOS MAS VALORADOS'}">LOS MAS VALORADOS</h1>
+    </div>
+  </div>
+ 
+   
+  
+
+  
+  <div id="myCarousel2" class="carousel slide m-5" data-bs-ride="carousel">
+    
+    
+    <div class="carousel-inner">
+
+
+      
+      <div class="carousel-item active " >
+        <div class="d-flex  align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${masValorados}" th:if="${iterStat.index < 4}">
+          <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
+              <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+              <div class=" text-center bg-succes  fs-4 ">
+                <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
+                  
+                </p>
+                <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
+              </div>
+            </a>
+            <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
+            <div>
+              <label class="fs-6" for="cantidad" th:text="${session.idioma != null ? session.idioma['Cantidad'] : 'Cantidad'}">Cantidad:</label>
+              <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
+              <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+              <div class="d-flex justify-content-center mt-2  ">
+              <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  " th:text="${session.idioma != null ? session.idioma['Añadir'] : 'Añadir'}">Añadir</button>
+            </div>
+            </div>
+            </form>
+        </div>
+      </div>
+      </div>
+    
+
+
+      <div class="carousel-item  " >
+        <div class="d-flex align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${masValorados}" th:if="${iterStat.index > 3 and iterStat.index < 8}" >
+          <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
+            <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+            <div class=" text-center bg-succes  fs-4 ">
+              <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
+                
+              </p>
+              <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
+            </div>
+          </a>
+          <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
+                <div>
+            <label class="fs-6" for="cantidad" th:text="${session.idioma != null ? session.idioma['Cantidad'] : 'Cantidad'}">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="0" th:max="${producto.stock}">
+            <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+            <div class="d-flex justify-content-center mt-2  ">
+            <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  " th:text="${session.idioma != null ? session.idioma['Añadir'] : 'Añadir'}">Añadir</button>
+            </div>
+          </div>
+          </form>
+      </div>
+    </div>
+    </div>
+    
+
+
+      <div class="carousel-item  " >
+        <div class="d-flex align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${masValorados}" th:if="${iterStat.index > 7 and iterStat.index < 12}" >
+          <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
+            <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+            <div class=" text-center bg-succes  fs-4 ">
+              <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
+                
+              </p>
+              <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
+            </div>
+          </a>
+          <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
+                <div>
+            <label class="fs-6" for="cantidad" th:text="${session.idioma != null ? session.idioma['Cantidad'] : 'Cantidad'}">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
+            <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+            <div class="d-flex justify-content-center mt-2  ">
+            <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  " th:text="${session.idioma != null ? session.idioma['Añadir'] : 'Añadir'}">Añadir</button>
+            </div>
+          </div>
+          </form>
+      </div>
+    </div>
+    </div>
+      
+    
+    <button class="carousel-control-prev  w-auto  " type="button" data-bs-target="#myCarousel2" data-bs-slide="prev">
+      <span style="filter: invert(100%)"  class="carousel-control-prev-icon " aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next   w-auto " type="button" data-bs-target="#myCarousel2" data-bs-slide="next">
+      <span style="filter: invert(100%)" class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> 
+
+
+ </div>
+
+</div>
+
+<div class="container-xxl ">
+  <a href="/producto/26">
+
+    <img src="/img/stratego.png" alt="HQuest" class="img-fluid ">
+  </a>
+</div>
+
+<div class="container-md ">
+
+
+  <div>
+    <div class="novedadestitulo">
+      <h1 class="text-center " th:text="${session.idioma != null ? session.idioma['MasVendidos'] : 'LOS MAS VENDIDOS'}">LOS MAS VENDIDOS</h1>
+    </div>
+  </div>
+ 
+   
+  
+
+  
+  <div id="myCarousel3" class="carousel slide m-5" data-bs-ride="carousel">
+    
+    
+    <div class="carousel-inner">
+
+
+      
+      <div class="carousel-item active " >
+        <div class="d-flex  align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${masVendidos}" th:if="${iterStat.index < 4}">
+          <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
+              <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+              <div class=" text-center bg-succes  fs-4 ">
+                <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
+                  
+                </p>
+                <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
+              </div>
+            </a>
+            <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
+            <div>
+              <label class="fs-6" for="cantidad" th:text="${session.idioma != null ? session.idioma['Cantidad'] : 'Cantidad'}">Cantidad:</label>
+              <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
+              <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+              <div class="d-flex justify-content-center mt-2  ">
+              <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  " th:text="${session.idioma != null ? session.idioma['Añadir'] : 'Añadir'}">Añadir</button>
+            </div>
+            </div>
+            </form>
+        </div>
+      </div>
+      </div>
+    
+
+
+      <div class="carousel-item  " >
+        <div class="d-flex align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${masVendidos}" th:if="${iterStat.index > 3 and iterStat.index < 8}" >
+          <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
+            <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+            <div class=" text-center bg-succes  fs-4 ">
+              <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
+                
+              </p>
+              <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
+            </div>
+          </a>
+          <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
+                <div>
+            <label class="fs-6" for="cantidad" th:text="${session.idioma != null ? session.idioma['Cantidad'] : 'Cantidad'}">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="0" th:max="${producto.stock}">
+            <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+            <div class="d-flex justify-content-center mt-2  ">
+            <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  " th:text="${session.idioma != null ? session.idioma['Añadir'] : 'Añadir'}">Añadir</button>
+            </div>
+          </div>
+          </form>
+      </div>
+    </div>
+    </div>
+    
+
+
+      <div class="carousel-item  " >
+        <div class="d-flex align-items-center justify-content-evenly">
+        <div th:each="producto,iterStat : ${masVendidos}" th:if="${iterStat.index > 7 and iterStat.index < 12}" >
+          <a href="" th:href="@{'producto/' + ${producto.id}}"class="text-decoration-none d-flex flex-column "> 
+            <img src="" th:src="@{${IMG} + ${producto.imagen}}" class="imagen-carousel rounded-5 m-auto  " alt="No se encuentra">
+            <div class=" text-center bg-succes  fs-4 ">
+              <p class="fw-bold text-secondary mt-2  " th:text="${producto.nombre}"> 
+                
+              </p>
+              <h5 class="text-dark mb-0" > <span th:text="${#numbers.formatInteger(producto.precio, '0')}"></span> <span th:text="${#numbers.formatDecimal(producto.precio, 0, 2).substring(#numbers.formatDecimal(producto.precio, 0, 2).length() - 2)} + ' €'" class=" align-top fs-6 text-secondary " ></span></h5>
+            </div>
+          </a>
+          <form action="/addCarrito" method="post" class="justify-content-center d-flex d-block  ">
+                <div>
+            <label class="fs-6" for="cantidad" th:text="${session.idioma != null ? session.idioma['Cantidad'] : 'Cantidad'}">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad fs-6" min="1" th:max="${producto.stock}">
+            <input type="hidden" name="id" th:value="${producto.id}" /> <br>
+            <div class="d-flex justify-content-center mt-2  ">
+            <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-2  " th:text="${session.idioma != null ? session.idioma['Añadir'] : 'Añadir'}">Añadir</button>
+            </div>
+          </div>
+          </form>
+      </div>
+    </div>
+    </div>
+      
+    
+    <button class="carousel-control-prev  w-auto  " type="button" data-bs-target="#myCarousel3" data-bs-slide="prev">
+      <span style="filter: invert(100%)"  class="carousel-control-prev-icon " aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next   w-auto " type="button" data-bs-target="#myCarousel3" data-bs-slide="next">
+      <span style="filter: invert(100%)" class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> 
+
+
+ </div>
+
+</div>
+
+
 
   </main>
     
