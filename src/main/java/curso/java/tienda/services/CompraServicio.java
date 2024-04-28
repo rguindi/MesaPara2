@@ -1,6 +1,7 @@
 package curso.java.tienda.services;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import curso.java.tienda.Entities.Configuracion;
+import curso.java.tienda.Entities.Descuento;
 import curso.java.tienda.Entities.DetallePedido;
 import curso.java.tienda.Entities.Pedido;
 import curso.java.tienda.Entities.Producto;
@@ -32,13 +34,23 @@ public class CompraServicio {
 
 	@Autowired
 	DetallePedidoRepository detallePedidoRepository;
+	
+	@Autowired
+	DescuentosService descuentoService;
 
 	public Pedido generaPedido(HttpServletRequest request) {
 
 		HashMap<Producto, Integer> carrito = carritoService.recuperarCarrito(request);
 
-		Double total = carritoService.TotalConIva(carrito);
 
+		Double total = carritoService.TotalConIva(carrito);
+		
+		//Comprobamos cupon de descuento
+		String cupon = (String) request.getSession().getAttribute("cupon");
+		if (cupon==null) cupon = "";
+		Descuento descuento = descuentoService.descuentoporCodigo(cupon);
+		if(descuento != null) total -=descuento.getDescuento();
+		
 
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 		String metodoPago = (String) request.getSession().getAttribute("metodo");
@@ -94,7 +106,7 @@ public class CompraServicio {
 			Producto key = entry.getKey();
 			Integer val = entry.getValue();
 			
-			Producto producto = productoRepository.findById(key.getId()).orElse(null);         //recuperamos de nuevo el producto para tener un stock actualizado en el proceso de compra
+			Producto producto = productoRepository.findById(key.getId()).orElse(null);         //recuperamos de nuevo el producto para comprobar stock real
 			
 			if (producto == null || producto.getStock()<val || val<1) return false;
 			
@@ -107,6 +119,20 @@ public class CompraServicio {
 		return true;
 	}
 	
+	
+	//Recibe un pedido cancelado para añadir el stock al almacen
+	@Transactional
+	public void devolverStock(Long idPedido) {
+		
+		 List<DetallePedido> detalles = detallePedidoRepository.buscaPedido(idPedido);
+		 for (DetallePedido detallePedido : detalles) {
+			productoRepository.modificarStock(detallePedido.getId_producto(), detallePedido.getUnidades());
+		}
+	
+	}
+	
+	
+	//Recibe un carrito y lo devuelve con el stock real en ese momento
 	public HashMap<Producto, Integer> regenerarStock(HashMap<Producto, Integer> carrito) {
 	    for (Map.Entry<Producto, Integer> entry : carrito.entrySet()) {
 	        Producto producto = entry.getKey();

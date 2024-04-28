@@ -17,7 +17,7 @@
 			<tr><th></th><th></th><th>Nombre</th><th>Cantidad</th><th>IVA</th><th>Precio</th><th>Total</th></tr>
 			<tr th:each="entry : ${productos}">
 				<td><img th:src="@{${IMG} + ${entry.key.imagen}}" width="50" height="50" /></td>
-				<td> <a href="" th:href="@{'/valorar/' + ${entry.key.id}}" class="btn btn-sm btn-success ms-4" th:if="${#vars[entry.key.nombre]==null}">Valorar producto</a></td>
+				<td> <a href="" th:href="@{'/valorar/' + ${entry.key.id}}" class="btn btn-sm btn-success ms-4" th:if="${#vars[entry.key.nombre]==null} and ${estado == 'E'}">Valorar producto</a></td>
 				<td class="align-content-center " th:text="${entry.key.nombre}"></td> 
 				<td class="align-content-center" th:text="${entry.value}"></td>
 				<td class="align-content-center" th:text="${entry.key.impuesto}"></td>

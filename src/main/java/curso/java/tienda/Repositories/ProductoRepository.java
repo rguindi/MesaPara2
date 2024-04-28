@@ -43,4 +43,9 @@ public interface ProductoRepository extends JpaRepository<Producto, Long>  {
 	    List<Producto> findTop12ByUnidadesVendidasOrderByUnidadesVendidasDescAndFechaBajaIsNull();
 
 
+	 @Transactional
+	    @Modifying
+	    @Query("UPDATE Producto p SET p.stock = p.stock + :cantidad WHERE p.id = :productoId")
+	    void modificarStock(@Param("productoId") Long productoId, @Param("cantidad") int cantidad);
+
 }

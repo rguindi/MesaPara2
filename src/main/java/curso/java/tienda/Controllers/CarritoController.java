@@ -10,8 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import curso.java.tienda.Entities.Descuento;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.services.CarritoService;
+import curso.java.tienda.services.DescuentosService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,6 +35,9 @@ public class CarritoController {
 	
 	@Autowired
 	ProductoService productoService;
+	
+	@Autowired
+	DescuentosService descuentoService;
 	
 	
 	@PostMapping("/addCarrito")
@@ -77,7 +83,7 @@ public class CarritoController {
 	
 	
 	@GetMapping("/resumenPedido")
-	public String resumenPedido(HttpServletRequest request, Model model,  @RequestParam(value = "metodo", required = false) String metodo) {
+	public String resumenPedido(HttpServletRequest request, Model model,  @RequestParam(value = "metodo", required = false) String metodo, @RequestParam(value = "intento", required = false) String intento) {
 		
 		if(!usuarioService.clienteIsLoged(request)) return "redirect:/login";
 		if (metodo != null) {
@@ -89,7 +95,7 @@ public class CarritoController {
 			model.addAttribute("errorStock", "El Stock ha sido modificado. Revise su carrito.");
 		}
 		
-		
+
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
 		HashMap<Producto,Integer> carrito = carritoService.recuperarCarrito(request);
 		model.addAttribute("carrito", carrito);
@@ -97,6 +103,21 @@ public class CarritoController {
 		model.addAttribute("totalConIva", totalConIva);
 		double totalSinIva = carritoService.TotalSinIva(carrito);
 		model.addAttribute("totalSinIva", totalSinIva);
+		
+		
+		//Comprobamos cupon de descuento
+				String cupon = (String) request.getSession().getAttribute("cupon");
+				if (cupon==null) cupon = "";
+				Descuento descuento = descuentoService.descuentoporCodigo(cupon);
+		if(descuento != null) {
+			model.addAttribute("descuento", descuento);
+			model.addAttribute("totalConDescuento", totalConIva-descuento.getDescuento());
+			model.addAttribute("totalConIva", totalConIva - descuento.getDescuento());
+			System.out.println("Hay un codigo de descuento aplicado de " + descuento.getDescuento());
+			
+		}
+		if (intento!=null && descuento == null)model.addAttribute("noValido", "Código no válido");
+		
 		return "resumenPedido";
 	}
 	

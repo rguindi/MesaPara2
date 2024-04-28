@@ -64,7 +64,7 @@ public class CategoriaController {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 
 		if(validacion.hasErrors()) {
-			return "registrarCategoria";
+			return "/admin/registrarCategoria";
 		}
 		else {
 			

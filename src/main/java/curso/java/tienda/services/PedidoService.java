@@ -75,7 +75,7 @@ public class PedidoService {
 		if(usuarioService.empleadoIsLoged(request) && !estado.equals("E")) return "redirect:/pedidos";
 		Pedido pedido = this.porId(id);
 		
-		//Si ya se ha generado el numero no generamos otro
+		//Si ya se ha generado el numero no generamos otro.(si se ha generado ya no se puede cambiar estado)
 		if(!pedido.getNum_factura().equals("En trámite")) return "redirect:/pedidos";
 		
 		//Si se cambia a Enviado generamos el numero de factura y lo guardamos, y mandamos un email a usuario.
@@ -85,6 +85,13 @@ public class PedidoService {
 			 guardar(pedido);
 		//	 this.emailPedidoEnviado(pedido);    //Enviar email. se comenta la linea para el desarrollo 
 		}
+		
+		if(estado.equals("C")) {
+			 compraServicio.devolverStock(id);
+		
+		}
+		
+		
 		pedidoRepository.cambiarEstado(id, estado);
 		return "ok";
 	}

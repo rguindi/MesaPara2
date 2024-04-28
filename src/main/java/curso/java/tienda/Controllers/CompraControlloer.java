@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import curso.java.tienda.Entities.Pedido;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.services.CarritoService;
@@ -15,6 +19,7 @@ import curso.java.tienda.services.CompraServicio;
 import curso.java.tienda.services.PedidoService;
 import curso.java.tienda.services.UsuarioService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class CompraControlloer {
@@ -52,8 +57,20 @@ public class CompraControlloer {
 		request.getSession().removeAttribute("metodo");
 		request.getSession().removeAttribute("carrito");
 		request.getSession().removeAttribute("cantidadTotal");
+		request.getSession().removeAttribute("cupon");
 
 		return "compraRegistrada";
+	}
+	
+	
+	@PostMapping("/aplicarCodigo")
+	public String aplicarCodigo(HttpSession miSesion, Model model, @RequestParam String cupon, RedirectAttributes attributes) {
+		miSesion.setAttribute("cupon", cupon);
+		String metodo = (String)miSesion.getAttribute("metodo");
+		 attributes.addAttribute("metodo", metodo);
+		 attributes.addAttribute("intento", "intentado");
+		return "redirect:/resumenPedido";
+		
 	}
 	
 

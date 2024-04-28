@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import curso.java.tienda.Entities.DetallePedido;
 import curso.java.tienda.Entities.Opciones_menu;
+import curso.java.tienda.Entities.Pedido;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.services.CarritoService;
@@ -96,11 +97,15 @@ public class pedidosController {
 				productos.put(producto, detallePedido.getUnidades());
 				if(valSer.esValorado(usuario.getId(), producto.getId())) model.addAttribute(producto.getNombre(), "valorado"); //Si el producto ya ha sido valorado informamos al modelo
 			}
+			Pedido pedido = pedidoService.porId(id);
 			model.addAttribute("productos", productos);
-			String metodo = pedidoService.porId(id).getMetodo_pago();
+			String metodo = pedido.getMetodo_pago();
 			model.addAttribute("metodo", metodo);
-			double totalConIva = carritoServicio.TotalConIva(productos);
-			model.addAttribute("totalConIva", totalConIva);
+			String estado= pedido.getEstado();
+			model.addAttribute("estado", estado);
+			
+			
+			model.addAttribute("totalConIva", pedido.getTotal());
 			double totalSinIva = carritoServicio.TotalSinIva(productos);
 			model.addAttribute("totalSinIva", totalSinIva);
 			
