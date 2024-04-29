@@ -1,11 +1,18 @@
 package curso.java.tienda.Controllers;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +33,7 @@ import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
 import curso.java.tienda.services.pdfService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class pedidosController {
@@ -59,13 +67,33 @@ public class pedidosController {
 	
 	
 	
-	@GetMapping("/probarPDF")
-	public String  generarPDF() {
+	@GetMapping("/verFactura")
+	public ResponseEntity<ByteArrayResource>  generarPDF(@RequestParam Long id, HttpSession miSesion) {
+
+		Pedido pedido = pedidoService.porId(id);
+		Usuario user = usuarioService.buscarPorId(pedido.getId_usuario());
 		
-		Usuario u =usuarioService.buscarPorEmail("cliente@cliente.com");
-		Pedido p = pedidoService.porId(37L);
-		pdfservicio.generarPDF(u, p);	
-		return "redirect:/";
+		//Validamos que somos el usuario que ha hecho el pedido
+		Usuario usuarioSesion= (Usuario) miSesion.getAttribute("usuario");
+		if(usuarioSesion == null || usuarioSesion.getId() != user.getId()) {
+			return ResponseEntity.status(HttpStatus.FOUND)
+                    .header(HttpHeaders.LOCATION, "/")
+                    .build();
+		}
+
+        byte[] pdfBytes = pdfservicio.generarPDF(user, pedido);	
+        
+        // Configurar las cabeceras de la respuesta HTTP para indicar que es un archivo PDF para descargar
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "factura.pdf");
+        
+        // Crear un ByteArrayResource a partir del array de bytes del PDF generado
+        ByteArrayResource resource = new ByteArrayResource(pdfBytes);
+        // Devolver la respuesta con el archivo adjunto (factura.pdf)
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(resource);
 	}
 	
 	@GetMapping("/pedidos")

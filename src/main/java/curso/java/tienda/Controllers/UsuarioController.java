@@ -270,7 +270,7 @@ public class UsuarioController {
 		//Validamos quién y a quién esta editando
 				if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 				if(usuarioService.empleadoIsLoged(request)&&usuario.getId_rol()!=2)return "redirect:/home";
-				if(usuarioService.adminIsLoged(request)&&(usuario.getId_rol()!=2 || usuario.getId_rol()!=3))return "redirect:/home";
+				if(usuarioService.adminIsLoged(request)&&(usuario.getId_rol()!=2 && usuario.getId_rol()!=3))return "redirect:/home";
 				
 		
 		
@@ -287,7 +287,7 @@ public class UsuarioController {
 		//Validamos quién y a quién está editando
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		if(usuarioService.empleadoIsLoged(request)&&usuarioViejo.getId_rol()!=2)return "redirect:/home";
-		if(usuarioService.adminIsLoged(request)&&(usuarioViejo.getId_rol()!=2 || usuarioViejo.getId_rol()!=3))return "redirect:/home";
+		if(usuarioService.adminIsLoged(request)&&(usuarioViejo.getId_rol()!=2 && usuarioViejo.getId_rol()!=3))return "redirect:/home";
 		
 			
 		user.setId_rol(usuarioViejo.getId_rol());    
@@ -315,7 +315,7 @@ public class UsuarioController {
 		//Validamos quién y a quién está editando
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		if(usuarioService.empleadoIsLoged(request)&&usuarioViejo.getId_rol()!=2)return "redirect:/home";
-		if(usuarioService.adminIsLoged(request)&&(usuarioViejo.getId_rol()!=2 || usuarioViejo.getId_rol()!=3))return "redirect:/home";
+		if(usuarioService.adminIsLoged(request)&&(usuarioViejo.getId_rol()!=2 && usuarioViejo.getId_rol()!=3))return "redirect:/home";
 		
 		model.addAttribute("id", id);
 		Usuario user2 = (Usuario) request.getSession().getAttribute("usuario");
@@ -364,7 +364,7 @@ public class UsuarioController {
 		//Validamos quién y que rol se va a crear
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		if(usuarioService.empleadoIsLoged(request)&& rol!=2)return "redirect:/home";
-		if(usuarioService.adminIsLoged(request)&&(rol!=2 || rol!=3))return "redirect:/home";
+		if(usuarioService.adminIsLoged(request)&&(rol!=2 && rol!=3))return "redirect:/home";
 		
 		model.addAttribute("rol", rol);
 		Usuario user2 = (Usuario) request.getSession().getAttribute("usuario");
@@ -382,7 +382,7 @@ public class UsuarioController {
 		//Validamos quién y a quién está editando
 				if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 				if(usuarioService.empleadoIsLoged(request)&&user.getId_rol()!=2)return "redirect:/home";
-				if(usuarioService.adminIsLoged(request)&&(user.getId_rol()!=2 || user.getId_rol()!=3))return "redirect:/home";
+				if(usuarioService.adminIsLoged(request)&&(user.getId_rol()!=2 && user.getId_rol()!=3))return "redirect:/home";
 				
 				 if(!usuarioService.validarRegistro(user, validacion, clave2)) return "/admin/registrarUsuario";
 					else {

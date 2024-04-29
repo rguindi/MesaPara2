@@ -74,6 +74,8 @@
 					>
 					  Ver detalles
 					</button>
+					<a th:if="${pedido.estado == 'E'}" target="_blank" class="btn btn-sm  btn-success " th:href="'/verFactura?id=' + ${pedido.id}">Factura</a>
+
 				  </td>
 				</form>
 			  </tr>
