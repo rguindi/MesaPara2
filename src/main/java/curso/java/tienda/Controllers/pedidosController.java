@@ -24,6 +24,7 @@ import curso.java.tienda.services.PedidoService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
+import curso.java.tienda.services.pdfService;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
@@ -52,6 +53,20 @@ public class pedidosController {
 	
 	@Autowired
 	Opcion_menuService menServ;
+	
+	@Autowired
+	pdfService pdfservicio;
+	
+	
+	
+	@GetMapping("/probarPDF")
+	public String  generarPDF() {
+		
+		Usuario u =usuarioService.buscarPorEmail("cliente@cliente.com");
+		Pedido p = pedidoService.porId(37L);
+		pdfservicio.generarPDF(u, p);	
+		return "redirect:/";
+	}
 	
 	@GetMapping("/pedidos")
 	public String pedidos(Model model, HttpServletRequest request) {
