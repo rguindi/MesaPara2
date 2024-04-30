@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Mesa Para 2" />
+    <meta name="author" content=" Raul Ferrero Vicebte" />
+
+    <title>Configuracion</title>
+  </head>
+  
+  <body>
+	  <th:block th:insert="~{admin/header}"></th:block>
+    <div class="container-fluid m-0 p-0 d-flex">
+
+      <th:block th:insert="~{admin/leftNav}"></th:block>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <div>
+          <h2 class="text-center mt-3">Menú de Configuracion</h2>
+
+        </div>
+        
+        <table class="table table-striped table-responsive table-hover">
+        	<thead>
+        	<tr>
+        	<th>Nombre</th>
+        	<th>Valor</th>
+        	<th>Opción</th>
+        	</tr>
+        	
+       </thead>
+       
+       <tbody>
+       		<tr th:each="configuracion: ${listaConfiguracion}" >
+             <form action="/guardar" method="POST">
+       			<td ><input class="bg-secondary-subtle " name="clave" type="text" th:value="${configuracion.clave}" readonly></td>
+       			<td ><input name="valor" type="text" th:value="${configuracion.valor}"></td>
+
+            <td>
+              <input name="id" type="hidden" th:value="${configuracion.id}">
+              <button class=" btn btn-sm btn-warning " type="submit">Guardar</button>
+            </td>
+          </form>
+       			
+       		</tr>
+       </tbody>
+
+        </table>
+        
+        
+      </div>
+
+    </div><!-- /.container -->
+
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

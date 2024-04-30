@@ -1,8 +1,5 @@
 package curso.java.tienda.Entities;
 
-import java.sql.Timestamp;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

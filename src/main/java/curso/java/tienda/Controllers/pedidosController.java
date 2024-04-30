@@ -140,15 +140,10 @@ public class pedidosController {
 				productos.put(producto, detallePedido.getUnidades());
 				if(valSer.esValorado(usuario.getId(), producto.getId())) model.addAttribute(producto.getNombre(), "valorado"); //Si el producto ya ha sido valorado informamos al modelo
 			}
-			Pedido pedido = pedidoService.porId(id);
+			
 			model.addAttribute("productos", productos);
-			String metodo = pedido.getMetodo_pago();
-			model.addAttribute("metodo", metodo);
-			String estado= pedido.getEstado();
-			model.addAttribute("estado", estado);
-			
-			
-			model.addAttribute("totalConIva", pedido.getTotal());
+			Pedido pedido = pedidoService.porId(id);
+			model.addAttribute("pedido", pedido);
 			double totalSinIva = carritoServicio.TotalSinIva(productos);
 			model.addAttribute("totalSinIva", totalSinIva);
 			
@@ -159,9 +154,35 @@ public class pedidosController {
 	
 	
 	@PostMapping("/cambiarEstado")
-	public String cambiarEstado( @RequestParam("id") Long id,  @RequestParam("estado") String estado, HttpServletRequest request) {
+	public String cancelarLinea( @RequestParam("id") Long id,  @RequestParam("estado") String estado, HttpServletRequest request) {
 		pedidoService.cambiarEstado(id, estado, request);
 		return "redirect:/pedidos";
+	}
+	
+	@PostMapping("/cancelarLinea")
+	public String cambiarEstado(Model model, @RequestParam Long idProducto,  @RequestParam Long idPedido, HttpServletRequest request) {
+	 Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+	 Pedido pedido = pedidoService.porId(idPedido);
+	 if(pedido.getId_usuario() != user.getId()) return "redirect:/";
+	 	
+	 pedidoService.borrarLinea(idProducto, idPedido);
+	 
+		//
+	 model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
+		List<DetallePedido> detalles = detalleService.porIdPedido(idPedido);
+		HashMap <Producto,Integer> productos = new HashMap<Producto, Integer>(); 
+		for (DetallePedido detallePedido : detalles) {
+			Producto producto = (Producto) productoService.recuperarProducto(detallePedido.getId_producto());
+			productos.put(producto, detallePedido.getUnidades());
+			if(valSer.esValorado(user.getId(), producto.getId())) model.addAttribute(producto.getNombre(), "valorado"); //Si el producto ya ha sido valorado informamos al modelo
+		}
+		
+		model.addAttribute("productos", productos);
+		model.addAttribute("pedido", pedido);
+		double totalSinIva = carritoServicio.TotalSinIva(productos);
+		model.addAttribute("totalSinIva", totalSinIva);
+		
+		return "/detallePedido";
 	}
 
 }

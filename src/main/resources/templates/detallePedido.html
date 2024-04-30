@@ -11,24 +11,29 @@
 	<div class="container mt-5 p-4">
 			<span class="text-danger" th:text="${errorStock}" ></span>
 		<h2 class="mb-4">Detalles del pedido: </h2>
-		<h4 class="mb-4">Metodo de pago elegido: <span th:text="${metodo}" class="text-secondary"></span></h4>
+		<h4 class="mb-4">Metodo de pago elegido: <span th:text="${pedido.metodo_pago}" class="text-secondary"></span></h4>
 		<h4>Productos: </h4>
 		<table style="text-align: center;" class="table-responsive  table ">
-			<tr><th></th><th></th><th>Nombre</th><th>Cantidad</th><th>IVA</th><th>Precio</th><th>Total</th></tr>
+			<tr><th></th><th></th><th>Nombre</th><th>Cantidad</th><th>IVA</th><th>Precio</th><th>Total</th><th th:if="${pedido.estado eq 'PE'}"></th></tr>
 			<tr th:each="entry : ${productos}">
 				<td><img th:src="@{${IMG} + ${entry.key.imagen}}" width="50" height="50" /></td>
-				<td> <a href="" th:href="@{'/valorar/' + ${entry.key.id}}" class="btn btn-sm btn-success ms-4" th:if="${#vars[entry.key.nombre]==null} and ${estado == 'E'}">Valorar producto</a></td>
+				<td> <a href="" th:href="@{'/valorar/' + ${entry.key.id}}" class="btn btn-sm btn-success ms-4" th:if="${#vars[entry.key.nombre]==null} and ${pedido.estado == 'E'}">Valorar producto</a></td>
 				<td class="align-content-center " th:text="${entry.key.nombre}"></td> 
 				<td class="align-content-center" th:text="${entry.value}"></td>
 				<td class="align-content-center" th:text="${entry.key.impuesto}"></td>
 				<td class="align-content-center " th:text="${entry.key.precio + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
 				<td class="align-content-center "th:text="${#numbers.formatDecimal(entry.key.precio * entry.value, 0, 2)} + '&euro;'"></td> <!-- Multiplicar el precio por la cantidad -->
+				<td th:if="${pedido.estado == 'PE'}" ><form action="/cancelarLinea" method="POST">
+					<input type="hidden" th:value="${entry.key.id}" name="idProducto">
+					<input type="hidden" th:value="${pedido.id}" name="idPedido">
+					<button class="btn btn-sm btn-outline-secondary " type="submit">Eliminar línea del pedido</button>
+				</for></td>
 			</tr>
 		</table>
 
 		<div class="d-flex justify-content-end   ">
 		
-		<h5 class="me-5" >IVA: <span class="ms-2" th:text="${#numbers.formatDecimal(totalSinIva, 0, 2)}+ '€'"></span> </h5> <h4 class="fw-bold me-5" >Total:  <span class="ms-2" th:text="${#numbers.formatDecimal(totalConIva, 0, 2)} + '€'"></span></h4>
+		<h5 class="me-5" >IVA: <span class="ms-2" th:text="${#numbers.formatDecimal(totalSinIva, 0, 2)}+ '€'"></span> </h5> <h4 class="fw-bold me-5" >Total:  <span class="ms-2" th:text="${#numbers.formatDecimal(pedido.total, 0, 2)} + '€'"></span></h4>
 
 
 		</div>

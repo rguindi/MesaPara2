@@ -12549,3 +12549,980 @@ Error starting ApplicationContext. To display the condition evaluation report re
 2024-04-29 21:40:50,143 [RMI TCP Connection(27)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-04-29 21:40:50,144 [RMI TCP Connection(27)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
 2024-04-29 21:40:50,145 [RMI TCP Connection(27)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-04-29 22:55:44,050 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-04-29 22:55:44,123 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 22:55:44,125 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 22:55:44,199 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-29 22:55:44,199 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-29 22:55:45,035 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 22:55:45,132 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 13 JPA repository interfaces.
+2024-04-29 22:55:45,768 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 22:55:45,781 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 22:55:45,783 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 22:55:45,784 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 22:55:45,841 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 22:55:45,841 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1641 ms
+2024-04-29 22:55:45,881 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-29 22:55:46,054 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a94e77c
+2024-04-29 22:55:46,056 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-29 22:55:46,067 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 22:55:46,209 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 22:55:46,288 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-29 22:55:46,333 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 22:55:46,625 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 22:55:47,905 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 22:55:47,909 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 22:55:48,219 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-29 22:55:50,203 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-29 22:55:50,229 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-29 22:55:50,253 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-29 22:55:50,265 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 6.549 seconds (process running for 7.658)
+2024-04-29 22:56:05,659 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-29 22:56:05,660 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-29 22:56:05,661 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-04-29 22:56:05,976 [http-nio-8080-exec-1] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-29 22:57:31,117 [http-nio-8080-exec-3] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-29 22:57:36,708 [http-nio-8080-exec-9] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-29 22:58:42,306 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-29 22:58:42,311 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-29 22:58:42,320 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 22:58:42,324 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-29 22:58:42,333 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-29 22:58:42,467 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 22:58:42,467 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 22:58:42,686 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 22:58:42,710 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 13 JPA repository interfaces.
+2024-04-29 22:58:42,868 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 22:58:42,869 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 22:58:42,870 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 22:58:42,870 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 22:58:42,885 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 22:58:42,885 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 415 ms
+2024-04-29 22:58:42,906 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-04-29 22:58:42,912 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@99ffe8a
+2024-04-29 22:58:42,912 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-04-29 22:58:42,912 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 22:58:42,960 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 22:58:42,964 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 22:58:42,969 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 22:58:43,214 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 22:58:43,214 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 22:58:44,122 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-29 22:58:44,140 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-29 22:58:44,144 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-29 22:58:44,150 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.72 seconds (process running for 181.544)
+2024-04-29 22:58:44,153 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-29 22:58:45,434 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-29 22:58:45,434 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-29 22:58:45,436 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-04-29 22:58:48,164 [http-nio-8080-exec-3] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-29 22:58:54,986 [http-nio-8080-exec-4] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-29 23:08:04,180 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-29 23:08:04,183 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:08:04,187 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:08:04,188 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-04-29 23:08:04,190 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-04-29 23:08:04,305 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:08:04,305 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:08:04,483 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:08:04,507 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:08:04,633 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:08:04,633 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:08:04,634 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:08:04,634 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:08:04,647 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:08:04,648 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 339 ms
+2024-04-29 23:08:04,662 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2024-04-29 23:08:04,665 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43d67b7
+2024-04-29 23:08:04,666 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2024-04-29 23:08:04,666 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:08:04,704 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:08:04,707 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:08:04,713 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:08:04,992 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:08:04,992 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:08:05,861 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-29 23:08:05,876 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:08:05,885 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-29 23:08:05,891 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.613 seconds (process running for 743.31)
+2024-04-29 23:08:05,894 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-29 23:08:17,265 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-29 23:08:17,265 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-29 23:08:17,267 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-04-29 23:08:17,294 [http-nio-8080-exec-1] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-29 23:11:07,101 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (1 addition, 0 deletions, 1 modification)
+2024-04-29 23:11:07,102 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:11:07,106 [Thread-11] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:11:07,107 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2024-04-29 23:11:07,108 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2024-04-29 23:11:07,223 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:11:07,223 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:11:07,359 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:11:07,379 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:11:07,477 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:11:07,478 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:11:07,478 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:11:07,478 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:11:07,490 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:11:07,490 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 265 ms
+2024-04-29 23:11:07,502 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2024-04-29 23:11:07,505 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@180d8035
+2024-04-29 23:11:07,506 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2024-04-29 23:11:07,506 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:11:07,535 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:11:07,538 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:11:07,543 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:11:07,724 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:11:07,724 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:11:08,485 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-29 23:11:08,497 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:11:08,499 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-29 23:11:08,505 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.309 seconds (process running for 925.927)
+2024-04-29 23:11:08,506 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-29 23:24:12,015 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (1 addition, 0 deletions, 1 modification)
+2024-04-29 23:24:12,016 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:24:12,020 [Thread-15] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:24:12,021 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2024-04-29 23:24:12,022 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2024-04-29 23:24:12,131 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:24:12,132 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:24:12,314 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:24:12,336 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:24:12,454 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:24:12,455 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:24:12,456 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:24:12,456 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:24:12,468 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:24:12,468 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 334 ms
+2024-04-29 23:24:12,481 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2024-04-29 23:24:12,485 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e47ddc3
+2024-04-29 23:24:12,485 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2024-04-29 23:24:12,485 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:24:12,517 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:24:12,521 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:24:12,526 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:24:12,725 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:24:12,725 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:24:13,114 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:24:13,114 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2024-04-29 23:24:13,116 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+2024-04-29 23:24:13,116 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-29 23:24:13,127 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-29 23:29:23,680 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:29:23,680 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:29:23,865 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:29:23,889 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:29:24,019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:29:24,023 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:29:24,024 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:29:24,025 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:29:24,039 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:29:24,039 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 356 ms
+2024-04-29 23:29:24,053 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+2024-04-29 23:29:24,056 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c1a7b65
+2024-04-29 23:29:24,057 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+2024-04-29 23:29:24,057 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:29:24,093 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:29:24,096 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:29:24,100 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:29:24,292 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:29:24,292 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:29:24,681 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:29:24,681 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+2024-04-29 23:29:24,683 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+2024-04-29 23:29:24,684 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-29 23:29:24,692 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-29 23:29:41,313 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:29:41,313 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:29:41,465 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:29:41,485 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:29:41,609 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:29:41,610 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:29:41,611 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:29:41,611 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:29:41,636 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:29:41,636 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 321 ms
+2024-04-29 23:29:41,652 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+2024-04-29 23:29:41,655 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@36458959
+2024-04-29 23:29:41,655 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+2024-04-29 23:29:41,656 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:29:41,691 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:29:41,693 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:29:41,698 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:29:41,894 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:29:41,894 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:29:42,311 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:29:42,312 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+2024-04-29 23:29:42,313 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
+2024-04-29 23:29:42,314 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-29 23:29:42,321 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-29 23:30:32,656 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:30:32,656 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:30:32,816 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:30:32,837 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:30:32,937 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:30:32,938 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:30:32,938 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:30:32,938 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:30:32,950 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:30:32,950 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 292 ms
+2024-04-29 23:30:32,963 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Starting...
+2024-04-29 23:30:32,966 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2160b1a4
+2024-04-29 23:30:32,966 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Start completed.
+2024-04-29 23:30:32,966 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:30:32,996 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:30:32,998 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:30:33,003 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:30:33,163 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:30:33,164 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:30:33,499 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:30:33,499 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+2024-04-29 23:30:33,501 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+2024-04-29 23:30:33,501 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-29 23:30:33,508 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-29 23:31:16,370 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:31:16,370 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:31:16,516 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:31:16,536 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:31:16,637 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:31:16,638 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:31:16,638 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:31:16,638 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:31:16,649 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:31:16,649 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 277 ms
+2024-04-29 23:31:16,661 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Starting...
+2024-04-29 23:31:16,665 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5eb546d9
+2024-04-29 23:31:16,665 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Start completed.
+2024-04-29 23:31:16,665 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:31:16,694 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:31:16,697 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:31:16,701 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:31:16,854 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:31:16,855 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:31:17,195 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:31:17,196 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown initiated...
+2024-04-29 23:31:17,197 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown completed.
+2024-04-29 23:31:17,198 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-29 23:31:17,204 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-29 23:31:33,809 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:31:33,809 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:31:33,954 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:31:33,976 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:31:34,078 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:31:34,079 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:31:34,079 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:31:34,079 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:31:34,092 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:31:34,092 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 282 ms
+2024-04-29 23:31:34,105 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Starting...
+2024-04-29 23:31:34,107 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59190329
+2024-04-29 23:31:34,107 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Start completed.
+2024-04-29 23:31:34,107 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:31:34,138 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:31:34,140 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:31:34,144 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:31:34,323 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:31:34,323 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:31:35,109 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-29 23:31:35,124 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:31:35,126 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-29 23:31:35,131 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.344 seconds (process running for 2152.587)
+2024-04-29 23:31:35,133 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-29 23:33:25,640 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-04-29 23:33:25,642 [Thread-19] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:33:25,645 [Thread-19] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:33:25,646 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown initiated...
+2024-04-29 23:33:25,647 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown completed.
+2024-04-29 23:33:25,777 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:33:25,777 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:33:25,936 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:33:25,957 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:33:26,059 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:33:26,060 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:33:26,060 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:33:26,060 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:33:26,073 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:33:26,073 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 294 ms
+2024-04-29 23:33:26,086 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Starting...
+2024-04-29 23:33:26,089 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@65d1f0af
+2024-04-29 23:33:26,089 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Start completed.
+2024-04-29 23:33:26,089 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:33:26,120 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:33:26,122 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:33:26,127 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:33:26,284 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:33:26,284 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:33:26,634 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:33:26,635 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown initiated...
+2024-04-29 23:33:26,636 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown completed.
+2024-04-29 23:33:26,636 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-29 23:33:26,643 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-29 23:34:25,623 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1327 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:34:25,623 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:34:25,895 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:34:25,919 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:34:26,041 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:34:26,042 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:34:26,042 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:34:26,043 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:34:26,058 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:34:26,058 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 433 ms
+2024-04-29 23:34:26,074 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Starting...
+2024-04-29 23:34:26,077 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43c68627
+2024-04-29 23:34:26,078 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Start completed.
+2024-04-29 23:34:26,078 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:34:26,111 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:34:26,114 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:34:26,118 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:34:26,293 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:34:26,293 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:34:26,633 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:34:26,633 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown initiated...
+2024-04-29 23:34:26,635 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown completed.
+2024-04-29 23:34:26,636 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-29 23:34:26,642 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-29 23:42:59,240 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-04-29 23:42:59,297 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2154 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-29 23:42:59,298 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-29 23:42:59,360 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-29 23:42:59,361 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-29 23:43:00,114 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-29 23:43:00,212 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 13 JPA repository interfaces.
+2024-04-29 23:43:00,854 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-29 23:43:00,867 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:43:00,869 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-29 23:43:00,869 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-29 23:43:00,925 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-29 23:43:00,925 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1563 ms
+2024-04-29 23:43:00,962 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-29 23:43:01,121 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@211cdc04
+2024-04-29 23:43:01,123 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-29 23:43:01,133 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-29 23:43:01,273 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-29 23:43:01,348 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-29 23:43:01,386 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-29 23:43:01,621 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-29 23:43:02,872 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-29 23:43:02,875 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-29 23:43:03,152 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-29 23:43:05,107 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-29 23:43:05,136 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-29 23:43:05,158 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-29 23:43:05,171 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 6.25 seconds (process running for 7.433)
+2024-04-29 23:43:16,706 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-29 23:43:16,706 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-29 23:43:16,708 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-04-30 00:02:44,276 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-30 00:02:44,282 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:02:44,291 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:02:44,295 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-30 00:02:44,304 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-30 00:02:44,429 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2154 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:02:44,429 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:02:44,647 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:02:44,671 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:02:44,821 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:02:44,822 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:02:44,822 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:02:44,822 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:02:44,838 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:02:44,838 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 405 ms
+2024-04-30 00:02:44,854 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-04-30 00:02:44,858 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@748e2f2e
+2024-04-30 00:02:44,858 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-04-30 00:02:44,859 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:02:44,894 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:02:44,897 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:02:44,902 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:02:45,133 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:02:45,134 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:02:46,002 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:02:46,019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:02:46,021 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:02:46,027 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.635 seconds (process running for 1188.32)
+2024-04-30 00:02:46,031 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:03:42,998 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-04-30 00:03:42,999 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:03:43,004 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:03:43,005 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-04-30 00:03:43,006 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-04-30 00:03:43,129 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2154 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:03:43,130 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:03:43,308 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:03:43,336 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:03:43,469 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:03:43,470 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:03:43,470 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:03:43,471 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:03:43,485 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:03:43,486 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 353 ms
+2024-04-30 00:03:43,500 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2024-04-30 00:03:43,504 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@271f85bd
+2024-04-30 00:03:43,504 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2024-04-30 00:03:43,505 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:03:43,539 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:03:43,542 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:03:43,546 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:03:43,771 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:03:43,771 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:03:44,629 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:03:44,646 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:03:44,649 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:03:44,656 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.56 seconds (process running for 1246.95)
+2024-04-30 00:03:44,659 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:06:00,441 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-04-30 00:06:00,443 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:00,446 [Thread-11] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:06:00,447 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2024-04-30 00:06:00,449 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2024-04-30 00:06:00,567 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2154 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:06:00,568 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:06:00,719 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:06:00,742 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:06:00,852 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:06:00,853 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:00,853 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:06:00,853 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:06:00,866 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:06:00,866 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 296 ms
+2024-04-30 00:06:00,878 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2024-04-30 00:06:00,881 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59b592c9
+2024-04-30 00:06:00,882 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2024-04-30 00:06:00,882 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:06:00,916 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:06:00,919 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:06:00,923 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:06:01,109 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:06:01,109 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:06:01,117 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:06:01,118 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2024-04-30 00:06:01,119 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2024-04-30 00:06:01,120 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-30 00:06:01,128 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-30 00:06:09,667 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2154 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:06:09,667 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:06:09,827 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:06:09,849 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:06:10,001 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:06:10,003 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:10,004 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:06:10,004 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:06:10,015 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:06:10,015 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 346 ms
+2024-04-30 00:06:10,029 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2024-04-30 00:06:10,032 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31b78a92
+2024-04-30 00:06:10,032 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2024-04-30 00:06:10,032 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:06:10,064 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:06:10,067 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:06:10,071 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:06:10,273 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:06:10,274 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:06:11,054 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:06:11,067 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:11,070 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:06:11,077 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.434 seconds (process running for 1393.375)
+2024-04-30 00:06:11,080 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:06:16,451 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-04-30 00:06:16,508 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2612 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:06:16,510 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:06:16,569 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-30 00:06:16,569 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-30 00:06:17,399 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:06:17,496 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:06:18,348 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:06:18,363 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:18,366 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:06:18,367 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:06:18,433 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:06:18,433 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1863 ms
+2024-04-30 00:06:18,480 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-30 00:06:18,671 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5acd32a0
+2024-04-30 00:06:18,676 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-30 00:06:18,688 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:06:18,852 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:06:18,934 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-30 00:06:18,979 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:06:19,283 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:06:20,953 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:06:20,957 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:06:21,307 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-30 00:06:23,679 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:23,695 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:06:23,700 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-30 00:06:23,711 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-30 00:06:23,732 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-30 00:06:38,403 [RMI TCP Connection(27)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2024-04-30 00:06:38,405 [RMI TCP Connection(27)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:38,408 [RMI TCP Connection(27)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:06:38,409 [RMI TCP Connection(27)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2024-04-30 00:06:38,410 [RMI TCP Connection(27)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+2024-04-30 00:06:41,708 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-04-30 00:06:41,767 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:06:41,768 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:06:41,832 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-30 00:06:41,833 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-30 00:06:42,647 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:06:42,747 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:06:43,433 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:06:43,445 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:43,448 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:06:43,448 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:06:43,513 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:06:43,513 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1679 ms
+2024-04-30 00:06:43,555 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-30 00:06:43,718 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a45fd0c
+2024-04-30 00:06:43,720 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-30 00:06:43,731 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:06:43,876 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:06:43,949 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-30 00:06:43,987 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:06:44,234 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:06:45,475 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:06:45,480 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:06:45,756 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-30 00:06:47,733 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:06:47,832 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:06:47,867 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:06:47,882 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 6.522 seconds (process running for 7.575)
+2024-04-30 00:06:54,123 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 00:06:54,124 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-30 00:06:54,126 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-04-30 00:06:54,412 [http-nio-8080-exec-3] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 00:18:26,223 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-04-30 00:18:26,228 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:18:26,237 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:18:26,241 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-30 00:18:26,250 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-30 00:18:26,369 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:18:26,369 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:18:26,589 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:18:26,613 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:18:26,763 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:18:26,765 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:18:26,765 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:18:26,765 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:18:26,780 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:18:26,781 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 409 ms
+2024-04-30 00:18:26,798 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-04-30 00:18:26,802 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2234d1e0
+2024-04-30 00:18:26,802 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-04-30 00:18:26,803 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:18:26,839 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:18:26,843 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:18:26,847 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:18:27,085 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:18:27,085 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:18:27,531 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:18:27,532 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-04-30 00:18:27,533 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-04-30 00:18:27,534 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-30 00:18:27,542 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-30 00:20:07,066 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:20:07,066 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:20:07,230 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:20:07,253 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:20:07,381 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:20:07,384 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:20:07,384 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:20:07,385 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:20:07,399 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:20:07,400 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 330 ms
+2024-04-30 00:20:07,414 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2024-04-30 00:20:07,418 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43bf3bd8
+2024-04-30 00:20:07,419 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2024-04-30 00:20:07,419 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:20:07,453 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:20:07,456 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:20:07,463 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:20:07,693 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:20:07,693 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:20:08,066 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:20:08,067 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2024-04-30 00:20:08,069 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2024-04-30 00:20:08,070 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-30 00:20:08,077 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-30 00:29:27,319 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:29:27,319 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:29:27,502 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:29:27,526 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:29:27,648 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:29:27,649 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:29:27,649 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:29:27,649 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:29:27,662 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:29:27,662 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 341 ms
+2024-04-30 00:29:27,677 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2024-04-30 00:29:27,681 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7534c906
+2024-04-30 00:29:27,682 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2024-04-30 00:29:27,682 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:29:27,713 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:29:27,716 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:29:27,720 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:29:27,923 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:29:27,923 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:29:28,703 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:29:28,719 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:29:28,721 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:29:28,726 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.434 seconds (process running for 1368.453)
+2024-04-30 00:29:28,729 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:31:56,677 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2024-04-30 00:31:56,678 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:31:56,682 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:31:56,683 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2024-04-30 00:31:56,684 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2024-04-30 00:31:56,795 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:31:56,796 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:31:56,951 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:31:56,971 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:31:57,084 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:31:57,085 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:31:57,085 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:31:57,086 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:31:57,098 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:31:57,098 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 300 ms
+2024-04-30 00:31:57,112 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2024-04-30 00:31:57,116 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e8d9992
+2024-04-30 00:31:57,117 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2024-04-30 00:31:57,117 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:31:57,150 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:31:57,153 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:31:57,158 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:31:57,361 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:31:57,361 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:31:58,060 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:31:58,072 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:31:58,074 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:31:58,080 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.312 seconds (process running for 1517.81)
+2024-04-30 00:31:58,081 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:33:01,086 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-30 00:33:01,088 [Thread-17] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:33:01,091 [Thread-17] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:33:01,092 [Thread-17] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2024-04-30 00:33:01,093 [Thread-17] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+2024-04-30 00:33:01,199 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:33:01,200 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:33:01,348 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:33:01,368 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:33:01,468 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:33:01,469 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:33:01,469 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:33:01,469 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:33:01,481 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:33:01,482 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 281 ms
+2024-04-30 00:33:01,494 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+2024-04-30 00:33:01,497 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4f158bf9
+2024-04-30 00:33:01,497 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+2024-04-30 00:33:01,498 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:33:01,526 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:33:01,529 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:33:01,533 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:33:01,728 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:33:01,728 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:33:02,463 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:33:02,476 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:33:02,478 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:33:02,484 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.31 seconds (process running for 1582.216)
+2024-04-30 00:33:02,485 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:33:08,800 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 00:33:08,800 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-30 00:33:08,802 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-04-30 00:33:08,844 [http-nio-8080-exec-2] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 00:37:45,852 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-30 00:37:45,854 [Thread-21] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:37:45,857 [Thread-21] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:37:45,858 [Thread-21] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+2024-04-30 00:37:45,859 [Thread-21] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+2024-04-30 00:37:45,976 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:37:45,976 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:37:46,226 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:37:46,248 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:37:46,376 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:37:46,376 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:37:46,377 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:37:46,377 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:37:46,388 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:37:46,388 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 409 ms
+2024-04-30 00:37:46,401 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+2024-04-30 00:37:46,405 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ceab31d
+2024-04-30 00:37:46,406 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+2024-04-30 00:37:46,406 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:37:46,439 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:37:46,441 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:37:46,445 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:37:46,653 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:37:46,654 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:37:47,421 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:37:47,436 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:37:47,438 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:37:47,443 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.491 seconds (process running for 1867.183)
+2024-04-30 00:37:47,445 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:38:20,166 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-30 00:38:20,168 [Thread-25] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:38:20,171 [Thread-25] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:38:20,172 [Thread-25] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+2024-04-30 00:38:20,173 [Thread-25] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
+2024-04-30 00:38:20,291 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:38:20,291 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:38:20,440 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:38:20,461 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:38:20,563 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:38:20,564 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:38:20,564 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:38:20,564 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:38:20,576 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:38:20,577 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 284 ms
+2024-04-30 00:38:20,589 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Starting...
+2024-04-30 00:38:20,592 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a455198
+2024-04-30 00:38:20,592 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Start completed.
+2024-04-30 00:38:20,593 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:38:20,620 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:38:20,622 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:38:20,626 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:38:20,789 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:38:20,789 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:38:21,498 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:38:21,511 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:38:21,513 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:38:21,518 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.25 seconds (process running for 1901.259)
+2024-04-30 00:38:21,520 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:39:49,832 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-30 00:39:49,833 [Thread-29] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:39:49,836 [Thread-29] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:39:49,837 [Thread-29] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+2024-04-30 00:39:49,838 [Thread-29] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+2024-04-30 00:39:49,943 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 2642 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 00:39:49,943 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 00:39:50,098 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 00:39:50,120 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 13 JPA repository interfaces.
+2024-04-30 00:39:50,230 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 00:39:50,231 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:39:50,231 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 00:39:50,232 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 00:39:50,244 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 00:39:50,245 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 300 ms
+2024-04-30 00:39:50,257 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Starting...
+2024-04-30 00:39:50,261 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ca3df49
+2024-04-30 00:39:50,261 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Start completed.
+2024-04-30 00:39:50,261 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 00:39:50,292 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 00:39:50,295 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 00:39:50,299 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 00:39:50,485 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 00:39:50,486 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:39:51,180 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 00:39:51,193 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:39:51,195 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 00:39:51,201 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.279 seconds (process running for 1990.944)
+2024-04-30 00:39:51,203 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 00:39:55,630 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 00:39:55,630 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-30 00:39:55,631 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-04-30 00:39:55,663 [http-nio-8080-exec-2] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 00:41:51,099 [http-nio-8080-exec-9] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 00:42:47,588 [RMI TCP Connection(38)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2024-04-30 00:42:47,592 [RMI TCP Connection(38)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 00:42:47,596 [RMI TCP Connection(38)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 00:42:47,596 [RMI TCP Connection(38)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown initiated...
+2024-04-30 00:42:47,597 [RMI TCP Connection(38)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown completed.
+2024-04-30 12:02:22,737 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-04-30 12:02:22,880 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1294 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 12:02:22,881 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 12:02:22,968 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-30 12:02:22,969 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-30 12:02:24,005 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 12:02:24,112 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 94 ms. Found 13 JPA repository interfaces.
+2024-04-30 12:02:24,759 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 12:02:24,775 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 12:02:24,778 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 12:02:24,779 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 12:02:24,842 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 12:02:24,842 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1872 ms
+2024-04-30 12:02:24,885 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-30 12:02:25,060 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a2237f2
+2024-04-30 12:02:25,063 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-30 12:02:25,075 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 12:02:25,236 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 12:02:25,320 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-30 12:02:25,368 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 12:02:25,660 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 12:02:26,969 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 12:02:26,972 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 12:02:27,269 [restartedMain] INFO  o.s.d.j.r.q.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-30 12:02:29,544 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 12:02:29,573 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 12:02:29,600 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 12:02:29,614 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 7.274 seconds (process running for 8.672)
+2024-04-30 12:02:34,243 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 12:02:34,243 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-30 12:02:34,246 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-04-30 12:02:34,474 [http-nio-8080-exec-1] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 12:02:42,969 [http-nio-8080-exec-7] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 12:18:25,323 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)
+2024-04-30 12:18:25,334 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 12:18:25,343 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 12:18:25,348 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-30 12:18:25,350 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-30 12:18:25,612 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1294 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 12:18:25,612 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 12:18:25,896 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 12:18:25,935 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 13 JPA repository interfaces.
+2024-04-30 12:18:26,186 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 12:18:26,188 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 12:18:26,189 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 12:18:26,189 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 12:18:26,230 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 12:18:26,230 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 615 ms
+2024-04-30 12:18:26,254 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-04-30 12:18:26,259 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2bb69feb
+2024-04-30 12:18:26,259 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-04-30 12:18:26,260 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 12:18:26,311 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 12:18:26,315 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 12:18:26,321 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 12:18:26,871 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 12:18:26,872 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 12:18:28,638 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 12:18:28,663 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 12:18:28,666 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 12:18:28,674 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 3.104 seconds (process running for 967.904)
+2024-04-30 12:18:28,677 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 12:18:32,075 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-30 12:18:32,076 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 12:18:32,081 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 12:18:32,082 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-04-30 12:18:32,083 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-04-30 12:18:32,200 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1294 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 12:18:32,200 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 12:18:32,359 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 12:18:32,384 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 13 JPA repository interfaces.
+2024-04-30 12:18:32,499 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 12:18:32,499 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 12:18:32,500 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 12:18:32,500 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 12:18:32,514 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 12:18:32,514 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 312 ms
+2024-04-30 12:18:32,528 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2024-04-30 12:18:32,533 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@79bb1f00
+2024-04-30 12:18:32,533 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2024-04-30 12:18:32,533 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 12:18:32,567 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 12:18:32,576 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 12:18:32,580 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 12:18:32,768 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 12:18:32,768 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 12:18:33,605 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 12:18:33,621 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 12:18:33,623 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 12:18:33,629 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.46 seconds (process running for 972.859)
+2024-04-30 12:18:33,631 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 12:18:38,254 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 12:18:38,254 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-30 12:18:38,256 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-04-30 12:18:45,105 [http-nio-8080-exec-5] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 12:18:51,473 [http-nio-8080-exec-1] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:02:07,429 [http-nio-8080-exec-2] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:02:13,261 [http-nio-8080-exec-4] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:34:44,668 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2024-04-30 13:34:44,669 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 13:34:44,673 [Thread-11] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 13:34:44,673 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2024-04-30 13:34:44,674 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2024-04-30 13:34:44,782 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1294 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 13:34:44,782 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 13:34:44,981 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 13:34:45,003 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 13 JPA repository interfaces.
+2024-04-30 13:34:45,121 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 13:34:45,122 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 13:34:45,122 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 13:34:45,122 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 13:34:45,134 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 13:34:45,135 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 351 ms
+2024-04-30 13:34:45,148 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2024-04-30 13:34:45,151 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d6de01c
+2024-04-30 13:34:45,152 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2024-04-30 13:34:45,152 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 13:34:45,183 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 13:34:45,187 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 13:34:45,192 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 13:34:45,401 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 13:34:45,401 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 13:34:46,199 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 13:34:46,211 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 13:34:46,213 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 13:34:46,219 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.468 seconds (process running for 5545.57)
+2024-04-30 13:34:46,221 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 13:34:48,087 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 13:34:48,087 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-30 13:34:48,088 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-04-30 13:34:48,110 [http-nio-8080-exec-1] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:34:54,590 [http-nio-8080-exec-7] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:35:04,714 [http-nio-8080-exec-6] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:35:08,337 [http-nio-8080-exec-1] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:36:34,750 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-04-30 13:36:34,752 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 13:36:34,756 [Thread-15] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 13:36:34,757 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2024-04-30 13:36:34,758 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2024-04-30 13:36:34,880 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Starting MesaPara2Application using Java 17.0.9 with PID 1294 (/Users/raul/Documents/Eclipse/MesaPara2/target/classes started by raul in /Users/raul/Documents/Eclipse/MesaPara2)
+2024-04-30 13:36:34,880 [restartedMain] INFO  c.java.tienda.MesaPara2Application - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 13:36:35,056 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-30 13:36:35,080 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 13 JPA repository interfaces.
+2024-04-30 13:36:35,193 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-04-30 13:36:35,194 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-04-30 13:36:35,194 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 13:36:35,194 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-30 13:36:35,207 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 13:36:35,207 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 325 ms
+2024-04-30 13:36:35,221 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2024-04-30 13:36:35,225 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@504a3556
+2024-04-30 13:36:35,225 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2024-04-30 13:36:35,225 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/tienda_raul_ferrero_vicente?zeroDateTimeBehavior=convertToNull'
+2024-04-30 13:36:35,255 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-30 13:36:35,257 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-04-30 13:36:35,262 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-30 13:36:35,434 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-30 13:36:35,435 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 13:36:36,188 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 13:36:36,203 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-04-30 13:36:36,205 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-04-30 13:36:36,211 [restartedMain] INFO  c.java.tienda.MesaPara2Application - Started MesaPara2Application in 1.364 seconds (process running for 5655.564)
+2024-04-30 13:36:36,212 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 13:36:43,496 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-30 13:36:43,496 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-04-30 13:36:43,506 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2024-04-30 13:36:45,003 [http-nio-8080-exec-10] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:36:50,392 [http-nio-8080-exec-4] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:38:12,962 [http-nio-8080-exec-4] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:38:39,938 [http-nio-8080-exec-7] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:38:47,471 [http-nio-8080-exec-9] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:40:16,873 [http-nio-8080-exec-6] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:43:38,391 [http-nio-8080-exec-2] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:43:45,102 [http-nio-8080-exec-1] INFO  INFO_FILE - Probando Log-INFO desde /
+2024-04-30 13:44:03,838 [RMI TCP Connection(106)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2024-04-30 13:44:03,840 [RMI TCP Connection(106)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-04-30 13:44:03,844 [RMI TCP Connection(106)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-30 13:44:03,845 [RMI TCP Connection(106)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2024-04-30 13:44:03,847 [RMI TCP Connection(106)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.

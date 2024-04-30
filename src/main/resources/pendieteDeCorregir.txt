@@ -1,7 +1,7 @@
 estadisticas
 excel
-proveedores
 Hilos para chat, y para cambiar de PE a E
 carga automatica del script y usuarios
-cancelacion parcial
-REST??
+
+
+cancelacion parcial  Borra pero no modifica el total del pedido. Redirige al home. Corregir

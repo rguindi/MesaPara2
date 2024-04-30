@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import curso.java.tienda.Entities.DetallePedido;
 import curso.java.tienda.Entities.Pedido;
+import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.Repositories.PedidoRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,6 +27,12 @@ public class PedidoService {
 	
 	@Autowired
 	private MainService mainService;
+	
+	@Autowired
+	DetalleService detalleService;
+	
+	@Autowired
+	ProductoService productoService;
 	
 	public void guardar (Pedido pedido) {
 		pedidoRepository.save(pedido);
@@ -103,6 +111,20 @@ public class PedidoService {
 		String subject = "Pedido " + pedido.getId() + " enviado.";
 		String content = "Su pedido con número " + pedido.getId() + " ha salido de nuestras instalaciones. Pronto lo recibirá en su domicilio.";
 		mainService.sendEmail(to, subject, content);
+	}
+	
+	public void borrarLinea(Long idProducto, Long idPedido) {
+		List<DetallePedido> lineas = detalleService.porIdPedido(idPedido);
+		 int cantidad = 0;
+		 for (DetallePedido detallePedido : lineas) {
+			 if(detallePedido.getId_producto() == idProducto) {
+				 cantidad = detallePedido.getUnidades();
+				 detalleService.borrar(detallePedido.getId());
+				Producto producto = productoService.recuperarProducto(idProducto);
+				producto.setStock(producto.getStock()+cantidad);
+			 }
+			
+		}
 	}
 	
 

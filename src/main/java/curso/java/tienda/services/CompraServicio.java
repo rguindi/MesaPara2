@@ -68,7 +68,7 @@ public class CompraServicio {
 		String numFactura;
 		Configuracion confFactura = configuracionRepository.findFirstByClave("factura").orElse(null);
 		if(confFactura == null) {
-			Configuracion configuracion = new Configuracion("factura", "1", "");
+			Configuracion configuracion = new Configuracion(null, "factura", "1", null);
 			configuracionRepository.save(configuracion);
 			confFactura = configuracionRepository.findFirstByClave("factura").orElse(null);
 		}

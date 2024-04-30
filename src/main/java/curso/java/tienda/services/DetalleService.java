@@ -17,5 +17,9 @@ public class DetalleService {
 	public List<DetallePedido> porIdPedido(Long Id){
 		return detalleRepositorio.buscaPedido(Id);
 	}
+	
+	public void borrar(Long Id){
+		detalleRepositorio.deleteById(Id);
+	}
 
 }
