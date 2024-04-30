@@ -5,7 +5,7 @@
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
       datasets: [{
-        label: 'Facturación',
+        label: 'Facturacióno',
         data: [12, 19, 3, 5, 2, 3],
         borderWidth: 1
       }]
