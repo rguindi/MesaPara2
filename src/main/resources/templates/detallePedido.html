@@ -23,11 +23,11 @@
 				<td class="align-content-center" th:text="${entry.key.impuesto}"></td>
 				<td class="align-content-center " th:text="${entry.key.precio + '&euro;'}"></td> <!-- Multiplicar el precio por la cantidad -->
 				<td class="align-content-center "th:text="${#numbers.formatDecimal(entry.key.precio * entry.value, 0, 2)} + '&euro;'"></td> <!-- Multiplicar el precio por la cantidad -->
-				<td th:if="${pedido.estado == 'PE'}" ><form action="/cancelarLinea" method="POST">
+				<td th:if="${pedido.estado == 'PE' and #maps.size(productos)!=1}" ><form action="/cancelarLinea" method="POST">
 					<input type="hidden" th:value="${entry.key.id}" name="idProducto">
 					<input type="hidden" th:value="${pedido.id}" name="idPedido">
 					<button class="btn btn-sm btn-outline-secondary " type="submit">Eliminar línea del pedido</button>
-				</for></td>
+				</form></td>
 			</tr>
 		</table>
 

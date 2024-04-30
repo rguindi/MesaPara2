@@ -16498,3 +16498,66 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property o
 	at java.base/java.lang.Thread.run(Thread.java:840)
 2024-04-30 13:43:38,391 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
 2024-04-30 13:43:45,101 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:09:23,975 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:09:31,551 [http-nio-8080-exec-4] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:10:07,767 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:10:10,962 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:10:13,601 [http-nio-8080-exec-8] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:20:12,469 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   compraControlloer (field curso.java.tienda.services.PedidoService curso.java.tienda.Controllers.CompraControlloer.pedidoService)
+┌─────┐
+|  pedidoService (field curso.java.tienda.services.PedidoService curso.java.tienda.services.PedidoService.pedidoService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-04-30 16:20:46,134 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   compraControlloer (field curso.java.tienda.services.PedidoService curso.java.tienda.Controllers.CompraControlloer.pedidoService)
+┌─────┐
+|  pedidoService (field curso.java.tienda.services.PedidoService curso.java.tienda.services.PedidoService.pedidoService)
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-04-30 16:23:44,119 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:23:50,056 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:25:40,934 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:25:58,170 [http-nio-8080-exec-10] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:26:34,702 [http-nio-8080-exec-9] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:26:39,348 [http-nio-8080-exec-4] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:26:46,314 [http-nio-8080-exec-3] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:26:49,312 [http-nio-8080-exec-7] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:26:55,037 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:37:02,520 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 16:37:07,579 [http-nio-8080-exec-9] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 17:02:11,356 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 17:30:45,408 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 18:07:14,952 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 18:22:33,513 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 18:27:31,518 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 18:31:03,785 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-04-30 20:54:27,239 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /

@@ -34,6 +34,7 @@ public class PedidoService {
 	@Autowired
 	ProductoService productoService;
 	
+	
 	public void guardar (Pedido pedido) {
 		pedidoRepository.save(pedido);
 	}
@@ -116,12 +117,16 @@ public class PedidoService {
 	public void borrarLinea(Long idProducto, Long idPedido) {
 		List<DetallePedido> lineas = detalleService.porIdPedido(idPedido);
 		 int cantidad = 0;
+		 Pedido pedido = this.porId(idPedido);
 		 for (DetallePedido detallePedido : lineas) {
 			 if(detallePedido.getId_producto() == idProducto) {
 				 cantidad = detallePedido.getUnidades();
 				 detalleService.borrar(detallePedido.getId());
 				Producto producto = productoService.recuperarProducto(idProducto);
 				producto.setStock(producto.getStock()+cantidad);
+				productoService.guardar(producto);
+				pedido.setTotal(pedido.getTotal()-detallePedido.getTotal());
+				this.guardar(pedido);
 			 }
 			
 		}

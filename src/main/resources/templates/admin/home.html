@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Mesa Para 2" />
-    <meta name="author" content=" Raul Ferrero Vicebte" />
 
-    <title>Panel de administracion</title>
-  </head>
-  
   <body>
 	  <th:block th:insert="~{admin/header}"></th:block>
 
@@ -19,12 +7,35 @@
   <th:block th:insert="~{admin/leftNav}"></th:block>
 
     <div class="container justify-content-center align-items-center">
-      <div class="d-flex justify-content-center flex-column align-content-center align-items-center  p-5 mt-3">
-      <h1 class="slogan text-center " style="font-size: 5rem;" >Mesa Para <br><span style="color: red; font-size: 2em;"> 2</span></h1>
+      <div>
+        <div class="d-flex justify-content-center flex-column align-content-center align-items-center  p-5 mt-3">
+        <h1 class="slogan text-center " style="font-size: 5rem;" >Mesa Para <br><span style="color: red; font-size: 2em;"> 2</span></h1>
+      </div>
+      <div class="d-flex justify-content-lg-evenly ">
+      <div>
+        
+        <canvas id="facturacion"></canvas>
+      </div>
+      
+      <div>
+        aqui va una grafica 2
+      </div>
+    </div>
+    <div class="d-flex justify-content-lg-evenly ">
+      <div>
+        aqui va una grafica 3
+      </div>
+      
+      <div>
+        aqui va una grafica 4
+      </div>
+    </div>
                 
       </div>
     </div>
 
 </div>
+
+<script th:src="@{/js/estadisticas.js}"></script>
   </body>
 </html>
