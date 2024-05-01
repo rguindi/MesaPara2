@@ -63,7 +63,8 @@
                 <button type="submit" class="btn btn-warning  btn-block mb-4" name="Cambiar">Cambiar</button> <br>
 
                 <!-- Register buttons -->
-                <p><a href="/">Volver</a></p>
+                <p><a th:href="@{/editar/{id}(id=${session.usuario.id})}">Volver</a></p>
+
 
             </div>
         </form>

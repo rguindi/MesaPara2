@@ -1,5 +1,6 @@
 package curso.java.tienda.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import curso.java.tienda.Entities.DetallePedido;
 import curso.java.tienda.Entities.Pedido;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
+import curso.java.tienda.Entities.DTO.Facturacion;
 import curso.java.tienda.Repositories.PedidoRepository;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -53,6 +55,21 @@ public class PedidoService {
 	
 	public Pedido porId (Long id) {
 		return pedidoRepository.findById(id).orElse(null);
+	}
+	
+	public List<Facturacion>  facturacion6Meses () {
+		List<Facturacion> facturaciones = new ArrayList<>();
+		List<Object[]> resultados = pedidoRepository.obtenerFacturacionUltimos6Meses();
+		for (Object[] resultado : resultados) {
+            String mes = (String) resultado[0];
+            Double total = (Double) resultado[1];
+            
+            // Crear objeto Facturacion y agregar a la lista
+            Facturacion facturacion = new Facturacion(mes, total);
+            facturaciones.add(facturacion);
+        }
+        
+        return facturaciones;
 	}
 	
 	public  List<Pedido> porUsuarioYRango (Long id, String rango, Model model) {

@@ -65,6 +65,11 @@ article a{
 
 }
 
+.gradienteTitulos{
+    background: rgb(255,225,39);
+    background: linear-gradient(0deg, rgba(255,225,39,1) 0%, rgba(255,203,151,1) 100%);
+}
+
 .precio{
     font-family: 'Archivo Black', sans-serif;
     font-size: 30px;

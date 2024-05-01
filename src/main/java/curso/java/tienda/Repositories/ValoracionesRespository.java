@@ -31,7 +31,15 @@ public interface ValoracionesRespository extends JpaRepository<Valoracion, Long>
 	 @Query("SELECT p FROM Valoracion p WHERE p.id_producto = :idProducto")
 	    List<Valoracion> findByProductoId(@Param("idProducto") Long idProducto);
 
-
+	 
+	 
+	 
+	 
+		@Query(value = "SELECT id_producto, COUNT(*) AS veces_repetido\n"
+				+ "FROM valoraciones\n"
+				+ "GROUP BY id_producto LIMIT 6", nativeQuery = true)
+		 List<Object[]> obtener6MasValorados();
+	
 
 
 	

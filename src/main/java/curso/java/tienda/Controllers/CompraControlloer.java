@@ -42,6 +42,7 @@ public class CompraControlloer {
 	public String editar(HttpServletRequest request, Model model) {
 		
 		if(!usuarioService.clienteIsLoged(request)) return "redirect:/login";
+		if(request.getSession().getAttribute("carrito")==null) return "redirect:/";
 		
 		//Si no hay Stock regeneramos el stock en el carrito y volvemos al resumen
 		if(!compraServicio.modificarStock(request)) {

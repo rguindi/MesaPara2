@@ -26,7 +26,7 @@
 				<td th:if="${pedido.estado == 'PE' and #maps.size(productos)!=1}" ><form action="/cancelarLinea" method="POST">
 					<input type="hidden" th:value="${entry.key.id}" name="idProducto">
 					<input type="hidden" th:value="${pedido.id}" name="idPedido">
-					<button class="btn btn-sm btn-outline-secondary " type="submit">Eliminar línea del pedido</button>
+					<button class="btn btn-sm btn-outline-secondary " type="submit">Eliminar producto</button>
 				</form></td>
 			</tr>
 		</table>

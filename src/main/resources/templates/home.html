@@ -5,12 +5,12 @@
 
 <main class="d-flex align-content-center flex-column ">
 <nav class="navbar navbar-expand-lg bg-primary-subtle  ">
-  <div class="container-fluid">
+  <div class="container-fluid  ">
     <a class="navbar-brand" href="#">Categorías</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
       <div class="navbar-nav" th:each="categoria: ${categorias}">
         <a class="nav-link" href="#" th:href="@{/categoria/{id}(id=${categoria.id})}"  th:text="${categoria.nombre}">Features</a>
       </div>
@@ -26,11 +26,11 @@
 </div>
 
   
-<div class="container-xxl ">
+<div class="container-xxl mt-4">
 
   <div>
-    <div class="novedadestitulo">
-      <h1 class="text-center " th:text="${session.idioma != null ? session.idioma['Novedades'] : 'ULTIMAS NOVEDADES'}">ULTIMAS NOVEDADES</h1>
+    <div class="gradienteTitulos rounded-3 p-2 mt-3 " >
+      <h1 class="text-center fw-bold text-secondary" th:text="${session.idioma != null ? session.idioma['Novedades'] : 'NOVEDADES'}">NOVEDADES</h1>
     </div>
   </div>
 
@@ -146,12 +146,12 @@
   </a>
 </div>
 
-<div class="container-xxl ">
+<div class="container-xxl mt-5 ">
 
 
   <div>
-    <div class="novedadestitulo">
-      <h1 class="text-center " th:text="${session.idioma != null ? session.idioma['MasValorados'] : 'LOS MAS VALORADOS'}">LOS MAS VALORADOS</h1>
+    <div class="gradienteTitulos rounded-3 p-2 mt-3 " >
+      <h1 class="text-center fw-bold text-secondary" th:text="${session.idioma != null ? session.idioma['MasValorados'] : 'LOS MAS VALORADOS'}">LOS MAS VALORADOS</h1>
     </div>
   </div>
  
@@ -271,12 +271,12 @@
   </a>
 </div>
 
-<div class="container-xxl ">
+<div class="container-xxl mt-5 ">
 
 
-  <div>
-    <div class="novedadestitulo">
-      <h1 class="text-center " th:text="${session.idioma != null ? session.idioma['MasVendidos'] : 'LOS MAS VENDIDOS'}">LOS MAS VENDIDOS</h1>
+  <div >
+    <div class="gradienteTitulos rounded-3 p-2 mt-3 " >
+      <h1 class="text-center fw-bold text-secondary" th:text="${session.idioma != null ? session.idioma['MasVendidos'] : 'LOS MAS VENDIDOS'}">LOS MAS VENDIDOS</h1>
     </div>
   </div>
  

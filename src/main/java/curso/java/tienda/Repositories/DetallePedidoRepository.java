@@ -13,5 +13,17 @@ public interface DetallePedidoRepository extends JpaRepository<DetallePedido, Lo
 	
 	@Query("SELECT d FROM DetallePedido d WHERE d.id_pedido = :id_pedido")
     List<DetallePedido> buscaPedido(Long id_pedido);
-
+	
+	
+	@Query(value = "SELECT \n"
+			+ "    id_producto,\n"
+			+ "    SUM(unidades) AS suma_unidades\n"
+			+ "FROM \n"
+			+ "    detalles_pedido\n"
+			+ "GROUP BY \n"
+			+ "    id_producto\n"
+			+ "ORDER BY \n"
+			+ "    suma_unidades DESC\n"
+			+ "LIMIT 6;", nativeQuery = true)
+	 List<Object[]> obtener6MasVendidos();
 }

@@ -19,9 +19,11 @@ import curso.java.tienda.Entities.Opciones_menu;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.services.CategoriaService;
+import curso.java.tienda.services.DetalleService;
 import curso.java.tienda.services.LoggingService;
 import curso.java.tienda.services.MainService;
 import curso.java.tienda.services.Opcion_menuService;
+import curso.java.tienda.services.PedidoService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
@@ -43,10 +45,16 @@ public class MainController {
 		MainService mainService;
 		
 		@Autowired
+		PedidoService pedidoService;
+		
+		@Autowired
 		CategoriaService categoriaService;
 		
 		@Autowired
 		Opcion_menuService menServ;
+		
+		@Autowired
+		DetalleService detalleServicio;
 
 		@Autowired
 		LoggingService log;
@@ -188,7 +196,9 @@ public class MainController {
 		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
 		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
 		model.addAttribute("opciones", opciones);
-		
+		model.addAttribute("facturacion", pedidoService.facturacion6Meses());
+		model.addAttribute("ventas", detalleServicio.masVendidos());
+		model.addAttribute("valorados", valoracionService.masValorados());
 		return "/admin/home";
 	}
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-04-2024 a las 13:44:25
+-- Tiempo de generación: 01-05-2024 a las 23:49:28
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.1.33
 
@@ -93,7 +93,7 @@ CREATE TABLE `descuentos` (
 --
 
 INSERT INTO `descuentos` (`id`, `codigo`, `descuento`, `fecha_inicio`, `fecha_fin`) VALUES
-(2, 'Bienvenida', 10.5, '2024-04-26 19:58:50', '2024-05-15 19:58:55'),
+(2, 'Bienvenida', 10.5, '2024-04-26 19:58:50', '2024-06-29 19:58:55'),
 (3, 'ABRIL', 5, '2024-03-31 22:04:57', '2024-04-29 22:05:07');
 
 -- --------------------------------------------------------
@@ -138,7 +138,15 @@ INSERT INTO `detalles_pedido` (`id`, `id_pedido`, `id_producto`, `precio_unidad`
 (42, 36, 25, 94.95, 1, 21, 94.95),
 (43, 37, 24, 11.95, 1, 21, 11.95),
 (44, 37, 25, 94.95, 3, 21, 284.85),
-(45, 37, 26, 33.75, 1, 21, 33.75);
+(45, 37, 26, 33.75, 1, 21, 33.75),
+(48, 39, 22, 33.35, 1, 21, 33.35),
+(49, 39, 26, 33.75, 1, 21, 33.75),
+(51, 40, 20, 28.67, 1, 21, 28.67),
+(52, 40, 8, 16.69, 2, 21, 33.38),
+(53, 40, 11, 9.99, 1, 21, 9.99),
+(54, 41, 23, 9.99, 1, 21, 9.99),
+(55, 41, 8, 16.69, 1, 21, 16.69),
+(56, 43, 26, 33.75, 1, 21, 33.75);
 
 -- --------------------------------------------------------
 
@@ -224,20 +232,24 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id`, `id_usuario`, `fecha`, `metodo_pago`, `estado`, `num_factura`, `total`) VALUES
-(24, 6, '2024-04-26 14:25:00', 'Tarjeta', 'E', 'FAC10', 33.35),
-(25, 6, '2024-04-26 14:25:31', 'Paypal', 'PC', 'En trámite', 192.7),
-(26, 9, '2024-04-26 18:37:58', 'Tarjeta', 'E', 'FAC7', 52.57),
-(27, 9, '2024-04-26 18:40:04', 'Paypal', 'E', 'FAC8', 11.95),
-(28, 9, '2024-04-26 18:47:10', 'Tarjeta', 'PC', 'FAC9', 9.99),
-(29, 8, '2024-04-27 23:52:58', 'Paypal', 'PE', 'En trámite', 94.95),
-(30, 8, '2024-04-27 23:54:52', 'Tarjeta', 'PE', 'En trámite', 71.43),
-(31, 9, '2024-04-28 09:38:58', 'Tarjeta', 'E', 'FAC11', 94.95),
-(32, 6, '2024-04-28 13:01:55', 'Paypal', 'E', 'FAC13', 28.67),
+(24, 6, '2023-12-27 15:25:00', 'Tarjeta', 'E', 'FAC10', 33.35),
+(25, 6, '2023-12-30 15:25:31', 'Paypal', 'PC', 'En trámite', 192.7),
+(26, 9, '2024-01-26 19:37:58', 'Tarjeta', 'E', 'FAC7', 52.57),
+(27, 9, '2024-01-26 19:40:04', 'Paypal', 'E', 'FAC8', 11.95),
+(28, 9, '2024-02-26 19:47:10', 'Tarjeta', 'PC', 'FAC9', 9.99),
+(29, 8, '2024-02-28 00:52:58', 'Paypal', 'PE', 'En trámite', 94.95),
+(30, 8, '2024-03-28 00:54:52', 'Tarjeta', 'PE', 'En trámite', 71.43),
+(31, 9, '2024-03-28 10:38:58', 'Tarjeta', 'E', 'FAC11', 94.95),
+(32, 6, '2024-03-28 14:01:55', 'Paypal', 'E', 'FAC13', 28.67),
 (33, 8, '2024-04-28 15:26:58', 'Tarjeta', 'C', 'En trámite', 60.06000000000001),
 (34, 6, '2024-04-28 21:45:40', 'Tarjeta', 'PC', 'En trámite', 94.95),
 (35, 6, '2024-04-28 21:46:54', 'Paypal', 'E', 'FAC14', 94.95),
 (36, 6, '2024-04-28 21:47:41', 'Tarjeta', 'PE', 'En trámite', 84.45),
-(37, 8, '2024-04-29 10:21:25', 'Tarjeta', 'E', 'FAC12', 320.05);
+(37, 8, '2024-04-29 10:21:25', 'Tarjeta', 'E', 'FAC12', 320.05),
+(39, 10, '2024-04-30 22:00:00', 'Tarjeta', 'PC', 'En trámite', 67.1),
+(40, 6, '2024-05-01 17:21:40', 'Paypal', 'PE', 'En trámite', 61.540000000000006),
+(41, 8, '2024-05-01 21:05:23', 'Tarjeta', 'PE', 'En trámite', 26.68),
+(43, 8, '2024-05-01 21:10:15', 'Tarjeta', 'PE', 'En trámite', 33.75);
 
 -- --------------------------------------------------------
 
@@ -263,9 +275,9 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `id_categoria`, `nombre`, `descripcion`, `precio`, `stock`, `fecha_alta`, `fecha_baja`, `impuesto`, `imagen`) VALUES
-(8, 3, 'Jenga', '¡El juego clásico que consiste en crear una pila de bloques y derrumbarla! ¿Cómo apilar contra la ley de la gravedad? Apilad los bloques de madera en una torre firme, después retirad los bloques uno a uno por turnos hasta que la pila se venga abajo. ', 16.69, 199, '2024-04-16 14:14:28', NULL, 21, 'Jenga8.jpg'),
+(8, 3, 'Jenga', '¡El juego clásico que consiste en crear una pila de bloques y derrumbarla! ¿Cómo apilar contra la ley de la gravedad? Apilad los bloques de madera en una torre firme, después retirad los bloques uno a uno por turnos hasta que la pila se venga abajo. ', 16.69, 196, '2024-04-16 14:14:28', NULL, 21, 'Jenga8.jpg'),
 (9, 5, 'Monopoly', 'Es un básico para las noches familiares de juegos Los jugadores compran, venden, sueñan y preparan su camino hacia las riquezas con el juego Monopoly', 27.24, 0, '2024-04-16 14:14:28', NULL, 21, 'Monopoly9.jpg'),
-(11, 8, 'Sushi Go', '¿Te gusta el sushi? Sin duda es un elemento a tener en cuenta, pues si es así, disfrutarás de cada una de las opciones de este menú. Sushi Go! ', 9.99, 3, '2024-04-16 14:14:28', NULL, 21, 'Sushi Go11.jpg'),
+(11, 8, 'Sushi Go', '¿Te gusta el sushi? Sin duda es un elemento a tener en cuenta, pues si es así, disfrutarás de cada una de las opciones de este menú. Sushi Go! ', 9.99, 2, '2024-04-16 14:14:28', NULL, 21, 'Sushi Go11.jpg'),
 (12, 5, 'Tragabolas', '¿Qué hipopótamo será el más glotón en Tragabolas? Trata de moverte rápido cuando las bolas se suelten en el tablero de juego, ¡si tu hipopótamo es el que traga el mayor número de bolitas ganarás! Los hipopótamos están preparados para devorar bolitas.', 22.71, 5, '2024-04-16 14:14:28', NULL, 21, 'Tragabolas12.jpg'),
 (14, 6, 'Chuchelandia', 'Crea y saborea las golosinas más deliciosas. Ahora con más contenido y atractivas propuestas de juego. Incluye set de trabajo y todos los elementos necesarios para crear tus chuches preferidas', 34.99, 0, '2024-04-16 14:14:28', NULL, 21, 'Chuchelandia14.jpg'),
 (15, 8, 'Uno', 'Durante más de 50 años, UNO ha conectado a personas de todo el mundo a través de juegos icónicos que trascienden la edad, el género y el idioma. Es fácil de aprender, fácil de jugar y fácil de disfrutar.', 9.69, 1, '2024-04-16 14:14:28', NULL, 21, 'Uno15.jpg'),
@@ -273,13 +285,13 @@ INSERT INTO `productos` (`id`, `id_categoria`, `nombre`, `descripcion`, `precio`
 (17, 5, 'Gestos', '¡Hacer payasadas nunca había sido tan divertido! Descubre Gestos, el divertido y rápido juego de mímica.Los jugadores de cada equipo tendrán que adivinar el máximo número de palabras cuando el reloj se ponga en marcha.', 20.99, 79, '2024-04-16 14:14:28', NULL, 21, 'Gestos17.jpg'),
 (18, 7, 'Cluedo', 'El solitario millonario Samuel Black ha sido asesinado en su mansión. Ahora, depende de ti resolver el caso. Haz preguntas sobre todo para aclarar el misterio y ser el ganador del CLUEDO.', 27.95, 80, '2024-04-16 14:14:28', NULL, 21, 'Cluedo18.jpg'),
 (19, 4, 'Conecta 4', '¡Desafía a un amigo a divertiros dejando caer las fichas en este juego clásico de Conecta 4! Deja caer tus fichas rojas o amarillas en la parrilla y sé el primero en conseguir 4 fichas en línea para ganar.', 10.99, 69, '2024-04-16 14:14:28', NULL, 21, 'Conecta 419.jpg'),
-(20, 4, 'Dixit', 'Dixit es uno de esos títulos que no puede faltar en ninguna colección de juegos de mesa que se precie por su originalidad, la sencillez de sus reglas y la ingente cantidad de horas de diversión.', 28.67, 8, '2024-04-16 14:14:28', NULL, 21, 'Dixit20.jpg'),
+(20, 4, 'Dixit', 'Dixit es uno de esos títulos que no puede faltar en ninguna colección de juegos de mesa que se precie por su originalidad, la sencillez de sus reglas y la ingente cantidad de horas de diversión.', 28.67, 7, '2024-04-16 14:14:28', NULL, 21, 'Dixit20.jpg'),
 (21, 7, 'La tripulación', '¡Se buscan astronautas! Los científicos afirman la existencia de un misterioso noveno planeta en los confines de nuestro sistema solar.', 14.95, 0, '2024-04-16 14:14:28', NULL, 21, 'La tripulación21.jpg'),
-(22, 7, 'DOD', 'Un cooperativo para jugadores/as de a partir de 6 años con partidas de 10 minutos', 33.35, 54, '2024-04-16 14:14:28', NULL, 21, 'DOD22.jpg'),
-(23, 5, 'Parchis', '¡Los niños merecen lo mejor, por eso te presentamos', 9.99, 1, '2024-04-16 14:14:28', NULL, 21, 'Parchis23.avif'),
+(22, 7, 'DOD', 'Un cooperativo para jugadores/as de a partir de 6 años con partidas de 10 minutos', 33.35, 53, '2024-04-16 14:14:28', NULL, 21, 'DOD22.jpg'),
+(23, 5, 'Parchis', '¡Los niños merecen lo mejor, por eso te presentamos', 9.99, 0, '2024-04-16 14:14:28', NULL, 21, 'Parchis23.avif'),
 (24, 8, 'Baraja Española', 'Baraja de cartas española de 50 cartas empaquetada en caja de cartón de alta calidad', 11.95, 82, '2024-04-18 06:50:55', NULL, 21, 'Baraja Española24.jpg'),
 (25, 2, 'HeroQuest', 'El juego de mesa HeroQuest de Avalon Hill es un juego de fantasía y rol en el que los jugadores deben cooperar en la lucha contra Zargon y sus monstruos, completar misiones y saquear mazmorras.', 94.95, 41, '2024-04-27 23:44:00', NULL, 21, 'HeroQuest25.jpg'),
-(26, 1, 'Stratego', 'Juego de mesa clásico de ataque y defensa cuyo objetivo consiste en apoderarse y conquistar la bandera enemiga con un ejército de 40 piezas de diferentes rangos', 33.75, 18, '2024-04-27 23:49:39', NULL, 21, 'Stratego26.jpg');
+(26, 1, 'Stratego', 'Juego de mesa clásico de ataque y defensa cuyo objetivo consiste en apoderarse y conquistar la bandera enemiga con un ejército de 40 piezas de diferentes rangos', 33.75, 16, '2024-04-27 23:49:39', NULL, 21, 'Stratego26.jpg');
 
 -- --------------------------------------------------------
 
@@ -303,7 +315,7 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id`, `nombre`, `direccion`, `localidad`, `provincia`, `telefono`, `cif`, `email`) VALUES
-(2, 'ROLDAN JUGUETES, S.L.', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '', 'roldan@hotmail.com');
+(2, 'ROLDAN JUGUETES, S.L.', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '', 'roldanjh@hotmail.com');
 
 -- --------------------------------------------------------
 
@@ -353,11 +365,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `id_rol`, `email`, `clave`, `nombre`, `apellido1`, `apellido2`, `direccion`, `provincia`, `localidad`, `telefono`, `dni`, `fecha_baja`) VALUES
-(1, 1, 'admin@admin.com', 'gpn3LFcXVudSyUK/YyWCgLDEp02pxNpCRD1rKoetMnUu+lTJaQGwqtjCliWTUftO', 'Raul Administrador', 'Ferrero', 'Vicente', 'calle larga', 'Za', 'asdf', '123123123', '12312312A', NULL),
-(3, 3, 'empleado@empleado.com', 'j2+WWOYTj1PflVOrMlffyChPmXsiNYbziwb8tGH/CTs98VYnX3SUPZ7whQxJiuqi', 'Raul Empleado', 'Empleado', 'Ap', 'Empleado', 'Empleado', 'Empleado', '607307943', '21234765P', NULL),
-(6, 2, 'cliente@cliente.com', 'YsJqMnSKXshDjYlkFPRgJzr+JgmJCQr1kImaRHNAlMUSoxrl0qy+w48E2PN8zNBd', 'Raul Cliente', 'Ferrero', 'Vicente', 'Avd. Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11878787y', NULL),
-(7, 4, 'superAdmin@superAdmin.com', 'HKwS96rY5P/YKXqRvybj4zrToOvpP1wlNbG2took0bqVjn0uNRnx8xus6Fqcu/Ka', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '76576576o', NULL),
-(8, 2, 'cliente2@cliente2', 'T2Q4tFDxTlhCySTS/gV1GpZtOg2C1yinYxbPJVg1FNTUUcyxmxjqJvOH93LofKrb', 'Cliente2', 'Ape1', 'Ape2', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11972683e', NULL),
+(1, 1, 'admin@admin.com', 'gpn3LFcXVudSyUK/YyWCgLDEp02pxNpCRD1rKoetMnUu+lTJaQGwqtjCliWTUftO', 'Raul Administrador', 'Ferrero', 'Vicente', 'calle larga', 'Salamanca', 'asdf', '123123123', '12312312A', NULL),
+(3, 3, 'empleado@empleado.com', 'j2+WWOYTj1PflVOrMlffyChPmXsiNYbziwb8tGH/CTs98VYnX3SUPZ7whQxJiuqi', 'Raul Empleado', 'Empleado', 'Ap', 'Empleado', 'Valladolid', 'Tordesillas', '607307943', '21234765P', NULL),
+(6, 2, 'cliente@cliente.com', 'YsJqMnSKXshDjYlkFPRgJzr+JgmJCQr1kImaRHNAlMUSoxrl0qy+w48E2PN8zNBd', 'Raul Cliente', 'Ferrero', 'Vicente', 'Avd. Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Tábara', '607307943', '11878787y', NULL),
+(7, 4, 'superAdmin@superAdmin.com', 'HKwS96rY5P/YKXqRvybj4zrToOvpP1wlNbG2took0bqVjn0uNRnx8xus6Fqcu/Ka', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Alcañices', '607307943', '76576576o', NULL),
+(8, 2, 'cliente2@cliente2.com', 'tQ9+nOa58ETJ+9JAGE5+JqDJJ2UtlhUzpVH9IJm8L1x54nVZTxEQI60INwewblR4', 'Cliente2', 'Ape1', 'Ape2', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11972683e', NULL),
 (9, 2, 'raul_fv@hotmail.com', '8xv2UY7ZLzj7OuD0fMZwMbPk7IA/3FdytpqVDPQQQuprGfwtfkqiHqXlOIZw58U8', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11971683e', NULL),
 (10, 2, 'cliente3@cliente3.com', 'Ghlxoq5RFaIORQWETP50f6KnMc8gC40oYXDuh+nUNoK3rW3B/c+CQ6l/3RORGjY+', 'Cliente3', 'Ape1', 'Ferrero Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Tabara', '607307943', '12345678O', NULL);
 
@@ -484,7 +496,7 @@ ALTER TABLE `valoraciones`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `configuracion`
@@ -502,7 +514,7 @@ ALTER TABLE `descuentos`
 -- AUTO_INCREMENT de la tabla `detalles_pedido`
 --
 ALTER TABLE `detalles_pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de la tabla `impuestos`
@@ -526,7 +538,7 @@ ALTER TABLE `opciones_menu`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`

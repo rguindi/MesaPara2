@@ -1,11 +1,14 @@
 package curso.java.tienda.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Valoracion;
+import curso.java.tienda.Entities.DTO.ProductoVentas;
 import curso.java.tienda.Repositories.ValoracionesRespository;
 
 @Service
@@ -55,6 +58,26 @@ public Long numeroDeValoraciones(Long id) {
 public List<Valoracion> todasPorIdProducto(Long id) {
 	
 	return (List<Valoracion>) valRepos.findByProductoId(id);
+	
+}
+
+public List<ProductoVentas> masValorados() {
+	List<ProductoVentas> valorados = new ArrayList<>();
+	List<Object[]> resultados = valRepos.obtener6MasValorados();
+	
+	for (Object[] resultado : resultados) {
+		Long productoId = ((Number) resultado[0]).longValue();
+		Producto pro = productoService.recuperarProducto(productoId);
+        String nombre = pro.getNombre();
+        
+        Integer cantidad = ((Number) resultado[1]).intValue();
+        
+        // Crear objeto Facturacion y agregar a la lista
+        ProductoVentas PV = new ProductoVentas(nombre, cantidad);
+        valorados.add(PV);
+    }
+    
+	return  valorados;
 	
 }
 	

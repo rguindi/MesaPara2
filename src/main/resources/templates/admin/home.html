@@ -5,37 +5,38 @@
 <div class="container-fluid m-0 p-0 d-flex">
 
   <th:block th:insert="~{admin/leftNav}"></th:block>
+<div class="d-flex flex-column w-100   justify-content-between   ">
 
-    <div class="container justify-content-center align-items-center">
-      <div>
-        <div class="d-flex justify-content-center flex-column align-content-center align-items-center  p-5 mt-3">
-        <h1 class="slogan text-center " style="font-size: 5rem;" >Mesa Para <br><span style="color: red; font-size: 2em;"> 2</span></h1>
-      </div>
-      <div class="d-flex justify-content-lg-evenly ">
-      <div>
-        
-        <canvas id="facturacion"></canvas>
+  <div class="w-100 d-flex justify-content-center mt-5"  th:if="${session.usuario.id_rol == 3}">
+    <h1 class="slogan text-center " style="font-size: 8rem;" >Mesa Para <br><span style="color: red; font-size: 2em;"> 2</span></h1>
+  </div>
+    <div class="container  align-items-center d-flex  m-0 align-self-center ">
+      <div class="w-100 mt-5 p-4 " th:unless="${session.usuario.id_rol == 3}">
+        <h3 class="text-center mb-4 ">Facturación</h3>
+        <canvas class="d-flex " id="facturacion"></canvas>
       </div>
       
-      <div>
-        aqui va una grafica 2
+      <div class="w-100  mt-5 p-4" th:unless="${session.usuario.id_rol == 3}">
+        <h3 class="text-center mt-4 mb-4 ">Productos más vendidos</h3>
+        <canvas id="masVendidos"></canvas>
       </div>
     </div>
-    <div class="d-flex justify-content-lg-evenly ">
-      <div>
-        aqui va una grafica 3
+    <div class="d-flex justify-content-center " th:unless="${session.usuario.id_rol == 3}">
+      <div class="w-50  mt-5  mb-5 justify-content-center ">
+         <h3 class="text-center mb-4 ">Numero de valoraciones</h3>
+        <canvas id="masValorados"></canvas>
       </div>
+     </div>
+  </div>
       
-      <div>
-        aqui va una grafica 4
-      </div>
-    </div>
-                
-      </div>
-    </div>
-
 </div>
 
-<script th:src="@{/js/estadisticas.js}"></script>
+
+     
+    
+
+
+  <script th:src="@{/js/estadisticas.js}" th:attr="data-facturacion=${facturacion}, data-ventas=${ventas}, data-valorados=${valorados}"></script>
+
   </body>
 </html>
