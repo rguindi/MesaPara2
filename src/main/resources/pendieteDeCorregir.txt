@@ -1,3 +1,2 @@
-excel
 Hilos para chat, y para cambiar de PE a E
 carga automatica del script y usuarios

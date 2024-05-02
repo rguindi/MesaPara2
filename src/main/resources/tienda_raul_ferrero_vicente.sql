@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-05-2024 a las 23:49:28
--- Versión del servidor: 10.4.10-MariaDB
--- Versión de PHP: 7.1.33
+-- Tiempo de generación: 03-05-2024 a las 01:07:52
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,7 +31,7 @@ CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -59,7 +58,7 @@ CREATE TABLE `configuracion` (
   `clave` varchar(255) DEFAULT NULL,
   `valor` varchar(255) DEFAULT NULL,
   `tipo` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `configuracion`
@@ -86,7 +85,7 @@ CREATE TABLE `descuentos` (
   `descuento` float DEFAULT NULL,
   `fecha_inicio` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `fecha_fin` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `descuentos`
@@ -110,7 +109,7 @@ CREATE TABLE `detalles_pedido` (
   `unidades` int(11) DEFAULT NULL,
   `impuesto` float DEFAULT NULL,
   `total` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `detalles_pedido`
@@ -157,7 +156,7 @@ INSERT INTO `detalles_pedido` (`id`, `id_pedido`, `id_producto`, `precio_unidad`
 CREATE TABLE `impuestos` (
   `id` int(11) NOT NULL,
   `impuesto` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -168,7 +167,7 @@ CREATE TABLE `impuestos` (
 CREATE TABLE `metodos_pago` (
   `id` int(11) NOT NULL,
   `metodo_pago` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -181,7 +180,7 @@ CREATE TABLE `opciones_menu` (
   `id_rol` int(11) DEFAULT NULL,
   `nombre_opcion` varchar(255) DEFAULT NULL,
   `url_opcion` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `opciones_menu`
@@ -225,7 +224,7 @@ CREATE TABLE `pedidos` (
   `estado` varchar(255) DEFAULT NULL,
   `num_factura` varchar(255) DEFAULT NULL,
   `total` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `pedidos`
@@ -268,7 +267,7 @@ CREATE TABLE `productos` (
   `fecha_baja` timestamp NULL DEFAULT NULL,
   `impuesto` float DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -308,7 +307,7 @@ CREATE TABLE `proveedores` (
   `telefono` varchar(255) DEFAULT NULL,
   `cif` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `proveedores`
@@ -326,7 +325,7 @@ INSERT INTO `proveedores` (`id`, `nombre`, `direccion`, `localidad`, `provincia`
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `rol` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -358,7 +357,7 @@ CREATE TABLE `usuarios` (
   `telefono` varchar(255) DEFAULT NULL,
   `dni` varchar(255) DEFAULT NULL,
   `fecha_baja` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -385,7 +384,7 @@ CREATE TABLE `valoraciones` (
   `id_usuario` int(11) DEFAULT NULL,
   `valoracion` int(11) DEFAULT NULL,
   `comentario` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `valoraciones`
@@ -544,7 +543,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`

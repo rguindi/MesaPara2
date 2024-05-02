@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,18 +19,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import curso.java.tienda.Entities.Opciones_menu;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.Entities.Valoracion;
 import curso.java.tienda.services.CategoriaService;
+import curso.java.tienda.services.ExcelService;
 import curso.java.tienda.services.Opcion_menuService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
 import curso.java.tienda.upload.storage.StorageService;
 
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -56,6 +62,9 @@ public class ProductoController {
 	@Autowired
 	Opcion_menuService menServ;
 	
+	@Autowired
+	ExcelService excelService;
+	
 	
 	@GetMapping("/productos")
 	public String listadoProductos(Model model, HttpServletRequest request) {
@@ -69,6 +78,56 @@ public class ProductoController {
 		return "admin/productos";
 	}
 	
+	@GetMapping("/productos/generar-excel")
+    public ResponseEntity<ByteArrayResource> generarExcel(HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) {
+			return ResponseEntity.status(HttpStatus.FOUND)
+                    .header(HttpHeaders.LOCATION, "/")
+                    .build();
+		}
+
+		byte[] pdfBytes = excelService.generarExcel();	
+        
+        // Configurar las cabeceras de la respuesta HTTP para indicar que es un archivo PDF para descargar
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "productos.xlsx");
+        
+        // Crear un ByteArrayResource a partir del array de bytes del PDF generado
+        ByteArrayResource resource = new ByteArrayResource(pdfBytes);
+        // Devolver la respuesta con el archivo adjunto (factura.pdf)
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(resource);
+    }
+	
+	
+	@PostMapping("/produtos/importar-excel")
+    public ModelAndView importarProductosDesdeExcel(@RequestParam("file") MultipartFile file) {
+        ModelAndView modelAndView = new ModelAndView();
+
+        if (file.isEmpty()) {
+            modelAndView.setViewName("redirect:/productos");
+            modelAndView.addObject("error", "Por favor seleccione un archivo.");
+            return modelAndView;
+        }
+
+        try {
+        	 List<Producto> productos = excelService.importarExcel(file.getInputStream());
+        	 for (Producto producto : productos) {
+			System.out.println(producto.toString());
+			productoService.guardar(producto);
+			}
+            modelAndView.setViewName("redirect:/productos");
+            modelAndView.addObject("success", "Importación exitosa.");
+        } catch (Exception e) {
+            modelAndView.setViewName("redirect:/productos");
+            modelAndView.addObject("error", "Ocurrió un error al importar el archivo.");
+            e.printStackTrace();
+        }
+
+        return modelAndView;
+    }
 	
 	//REGISTROS
 	

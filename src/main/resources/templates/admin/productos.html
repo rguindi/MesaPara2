@@ -23,7 +23,18 @@
         <div>
           <h2 class="text-center mt-3">Listado de Productos</h2>
           <a href="/registrarProducto" class="btn btn-danger mb-2">Añadir producto</a>
-
+          <a href="/produtos/generar-excel" class="btn btn-success  mb-2">Exportar productos a excel</a>
+          <form class="d-inline " action="/produtos/importar-excel" method="post" enctype="multipart/form-data">
+            <button class="btn btn-primary d-inline   mb-2" type="submit">Importar productos desde excel</button>
+            <input class=" d-inline " type="file" name="file" accept=".xlsx">
+            <div th:if="${param.success}">
+              <p style="color: green;" th:text="${param.success}"></p>
+          </div>
+            <div th:if="${param.error}">
+              <p style="color: red;" th:text="${param.error}"></p>
+          </div>
+          </form>
+          
         </div>
 
         <table class="table table-striped table-responsive table-hover">
