@@ -51,6 +51,16 @@
        </tbody>
 
         </table>
+
+        <div>
+          <form action="/autoUpdate" method="POST">
+            <label for="minutos">Segundos para marcar pedidos como enviados:</label>
+            <input th:value="${session.autoUpdate}" class="form-control w-25 " type="number" name="minutos" required>
+            <button th:if="${session.autoUpdate == null}" class=" btn btn-sm btn-success mt-2" type="submit" name="accion" value="iniciar">Iniciar</button>
+            <button th:if="${session.autoUpdate != null}" class=" btn btn-sm btn-danger mt-2 " type="submit" name="accion" value="parar">Detener</button>
+          </form>
+
+        </div>
         
         
       </div>

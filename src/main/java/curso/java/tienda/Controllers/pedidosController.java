@@ -1,15 +1,13 @@
 package curso.java.tienda.Controllers;
 
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +22,7 @@ import curso.java.tienda.Entities.Opciones_menu;
 import curso.java.tienda.Entities.Pedido;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
+import curso.java.tienda.services.AutoUpdateOrdersService;
 import curso.java.tienda.services.CarritoService;
 import curso.java.tienda.services.DetalleService;
 import curso.java.tienda.services.Opcion_menuService;
@@ -65,7 +64,19 @@ public class pedidosController {
 	@Autowired
 	pdfService pdfservicio;
 	
+	@Autowired
+	AutoUpdateOrdersService autoUpdate;
 	
+	@PostMapping ("/autoUpdate")
+	public String autoUpadte (@RequestParam int minutos, @RequestParam String accion, HttpServletRequest request) {
+		if(!usuarioService.adminIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
+		
+
+		if (accion.equals("iniciar")) autoUpdate.startTask(minutos, request.getSession());
+		if (accion.equals("parar")) autoUpdate.stopTask(request.getSession());
+		
+		return "redirect:/configuracion";
+		}
 	
 	@GetMapping("/verFactura")
 	public ResponseEntity<ByteArrayResource>  generarPDF(@RequestParam Long id, HttpSession miSesion) {
