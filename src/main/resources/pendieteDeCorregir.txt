@@ -1,2 +1,2 @@
-Hilos para chat, y para cambiar de PE a E
+Hilos para chat, y para cambiar de PE a E en proceso
 carga automatica del script y usuarios
