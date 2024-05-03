@@ -1,2 +1,2 @@
-Hilos para chat y control de stock. sockets
+Hilos para chat y control de stock. socketsd
 
