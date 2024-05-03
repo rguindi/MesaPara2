@@ -19482,3 +19482,8 @@ curso.java.tienda.upload.storage.StorageFileNotFoundException: Could not read fi
 2024-05-03 01:02:31,526 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
 2024-05-03 01:04:22,528 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
 2024-05-03 01:05:13,306 [http-nio-8080-exec-10] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-03 12:14:33,632 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-03 12:14:53,212 [http-nio-8080-exec-1] ERROR ERROR_FILE - Error al enviar el correo electrónico
+2024-05-03 12:17:16,356 [http-nio-8080-exec-2] ERROR ERROR_FILE - Error al enviar el correo electrónico
+2024-05-03 12:18:10,299 [http-nio-8080-exec-1] ERROR ERROR_FILE - Error al enviar el correo electrónico
+2024-05-03 12:22:32,504 [http-nio-8080-exec-2] ERROR ERROR_FILE - Error al enviar el correo electrónico
