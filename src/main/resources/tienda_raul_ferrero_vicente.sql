@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 03-05-2024 a las 01:07:52
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 03-05-2024 a las 19:17:19
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -364,13 +364,14 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `id_rol`, `email`, `clave`, `nombre`, `apellido1`, `apellido2`, `direccion`, `provincia`, `localidad`, `telefono`, `dni`, `fecha_baja`) VALUES
-(1, 1, 'admin@admin.com', 'gpn3LFcXVudSyUK/YyWCgLDEp02pxNpCRD1rKoetMnUu+lTJaQGwqtjCliWTUftO', 'Raul Administrador', 'Ferrero', 'Vicente', 'calle larga', 'Salamanca', 'asdf', '123123123', '12312312A', NULL),
-(3, 3, 'empleado@empleado.com', 'j2+WWOYTj1PflVOrMlffyChPmXsiNYbziwb8tGH/CTs98VYnX3SUPZ7whQxJiuqi', 'Raul Empleado', 'Empleado', 'Ap', 'Empleado', 'Valladolid', 'Tordesillas', '607307943', '21234765P', NULL),
+(1, 1, 'admin@admin.com', 'gpn3LFcXVudSyUK/YyWCgLDEp02pxNpCRD1rKoetMnUu+lTJaQGwqtjCliWTUftO', 'Raul Administrador', 'Ferrero', 'Vicente', 'calle larga', 'Salamanca', 'Aldeadávila de la Ribera', '123123123', '12312312A', NULL),
+(3, 3, 'empleado@empleado.com', 'j2+WWOYTj1PflVOrMlffyChPmXsiNYbziwb8tGH/CTs98VYnX3SUPZ7whQxJiuqi', 'Raul Empleado', 'Empleado', 'Ap', 'Empleado', 'Valladolid', 'Tordehumos', '607307943', '21234765P', NULL),
 (6, 2, 'cliente@cliente.com', 'YsJqMnSKXshDjYlkFPRgJzr+JgmJCQr1kImaRHNAlMUSoxrl0qy+w48E2PN8zNBd', 'Raul Cliente', 'Ferrero', 'Vicente', 'Avd. Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Tábara', '607307943', '11878787y', NULL),
-(7, 4, 'superAdmin@superAdmin.com', 'HKwS96rY5P/YKXqRvybj4zrToOvpP1wlNbG2took0bqVjn0uNRnx8xus6Fqcu/Ka', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Alcañices', '607307943', '76576576o', NULL),
-(8, 2, 'cliente2@cliente2.com', 'tQ9+nOa58ETJ+9JAGE5+JqDJJ2UtlhUzpVH9IJm8L1x54nVZTxEQI60INwewblR4', 'Cliente2', 'Ape1', 'Ape2', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11972683e', NULL),
+(7, 4, 'superAdmin@superAdmin.com', '3MTMp4s0bc4Uso+eqLZZ3V6YrX4vn1drKMKZ8X13YvMuskppqMf7+PPuvX9/Nk3r', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Ourense', 'Boborás', '607307943', '76576576o', NULL),
+(8, 2, 'cliente2@cliente2.com', 'tQ9+nOa58ETJ+9JAGE5+JqDJJ2UtlhUzpVH9IJm8L1x54nVZTxEQI60INwewblR4', 'Cliente2', 'Ape1', 'Ape2', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Villardondiego', '607307943', '11972683e', NULL),
 (9, 2, 'raul_fv@hotmail.com', '8xv2UY7ZLzj7OuD0fMZwMbPk7IA/3FdytpqVDPQQQuprGfwtfkqiHqXlOIZw58U8', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11971683e', NULL),
-(10, 2, 'cliente3@cliente3.com', 'Ghlxoq5RFaIORQWETP50f6KnMc8gC40oYXDuh+nUNoK3rW3B/c+CQ6l/3RORGjY+', 'Cliente3', 'Ape1', 'Ferrero Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Tabara', '607307943', '12345678O', NULL);
+(10, 2, 'cliente3@cliente3.com', 'Ghlxoq5RFaIORQWETP50f6KnMc8gC40oYXDuh+nUNoK3rW3B/c+CQ6l/3RORGjY+', 'Cliente3', 'Ape1', 'Ferrero Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Tabara', '607307943', '12345678O', NULL),
+(11, 2, 'cliente1@cliente1.com', 'bMzY8QtULtic4DAIFZ41O3S96MKVuCRKq463TiKmfIs2s7yF70jry8bNaU8wusVY', 'Juan', 'Barrios', 'Perez', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Villar de Fallaves', '607307943', '11971683e', NULL);
 
 -- --------------------------------------------------------
 
@@ -561,7 +562,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `valoraciones`

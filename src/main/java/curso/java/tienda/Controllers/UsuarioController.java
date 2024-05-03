@@ -169,7 +169,7 @@ public class UsuarioController {
 			usuarioService.guardar(user);
 			miSesion.setAttribute("usuario", user);
 			if(usuarioService.adminIsLoged(request)||usuarioService.empleadoIsLoged(request)||usuarioService.superAdminIsLoged(request)) return "redirect:/perfil";
-			return "redirect:/";
+			return "redirect:/editar/"+ user.getId();
 		}
 	}
 	
@@ -181,7 +181,12 @@ public class UsuarioController {
 		else {
 			Usuario usuario = usuarioService.buscarPorEmail(user);	
 			request.getSession().setAttribute("usuario", usuario);
+			if(usuarioService.superAdminLogedAndDefaultPass(request)) {  //Comprobar si el administrador tiene la contraseña por defecto
+				return "cambioForzosoDePass";
+			}
 		}
+		
+		
 		
 		String urlAnterior = (String) request.getSession().getAttribute("urlAnterior");
         if (urlAnterior != null) {
@@ -195,6 +200,34 @@ public class UsuarioController {
             return "redirect:/";
         }
 	}
+	
+	@PostMapping("/cambioForzoso")
+	public String cambioForzoso(Model model, HttpSession miSesion,  @RequestParam("pass") String clave,  @RequestParam("rpass") String clave2, HttpServletRequest request) {
+		//Validamos que es superAdmin
+		if(!usuarioService.superAdminLogedAndDefaultPass(request)) return "redirect:/";
+		
+		Usuario usuario = (Usuario) miSesion.getAttribute("usuario");
+		
+		if(clave.isEmpty()) {
+			model.addAttribute("clave", "La clave no puede estar vacía");
+			return "cambioForzosoDePass";
+		}
+		if(clave2.isEmpty()) {
+			model.addAttribute("clave2", "La clave no puede estar vacía");
+			return "cambioForzosoDePass";
+		}
+		
+		if(!clave.equals(clave2)) {
+			model.addAttribute("nocoinciden", "Las claves no coinciden");
+			return "cambioForzosoDePass";
+		}
+		
+		usuario.setClave(usuarioService.encriptar(clave));
+		usuarioService.guardar(usuario);
+		return "redirect:/home";
+	}
+	
+	
 	
 	@PostMapping("/gestionEmpleado")
 	public String gestionEmpleado( RedirectAttributes redirectAttributes, @RequestParam("id") Long id, @RequestParam("accion") String accion, HttpServletRequest request) {

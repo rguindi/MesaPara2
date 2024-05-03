@@ -1,10 +1,14 @@
 package curso.java.tienda.services;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpSession;
 
 @Service
 public class AutoUpdateOrdersService {
+	
+	@Autowired
+	PedidoService pedidoService;
 
     private Thread taskThread;
     private volatile boolean running = true;
@@ -18,9 +22,8 @@ public class AutoUpdateOrdersService {
             while (running) {
                 try {
                    
-                    System.out.println("Tarea ejecutada cada " + intervalInSeconds + " segundos");
-                    
-           
+                    System.out.println("Productos enviados cada " + intervalInSeconds + " segundos");
+                    pedidoService.todosEnviados();           
                     Thread.sleep(intervalInSeconds * 1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

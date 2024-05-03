@@ -16,5 +16,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findByRol(int idRol);
 	
 	Optional<Usuario> findByEmailAndFechaBajaIsNull(String email);
+	
 
 }

@@ -70,6 +70,8 @@ public class MainController {
 	@GetMapping("/")
 	public String home(Model model) {
 		
+
+		
 		List<Producto> novedades = productoService.Ultimos12();
 		model.addAttribute("IMG", variables.getMessage("imagenes", null, LocaleContextHolder.getLocale()));
 		List<Categoria> categorias = categoriaService.recuperarCategorias();
@@ -122,6 +124,8 @@ public class MainController {
 	
 	@GetMapping("/login")
 	public String login (Model model) {
+		//Comprobamos si existe el superAdministrador y si no lo creamos
+		mainService.comprobarAdmin();
 		return "login";
 	}
 	

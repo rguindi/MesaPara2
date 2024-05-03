@@ -11,6 +11,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.Repositories.ConfiguracionRespository;
 
 
@@ -27,6 +28,9 @@ public class MainService {
 	
 	@Autowired
 	LoggingService log;
+	
+	@Autowired
+	UsuarioService usuarioService;
 
 	   public Map<String, String> cargarPropertiesComoMapa(String nombreArchivo) {
 	        Map<String, String> mapaProperties = new HashMap<>();
@@ -85,6 +89,16 @@ public class MainService {
 	            datosEmpresa.put("tlf", tlf);
 	        
 	        return datosEmpresa;
+	    }
+	    
+	    
+	    public void comprobarAdmin() {
+	    	Usuario admin = usuarioService.buscarPorEmail("superAdmin@superAdmin.com");
+	    	if(admin == null) {
+	    		System.out.println("No se ha encontrado el super Administrador. Creando usuario...");
+	    		admin = new Usuario(0, 4, "superAdmin@superAdmin.com", "nxS7eFjM8iE5cLtBgITfzVz12g2fyJk5dUiuXY/EYLjfQpS58Qi6V3ju4JSWAsUf", "Nombre", "Apellido1", "Apellido2", "Direccion", "Provincia", "Municipio", "000000000", "00000000A", null);
+	    		usuarioService.guardar(admin);
+	    	}
 	    }
 	    
 	   

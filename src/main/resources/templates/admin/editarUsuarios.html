@@ -99,9 +99,10 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="provincia">Provincia</label>
 				<div class="col-md-4 w-100">
-					<input id="provincia" name="provincia" type="text"
-						placeholder="Provincia" class="form-control input-md" required
-						th:field="*{provincia}">
+						<select name="provincia" id="selectProvincia" th:field="*{provincia}" class="form-control form-select ">
+							<option value="ninguna"  >Seleccione una provincia</option>
+						</select>
+						
 						<span th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}" class="text-danger" id="provincia-error">Errores</span>
 				</div>
 			</div>
@@ -110,9 +111,14 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="localidad">Localidad</label>
 				<div class="col-md-4 w-100">
-					<input id="localidad" name="localidad" type="text"required
+					<!-- <input id="localidad" name="localidad" type="text"required
 						placeholder="Localidad" class="form-control input-md"
-						th:field="*{localidad}">
+						th:field="*{localidad}"> -->
+
+						<select name="localidad" id="selectLocalidad" th:field="*{localidad}" class="form-control form-select ">
+							<option value="ninguna"  >Seleccione una localidad</option>
+						</select>
+
 						<span th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}" class="text-danger" id="localidad-error">Errores</span>
 
 				</div>
@@ -159,7 +165,7 @@
 		</fieldset>
 	</form>
 </div>
- 
+<script th:src="@{/js/registro.js}" th:attr="data-usuario=${usuarioForm.provincia}, data-localidad=${usuarioForm.localidad}"></script>
 </div>
   </body>
 </html>

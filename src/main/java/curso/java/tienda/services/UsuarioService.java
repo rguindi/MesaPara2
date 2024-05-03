@@ -117,9 +117,17 @@ public class UsuarioService {
 	public boolean superAdminIsLoged(HttpServletRequest request) {
 		if(request.getSession().getAttribute("usuario") == null) return false;
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		if(this.comprobarClaveEncriptada("admin", usuario.getClave())) return false;
 		if (usuario.getId_rol()== 4 && usuario.getEmail().equals("superAdmin@superAdmin.com"))return true;
 		return false;
-
+	}
+	
+	public boolean superAdminLogedAndDefaultPass(HttpServletRequest request) {
+		if(request.getSession().getAttribute("usuario") == null) return false;
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		if(this.comprobarClaveEncriptada("admin", usuario.getClave()) && usuario.getId_rol()== 4 && usuario.getEmail().equals("superAdmin@superAdmin.com")) return true;
+		
+		return false;
 	}
 	
 	public List<Usuario> buscarPorRol(int rol){

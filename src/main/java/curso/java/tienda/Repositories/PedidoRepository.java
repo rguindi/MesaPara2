@@ -63,6 +63,10 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 	 List<Object[]> obtenerFacturacionUltimos6Meses();
 
 
+	 @Transactional
+	    @Modifying
+	    @Query("UPDATE Pedido p SET p.estado = 'E' WHERE p.estado = 'PE'")
+	    int updateEstadoToEForPedidosWithEstadoPE();
 }
 
 

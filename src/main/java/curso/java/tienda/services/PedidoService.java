@@ -53,6 +53,10 @@ public class PedidoService {
 		pedidoRepository.cambiarEstadoAPC(id);
 	}
 	
+	public void todosEnviados () {
+		pedidoRepository.updateEstadoToEForPedidosWithEstadoPE();
+	}
+	
 	public Pedido porId (Long id) {
 		return pedidoRepository.findById(id).orElse(null);
 	}
