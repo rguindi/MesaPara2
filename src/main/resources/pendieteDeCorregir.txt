@@ -1,2 +1,4 @@
 Hilos para chat y control de stock. socketsd
 
+No dejar añadir 0 a la cesta
+Si estás en registro quitar Cambiar Contraseña

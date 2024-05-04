@@ -20173,3 +20173,151 @@ List of constraint violations:[
 2024-05-03 20:14:01,059 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
 2024-05-03 20:14:07,130 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
 2024-05-03 20:14:09,127 [http-nio-8080-exec-3] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 10:57:24,461 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 11:04:56,620 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:23:50,499 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:24:15,793 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:24:31,789 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:26:48,512 [http-nio-8080-exec-7] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:27:28,006 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:27:34,798 [http-nio-8080-exec-7] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:30:04,586 [http-nio-8080-exec-4] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:47:44,338 [http-nio-8080-exec-6] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:48:45,546 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:48:51,306 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:49:20,207 [http-nio-8080-exec-4] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:50:52,582 [http-nio-8080-exec-10] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:51:06,563 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:51:19,430 [http-nio-8080-exec-6] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:52:13,813 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:53:31,237 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:53:49,771 [http-nio-8080-exec-3] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 12:56:04,702 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:02:40,797 [http-nio-8080-exec-4] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:02:48,171 [http-nio-8080-exec-9] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:02:58,763 [http-nio-8080-exec-7] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:03:05,870 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:17:38,038 [http-nio-8080-exec-6] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:18:06,049 [http-nio-8080-exec-10] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:24:36,173 [http-nio-8080-exec-4] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:24:41,706 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:25:22,147 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:42:01,727 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:42:08,684 [http-nio-8080-exec-9] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:42:21,783 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:42:32,274 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:42:50,851 [http-nio-8080-exec-9] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 13:45:57,635 [http-nio-8080-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: curso.java.tienda.upload.storage.StorageFileNotFoundException: Could not read file: tabu.jpg] with root cause
+curso.java.tienda.upload.storage.StorageFileNotFoundException: Could not read file: tabu.jpg
+	at curso.java.tienda.upload.storage.FileSystemStorageService.loadAsResource(FileSystemStorageService.java:89)
+	at curso.java.tienda.Controllers.ProductoController.serveFile(ProductoController.java:233)
+	at jdk.internal.reflect.GeneratedMethodAccessor57.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:66)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-05-04 13:45:57,645 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: curso.java.tienda.upload.storage.StorageFileNotFoundException: Could not read file: trivial.jpg] with root cause
+curso.java.tienda.upload.storage.StorageFileNotFoundException: Could not read file: trivial.jpg
+	at curso.java.tienda.upload.storage.FileSystemStorageService.loadAsResource(FileSystemStorageService.java:89)
+	at curso.java.tienda.Controllers.ProductoController.serveFile(ProductoController.java:233)
+	at jdk.internal.reflect.GeneratedMethodAccessor57.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:66)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-05-04 14:02:29,819 [http-nio-8080-exec-10] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-04 14:02:38,886 [http-nio-8080-exec-10] ERROR ERROR_FILE - Probando Log-ERROR desde /

@@ -1,34 +1,3 @@
-//
-//
-//
-// let meses = [];
-//// Obtener la fecha actual
-//let fechaActual = new Date();
-//// Array con los nombres de los meses en español
-//let nombresMeses = [
-//  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-//  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-//];
-//// Calcular los nombres de los últimos 6 meses
-//for (let i = 0; i < 6; i++) {
-//  // Calcular el índice del mes retrocediendo i meses desde el mes actual
-//  let indiceMes = fechaActual.getMonth() - i;
-//  // Manejar el caso de retroceder al año anterior
-//  if (indiceMes < 0) {
-//    indiceMes = 12 + indiceMes; // Sumar 12 para ajustar al año anterior
-//  }
-//  // Obtener el nombre del mes correspondiente al índice calculado
-//  let nombreMes = nombresMeses[indiceMes];
-//  // Agregar el nombre del mes al principio del array `meses`
-//  meses.unshift(nombreMes);
-//}
-//
-//
-//
-//
-//
-
-
   //OBTENER LOS DATOS DE FACTURACION
   console.log("DATOS DE FACTURACION");
 var facturacionData = document.currentScript.getAttribute('data-facturacion');
