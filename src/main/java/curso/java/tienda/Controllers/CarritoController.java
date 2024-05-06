@@ -1,10 +1,13 @@
 package curso.java.tienda.Controllers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +42,9 @@ public class CarritoController {
 	@Autowired
 	DescuentosService descuentoService;
 	
+	@Autowired
+    private SimpMessagingTemplate messagingTemplate;
+	
 	
 	@PostMapping("/addCarrito")
 	public String addCarrito(@RequestParam("id") Long id, @RequestParam("cantidad") int cantidad, HttpServletRequest request, Model model) {
@@ -51,6 +57,29 @@ public class CarritoController {
 		model.addAttribute("producto", producto);
 		model.addAttribute("cantidad", cantidad);
 
+		//Alerta a Websocket.   Funciona tanto la suscrición como la alerta cuando alguien añade la última unidad o todas las que quedan en stock.
+		 if (producto != null && producto.getStock() == cantidad) {
+			 System.out.println("Añádido ultimo  producto a carrito");
+	            // El producto añadido es el último en stock, enviar alerta
+	            String message = "¡Alguien ha añadido la última unidad de  '" + producto.getNombre() + "' a su carrito. Date prisa si no quieres perderla!";
+	            messagingTemplate.convertAndSend("/topic/lastStockAlert/" + producto.getId(), message);
+	            
+	            List<Long> subscribedProducts = (List<Long>) request.getSession().getAttribute("subscribedProducts");
+	            if (subscribedProducts == null) {
+	                subscribedProducts = new ArrayList<>();
+	                System.out.println("Lista de suscripciones creada");
+	            }
+
+	            // Suscribir al nuevo producto si aún no está en la lista
+	            if (!subscribedProducts.contains(producto.getId())) {
+	                subscribedProducts.add(producto.getId());
+	                System.out.println("Añádido  producto a sesion para suscribirse");
+	            }
+
+	            // Actualizar la lista en la sesión
+	            request.getSession().setAttribute("subscribedProducts", subscribedProducts);
+	        }
+		
 		return "addCarrito";
 	
 	}

@@ -171,4 +171,16 @@ footer{
     margin-bottom: 0px;
 }
 
+.alertaStock{
 
+    background: linear-gradient(0deg, rgb(255, 61, 61) 0%, rgb(255, 184, 69) 100%);
+        position: sticky;
+        bottom: 10px;
+        left: 300px;
+        z-index: 501;
+        padding: 10px;
+        font-weight: bold;
+        
+        
+
+}

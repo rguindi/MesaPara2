@@ -64,7 +64,7 @@
                 <form action="/addCarrito" method="post">
                   
                   <label for="cantidad" th:text="${session.idioma != null ? session.idioma['Cantidad'] : 'Cantidad'}">Cantidad:</label>
-                  <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad" min="0" th:max="${producto.stock}">
+                  <input type="number" id="cantidad" name="cantidad" value="1" class="ms-2 input-cantidad" min="1" th:max="${producto.stock}">
                   <input type="hidden" name="id" th:value="${producto.id}" />
                   <button type="submit"  class="btn btn-sm btn-warning  fw-bold ms-3  " th:text="${session.idioma != null ? session.idioma['AñadirCarrito'] : 'Añadir al carrito'}">Añadir al carrito</button>
                 </form>

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-05-2024 a las 14:03:55
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 06-05-2024 a las 16:14:41
+-- Versión del servidor: 10.4.10-MariaDB
+-- Versión de PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,7 +32,7 @@ CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -58,7 +59,7 @@ CREATE TABLE `configuracion` (
   `clave` varchar(255) DEFAULT NULL,
   `valor` varchar(255) DEFAULT NULL,
   `tipo` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `configuracion`
@@ -85,7 +86,7 @@ CREATE TABLE `descuentos` (
   `descuento` float DEFAULT NULL,
   `fecha_inicio` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `fecha_fin` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `descuentos`
@@ -109,7 +110,7 @@ CREATE TABLE `detalles_pedido` (
   `unidades` int(11) DEFAULT NULL,
   `impuesto` float DEFAULT NULL,
   `total` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `detalles_pedido`
@@ -159,7 +160,7 @@ INSERT INTO `detalles_pedido` (`id`, `id_pedido`, `id_producto`, `precio_unidad`
 CREATE TABLE `impuestos` (
   `id` int(11) NOT NULL,
   `impuesto` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,7 @@ CREATE TABLE `impuestos` (
 CREATE TABLE `metodos_pago` (
   `id` int(11) NOT NULL,
   `metodo_pago` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -183,7 +184,7 @@ CREATE TABLE `opciones_menu` (
   `id_rol` int(11) DEFAULT NULL,
   `nombre_opcion` varchar(255) DEFAULT NULL,
   `url_opcion` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `opciones_menu`
@@ -216,6 +217,19 @@ INSERT INTO `opciones_menu` (`id`, `id_rol`, `nombre_opcion`, `url_opcion`) VALU
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `PasswordResetToken`
+--
+
+CREATE TABLE `PasswordResetToken` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `fechaExpiracion` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pedidos`
 --
 
@@ -227,7 +241,7 @@ CREATE TABLE `pedidos` (
   `estado` varchar(255) DEFAULT NULL,
   `num_factura` varchar(255) DEFAULT NULL,
   `total` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `pedidos`
@@ -272,7 +286,7 @@ CREATE TABLE `productos` (
   `fecha_baja` timestamp NULL DEFAULT NULL,
   `impuesto` float DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -285,12 +299,12 @@ INSERT INTO `productos` (`id`, `id_categoria`, `nombre`, `descripcion`, `precio`
 (12, 5, 'Tragabolas', '¿Qué hipopótamo será el más glotón en Tragabolas? Trata de moverte rápido cuando las bolas se suelten en el tablero de juego, ¡si tu hipopótamo es el que traga el mayor número de bolitas ganarás! Los hipopótamos están preparados para devorar bolitas.', 22.71, 5, '2024-04-16 14:14:28', NULL, 21, 'Tragabolas12.jpg'),
 (14, 6, 'Chuchelandia', 'Crea y saborea las golosinas más deliciosas. Ahora con más contenido y atractivas propuestas de juego. Incluye set de trabajo y todos los elementos necesarios para crear tus chuches preferidas', 34.99, 1, '2024-04-16 14:14:28', NULL, 21, 'Chuchelandia14.jpg'),
 (15, 8, 'Uno', 'Durante más de 50 años, UNO ha conectado a personas de todo el mundo a través de juegos icónicos que trascienden la edad, el género y el idioma. Es fácil de aprender, fácil de jugar y fácil de disfrutar.', 9.69, 1, '2024-04-16 14:14:28', NULL, 21, 'Uno15.jpg'),
-(16, 2, 'Catán', 'Sois los primeros colonos en llegar a la isla de Catan. Muy pronto empiezan a aparecer los primeros poblados y las primeras carreteras', 9.69, 0, '2024-04-16 14:14:28', NULL, 21, 'Catán16.jpg'),
+(16, 2, 'Catán', 'Sois los primeros colonos en llegar a la isla de Catan. Muy pronto empiezan a aparecer los primeros poblados y las primeras carreteras', 9.69, 10, '2024-04-16 14:14:28', NULL, 21, 'Catán16.jpg'),
 (17, 5, 'Gestos', '¡Hacer payasadas nunca había sido tan divertido! Descubre Gestos, el divertido y rápido juego de mímica.Los jugadores de cada equipo tendrán que adivinar el máximo número de palabras cuando el reloj se ponga en marcha.', 20.99, 79, '2024-04-16 14:14:28', NULL, 21, 'Gestos17.jpg'),
 (18, 7, 'Cluedo', 'El solitario millonario Samuel Black ha sido asesinado en su mansión. Ahora, depende de ti resolver el caso. Haz preguntas sobre todo para aclarar el misterio y ser el ganador del CLUEDO.', 27.95, 79, '2024-04-16 14:14:28', NULL, 21, 'Cluedo18.jpg'),
 (19, 4, 'Conecta 4', '¡Desafía a un amigo a divertiros dejando caer las fichas en este juego clásico de Conecta 4! Deja caer tus fichas rojas o amarillas en la parrilla y sé el primero en conseguir 4 fichas en línea para ganar.', 10.99, 69, '2024-04-16 14:14:28', NULL, 21, 'Conecta 419.jpg'),
 (20, 4, 'Dixit', 'Dixit es uno de esos títulos que no puede faltar en ninguna colección de juegos de mesa que se precie por su originalidad, la sencillez de sus reglas y la ingente cantidad de horas de diversión.', 28.67, 10, '2024-04-16 14:14:28', NULL, 21, 'Dixit20.jpg'),
-(21, 7, 'La tripulación', '¡Se buscan astronautas! Los científicos afirman la existencia de un misterioso noveno planeta en los confines de nuestro sistema solar.', 14.95, 0, '2024-04-16 14:14:28', NULL, 21, 'La tripulación21.jpg'),
+(21, 7, 'La tripulación', '¡Se buscan astronautas! Los científicos afirman la existencia de un misterioso noveno planeta en los confines de nuestro sistema solar.', 14.95, 4, '2024-04-16 14:14:28', NULL, 21, 'La tripulación21.jpg'),
 (22, 7, 'DOD', 'Un cooperativo para jugadores/as de a partir de 6 años con partidas de 10 minutos', 33.35, 52, '2024-04-16 14:14:28', NULL, 21, 'DOD22.jpg'),
 (23, 5, 'Parchis', '¡Los niños merecen lo mejor, por eso te presentamos', 9.99, 0, '2024-04-16 14:14:28', NULL, 21, 'Parchis23.avif'),
 (24, 8, 'Baraja Española', 'Baraja de cartas española de 50 cartas empaquetada en caja de cartón de alta calidad', 11.95, 88, '2024-04-18 06:50:55', NULL, 21, 'Baraja Española24.jpg'),
@@ -312,7 +326,7 @@ CREATE TABLE `proveedores` (
   `telefono` varchar(255) DEFAULT NULL,
   `cif` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `proveedores`
@@ -330,7 +344,7 @@ INSERT INTO `proveedores` (`id`, `nombre`, `direccion`, `localidad`, `provincia`
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `rol` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -362,7 +376,7 @@ CREATE TABLE `usuarios` (
   `telefono` varchar(255) DEFAULT NULL,
   `dni` varchar(255) DEFAULT NULL,
   `fecha_baja` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -373,9 +387,10 @@ INSERT INTO `usuarios` (`id`, `id_rol`, `email`, `clave`, `nombre`, `apellido1`,
 (3, 3, 'empleado@empleado.com', 'j2+WWOYTj1PflVOrMlffyChPmXsiNYbziwb8tGH/CTs98VYnX3SUPZ7whQxJiuqi', 'Raul Empleado', 'Empleado', 'Ap', 'Empleado', 'Valladolid', 'Tordesillas', '607307943', '21234765P', NULL),
 (6, 2, 'cliente@cliente.com', 'YsJqMnSKXshDjYlkFPRgJzr+JgmJCQr1kImaRHNAlMUSoxrl0qy+w48E2PN8zNBd', 'Raul Cliente', 'Ferrero', 'Vicente', 'Avd. Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Tábara', '607307943', '11878787y', NULL),
 (8, 2, 'cliente2@cliente2.com', 'tQ9+nOa58ETJ+9JAGE5+JqDJJ2UtlhUzpVH9IJm8L1x54nVZTxEQI60INwewblR4', 'Cliente2', 'Ape1', 'Ape2', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11972683e', NULL),
-(9, 2, 'raul_fv@hotmail.com', '8xv2UY7ZLzj7OuD0fMZwMbPk7IA/3FdytpqVDPQQQuprGfwtfkqiHqXlOIZw58U8', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11971683e', NULL),
+(9, 2, 'raul_fv@hotmail.com', 'cO3wU+yALySU3QJ2g3UGxKW2QxD//K2gLeih1wFIGfOdR8SjfuJ4iJh31p7sSO0x', 'Raul', 'Ferrero', 'Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Zamora', '607307943', '11971683e', NULL),
 (10, 2, 'cliente3@cliente3.com', 'Ghlxoq5RFaIORQWETP50f6KnMc8gC40oYXDuh+nUNoK3rW3B/c+CQ6l/3RORGjY+', 'Cliente3', 'Ape1', 'Ferrero Vicente', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Tabara', '607307943', '12345678O', NULL),
-(11, 2, 'cliente1@cliente1.com', 'FOe/BhWQL4YRRg7kq83Z9MxlnSv+9/wA//68zpYsqRnlPMIiQuj5EVoJnqPa2h0S', 'Cliente 1', 'Ape 1', 'Ape 2', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Villarrín de Campos', '607307943', '88888888E', NULL);
+(11, 2, 'cliente1@cliente1.com', 'FOe/BhWQL4YRRg7kq83Z9MxlnSv+9/wA//68zpYsqRnlPMIiQuj5EVoJnqPa2h0S', 'Cliente 1', 'Ape 1', 'Ape 2', 'Avd/ Valladolid Nº3, Bloque 2, Portal 1, 2º-D', 'Zamora', 'Villarrín de Campos', '607307943', '88888888E', NULL),
+(13, 4, 'superAdmin@superAdmin.com', 'nxS7eFjM8iE5cLtBgITfzVz12g2fyJk5dUiuXY/EYLjfQpS58Qi6V3ju4JSWAsUf', 'Nombre', 'Apellido1', 'Apellido2', 'Direccion', 'Provincia', 'Municipio', '000000000', '00000000A', NULL);
 
 -- --------------------------------------------------------
 
@@ -389,7 +404,7 @@ CREATE TABLE `valoraciones` (
   `id_usuario` int(11) DEFAULT NULL,
   `valoracion` int(11) DEFAULT NULL,
   `comentario` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `valoraciones`
@@ -453,6 +468,13 @@ ALTER TABLE `metodos_pago`
 ALTER TABLE `opciones_menu`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_rol` (`id_rol`);
+
+--
+-- Indices de la tabla `PasswordResetToken`
+--
+ALTER TABLE `PasswordResetToken`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `usuario_id` (`usuario_id`);
 
 --
 -- Indices de la tabla `pedidos`
@@ -542,6 +564,12 @@ ALTER TABLE `opciones_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
+-- AUTO_INCREMENT de la tabla `PasswordResetToken`
+--
+ALTER TABLE `PasswordResetToken`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
@@ -569,7 +597,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `valoraciones`
@@ -593,6 +621,12 @@ ALTER TABLE `detalles_pedido`
 --
 ALTER TABLE `opciones_menu`
   ADD CONSTRAINT `opciones_menu_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id`);
+
+--
+-- Filtros para la tabla `PasswordResetToken`
+--
+ALTER TABLE `PasswordResetToken`
+  ADD CONSTRAINT `passwordresettoken_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 
 --
 -- Filtros para la tabla `pedidos`

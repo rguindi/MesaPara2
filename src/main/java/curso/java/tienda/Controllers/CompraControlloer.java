@@ -59,6 +59,7 @@ public class CompraControlloer {
 		request.getSession().removeAttribute("carrito");
 		request.getSession().removeAttribute("cantidadTotal");
 		request.getSession().removeAttribute("cupon");
+		request.getSession().removeAttribute("subscribedProducts");
 
 		return "compraRegistrada";
 	}

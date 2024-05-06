@@ -156,11 +156,11 @@
 			</div>
 
 			<!-- Button -->
-			<div class="form-group mt-4">
+			<div class="form-group mt-4" >
 				<div>
 					<button id="enviar" name="enviar" type="submit"
 						class="btn btn-primary ">Enviar</button>
-						<a href="/cambiarPass" class="btn btn-warning d-inline text-end text-nowrap">Cambiar contraseña</a>
+						<a th:if="${usuarioForm.id != 0}" href="/cambiarPass" class="btn btn-warning d-inline text-end text-nowrap">Cambiar contraseña</a>
 				</div>
 			</div>
 

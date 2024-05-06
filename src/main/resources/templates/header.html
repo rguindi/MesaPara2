@@ -1,5 +1,3 @@
-
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +9,8 @@
   <script src="/webjars/bootstrap/js/bootstrap.bundle.js"></script>
   <link href="/webjars/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
  
-  
-  
- 
+         
+
     
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,10 +21,23 @@
 </head>
 
 <body>
-
-<!-- <h1 th:text= "${pruebaModelo}" >Este texto no se ve</h1> -->
-
-
+     <!--         SOCKETS -->
+         <!-- Convertir la lista de subscribedProducts a JSON -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+              <script th:inline="javascript">
+        var subscribedProducts = /*[[${session.subscribedProducts}]]*/ [];
+        var subscribedProductsJson = JSON.stringify(subscribedProducts);
+        console.log("JSON de subscribedProductsJson:", subscribedProductsJson);
+        var divElement = document.createElement('div');
+        divElement.id = 'subscribedProductsJson';
+        divElement.innerText = subscribedProductsJson;
+        divElement.style.display = 'none'; 
+        document.body.appendChild(divElement); // Agregar el div al final del cuerpo
+</script>
+       <script th:src="@{/js/webSocket.js}" th:attr="suscrito=${subscribedProductsJson}"></script>
+      
+<!--  ---------------------- -->
 
 <header class="p-3  border-bottom  border-3 border-black">
   <div class="container">

@@ -29,38 +29,35 @@
 
 
     <div class="container col-md-6 col-xl-5 col-xxl-4 card p-3 mt-5  ">
-        <form action="/login/submit" method="POST">
-            <!-- User input -->
-            <div class="form-outline mb-4">
-                <input type="text" id="user" name="user" class="form-control"  />
-                <label class="form-label" for="user">Usuario</label><br>
-                <span class="text-danger" th:text="${usuarioRequerido}">></span>
-            </div>
+        <form action="/olvidoPass/regenerar" method="POST">
+          
+          <input type="hidden" name="token" th:value="${token}">
 
             <!-- Password input -->
-            <div class="form-outline mb-4">
+            <div th:unless="${cambiada}" class="form-outline mb-4">
                 <input type="password" id="pass" class="form-control" name="pass" required  />
-                <label class="form-label" for="pass">Contraseña</label><br>
-                <span class="text-danger"  th:text="${claveRequerida}">></span>
+                <label class="form-label" for="pass">Contraseña nueva:</label><br>
+            
 
             </div>
-        
-            <!-- Acepta condiciones de uso
-            <div class="form-outline  mb-4 text-center">
-                <input type="checkbox" id="recuerda" class=" d-inline " name="recuerda" required />
-                <label class="form-label" for="pass"> Recordar usuario</label>
-            </div> -->
+            <!-- Password input -->
+            <div th:unless="${cambiada}" class="form-outline mb-4">
+                <input type="password" id="rpass" class="form-control" name="rpass"  required  />
+                <label class="form-label" for="rpass">Repita contraseña nueva:</label><br>
+                <span class="text-danger"  th:text="${errorToken}"></span>
+                <span class="text-danger"  th:text="${nocoinciden}"></span>
 
+            </div>
+      
 
 
             <div class="text-center">
                 <!-- Submit button -->
-                <button type="submit" class="btn btn-warning  btn-block mb-4" name="Entrar">Entrar</button> <br>
-                <span class="text-danger"  th:text="${incorrecto}">></span>
+                <button th:unless="${cambiada}" type="submit" class="btn btn-warning  btn-block mb-4" name="Cambiar">Cambiar</button> <br>
+                <span class="text-danger text-success fw-bold "  th:text="${cambiada}"></span>
                 <!-- Register buttons -->
-                <p>Si todavía no eres miembro: <a href="/registro">Regístrate</a></p>
                 <p><a href="/">Volver</a></p>
-                <p><a href="/olvidoPass">¿Olvidó su contraseña?</a></p>
+
 
             </div>
         </form>

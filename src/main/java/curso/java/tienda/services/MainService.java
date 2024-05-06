@@ -1,18 +1,26 @@
 package curso.java.tienda.services;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import curso.java.tienda.Entities.PasswordReset;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.Repositories.ConfiguracionRespository;
+import jakarta.servlet.http.HttpServletRequest;
 
 
 
@@ -21,6 +29,10 @@ public class MainService {
 	
 	@Autowired
     private JavaMailSender mailSender;
+	
+	@Autowired
+    private PasswordRestTokenService passwordRestTokenService;
+	
 	
 
 	@Autowired
@@ -101,6 +113,41 @@ public class MainService {
 	    	}
 	    }
 	    
+	    
+	    public void crearTokenYEnviarEmail(Usuario usuario) {
+	        String token = UUID.randomUUID().toString();
+	        Timestamp fechaExpiracion = Timestamp.valueOf(LocalDateTime.now().plusMinutes(15));
+
+	        PasswordReset passwordResetToken = new PasswordReset();
+	        passwordResetToken.setUsuario(usuario);
+	        passwordResetToken.setToken(token);
+	        passwordResetToken.setFechaExpiracion(fechaExpiracion);
+	        passwordRestTokenService.guardar(passwordResetToken);
+	        // Construir el mensaje con la URL completa incluyendo el token
+	        String urlBase = obtenerURLBase();
+	        String mensaje = urlBase + "/nuevoPass?token=" + token;
+	        System.out.println("Mensaje a enviar por correo: " + mensaje);
+	        this.sendEmail(usuario.getEmail(), "Recuperación de contraseña", mensaje);
+
+	       
+
+	    }
+	    
+	    private String obtenerURLBase() {
+	        // Obtener la URL base de la aplicación
+	        String urlBase = "";
+	        try {
+	            // Para obtener la URL base en un entorno de aplicación web
+	            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+	            urlBase = request.getRequestURL().toString();
+	            String contexto = request.getContextPath();
+	            urlBase = urlBase.replace(contexto, "");
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            // Manejar la excepción si no se puede obtener la URL base
+	        }
+	        return urlBase;
+	    }
 	   
 	   
 }

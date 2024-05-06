@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import curso.java.tienda.Entities.Categoria;
 import curso.java.tienda.Entities.Opciones_menu;
+import curso.java.tienda.Entities.PasswordReset;
 import curso.java.tienda.Entities.Producto;
 import curso.java.tienda.Entities.Usuario;
 import curso.java.tienda.services.CategoriaService;
@@ -23,6 +24,7 @@ import curso.java.tienda.services.DetalleService;
 import curso.java.tienda.services.LoggingService;
 import curso.java.tienda.services.MainService;
 import curso.java.tienda.services.Opcion_menuService;
+import curso.java.tienda.services.PasswordRestTokenService;
 import curso.java.tienda.services.PedidoService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
@@ -64,6 +66,9 @@ public class MainController {
 		
 		@Autowired
 		UsuarioService usuarioService;
+		
+		@Autowired
+	    private PasswordRestTokenService passwordRestTokenService;
 		
 	
 		
@@ -123,11 +128,66 @@ public class MainController {
 
 	
 	@GetMapping("/login")
-	public String login (Model model) {
+	public String login (Model model, HttpServletRequest request) {
+		if(usuarioService.adminIsLoged(request) || usuarioService.empleadoIsLoged(request) || usuarioService.superAdminIsLoged(request) || usuarioService.clienteIsLoged(request)) return "redirect:/";
 		//Comprobamos si existe el superAdministrador y si no lo creamos
 		mainService.comprobarAdmin();
 		return "login";
 	}
+	
+	@GetMapping("/olvidoPass")
+	public String olvidoPass (Model model, HttpServletRequest request) {
+		if(usuarioService.adminIsLoged(request) || usuarioService.empleadoIsLoged(request) || usuarioService.superAdminIsLoged(request) || usuarioService.clienteIsLoged(request)) return "redirect:/";
+		return "olvidoPass";
+	}
+	
+	@PostMapping("/olvidoPass/enviar")
+	public String olvidoPassSubmit (Model model, HttpServletRequest request, @RequestParam String email ) {
+		if(usuarioService.adminIsLoged(request) || usuarioService.empleadoIsLoged(request) || usuarioService.superAdminIsLoged(request) || usuarioService.clienteIsLoged(request)) return "redirect:/";
+		Usuario usuario = usuarioService.buscarPorEmail(email);
+		if(usuario == null) {
+			model.addAttribute("email", "Email no registrado en nuestro sistema");
+			return "olvidoPass";
+		}
+		model.addAttribute("enviado", "Email enviado a su bandeja de entrada. Compruebe su correo");
+		mainService.crearTokenYEnviarEmail(usuario);
+		return "olvidoPass";
+	}
+	
+	@GetMapping("/olvidoPass/enviar/nuevoPass")
+	public String emailNuevoPass (Model model, @RequestParam String token) {
+		model.addAttribute("token", token);
+		//Comprobar token 
+		if(passwordRestTokenService.validarToken(token)==null) {  			//CONTINNUAR POR AQUI
+			model.addAttribute("errorToken", "La renovación a expirado. Inténtelo de nuevo");
+			return "passRegenerado";
+		}
+		
+		return "passRegenerado";
+	}
+	
+	@PostMapping("/olvidoPass/regenerar")
+	public String olvidoPassRegenerar (Model model, HttpServletRequest request, @RequestParam String pass,  @RequestParam String rpass, @RequestParam String token) {
+		if(usuarioService.adminIsLoged(request) || usuarioService.empleadoIsLoged(request) || usuarioService.superAdminIsLoged(request) || usuarioService.clienteIsLoged(request)) return "redirect:/";
+		if(!pass.equals(rpass)) {
+			model.addAttribute("nocoinciden", "Las contraseñas no coinciden");
+			return "passRegenerado";
+		}
+		PasswordReset tok =  passwordRestTokenService.validarToken(token);
+		if(tok==null) {  			
+			model.addAttribute("errorToken", "La renovación a expirado. Inténtelo de nuevo");
+			return "passRegenerado";
+		}
+		
+		Usuario usuario = tok.getUsuario();
+		usuario.setClave(usuarioService.encriptar(pass));
+		usuarioService.guardar(usuario);
+		model.addAttribute("cambiada", "Contraseña cambiada correctamente");
+		passwordRestTokenService.borrar(tok);
+		return "passRegenerado";
+		
+	}
+	
 	
 	@GetMapping("/contacto")
 	public String contacto (Model model) {
