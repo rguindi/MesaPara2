@@ -3,8 +3,8 @@ Ideas requisitos opcionales:
 - Sistema de mensajería interna o chat
 - Pasarela de pago
 - Moneda configurable -> cambio de precio (API cambio de divisa)
-- Idioma de los productos
-- Añadir subscripciones a productos para que se envíen de manera automática cada X tiempo, con posibilidad de cancelación -> aplica un descuento automáticamente al estar subscrito
+// Idioma de los productos
+// Añadir subscripciones a productos para que se envíen de manera automática cada X tiempo, con posibilidad de cancelación -> aplica un descuento automáticamente al estar subscrito
 - Camino de migajas de pan
 - Aviso de cambios de precios en la web (productos favoritos del cliente)
 - Descuentos para empleados
