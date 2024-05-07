@@ -28,7 +28,7 @@ import jakarta.validation.Valid;
 public class ConfiguracionController {
 	
 	@Autowired
-	private ConfiguracionService configuracionService;
+	ConfiguracionService configuracionService;
 	
 	@Autowired
 	UsuarioService usuarioService;

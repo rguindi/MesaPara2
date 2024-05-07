@@ -12,7 +12,7 @@ import curso.java.tienda.Repositories.ProductoRepository;
 @Service
 public class ProductoService {
 	@Autowired
-	private ProductoRepository productoRepositorio;
+	ProductoRepository productoRepositorio;
 	
 	
 	

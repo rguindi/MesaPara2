@@ -14,7 +14,7 @@ import curso.java.tienda.Repositories.PasswordResetTokenRepository;
 public class PasswordRestTokenService {
 
 	@Autowired
-	private PasswordResetTokenRepository passwordResetTokenRepository;
+	PasswordResetTokenRepository passwordResetTokenRepository;
 	
 	
 	public void guardar (PasswordReset token) {

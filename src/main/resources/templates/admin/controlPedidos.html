@@ -49,7 +49,7 @@
                   <select class="form-control form-select" name="estado" id="estado">
                     <option value="PE" disabled th:selected="${pedido.estado eq 'PE'}">Pendiente de envío</option>
                     <option value="PC" disabled th:selected="${pedido.estado eq 'PC'}">Cancelación solicitada</option>
-                    <option value="E"  th:disabled="${pedido.estado == 'C' or pedido.estado == 'PC'}" th:selected="${pedido.estado eq 'E'}">Enviado</option>
+                    <option value="E"  th:disabled="${pedido.estado == 'C' or (pedido.estado == 'PC' and session.usuario.id_rol == 3)}" th:selected="${pedido.estado eq 'E'}">Enviado</option>
                     <option value="C"  th:disabled="${session.usuario.id_rol == 3 or pedido.estado == 'E'}" th:selected="${pedido.estado eq 'C'}">Cancelado</option>
                   </select>
                   </td>

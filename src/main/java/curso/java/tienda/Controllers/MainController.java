@@ -38,7 +38,7 @@ public class MainController {
 	 
 	
 	 @Autowired
-	    private MessageSource variables;
+	    MessageSource variables;
 	
 		@Autowired
 		ProductoService productoService;
@@ -68,7 +68,7 @@ public class MainController {
 		UsuarioService usuarioService;
 		
 		@Autowired
-	    private PasswordRestTokenService passwordRestTokenService;
+	    PasswordRestTokenService passwordRestTokenService;
 		
 	
 		

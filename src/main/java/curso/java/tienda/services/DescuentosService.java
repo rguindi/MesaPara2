@@ -12,7 +12,7 @@ import curso.java.tienda.Repositories.DescuentosRepository;
 public class DescuentosService {
 	
 	@Autowired
-	private DescuentosRepository descuentoRepository;
+	DescuentosRepository descuentoRepository;
 	
 	public List<Descuento> descuentos(){
 		

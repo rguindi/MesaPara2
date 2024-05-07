@@ -26,7 +26,7 @@ import jakarta.validation.Valid;
 public class ProveedorController {
 	
 	@Autowired
-	private ProveedorService proveedorService;
+	ProveedorService proveedorService;
 	
 	@Autowired
 	UsuarioService usuarioService;
@@ -59,11 +59,14 @@ public class ProveedorController {
 	
 	
 	@PostMapping("/registrarProveedor/submit")
-	public String registrarProveedorSubmit(@Valid @ModelAttribute("proveedorForm") Proveedor proveedor, 
+	public String registrarProveedorSubmit(@Valid @ModelAttribute("proveedorForm") Proveedor proveedor, Model model,
 			BindingResult validacion, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 
 		if(validacion.hasErrors()) {
+			Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+			List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+			model.addAttribute("opciones", opciones);
 			return "/admin/registrarProveedor";
 		}
 		else {
@@ -78,17 +81,24 @@ public class ProveedorController {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 	//	model.addAttribute("pag", "proveedor");
 		Proveedor proveedor = proveedorService.recuperarProveedor(id);
-		
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
 		model.addAttribute("proveedorForm", proveedor);
 		return "/admin/registrarProveedor";
 	}
 	
 	
 	@PostMapping("/editarProveedor/submit")
-	public String editarProveedorSubmit(@Valid @ModelAttribute("proveedorForm") Proveedor proveedor,  BindingResult validacion,  HttpServletRequest request) {
+	public String editarProveedorSubmit(@Valid @ModelAttribute("proveedorForm") Proveedor proveedor,  BindingResult validacion,Model model,  HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 
-		if(validacion.hasErrors()) return "registrarProveedor";
+		if(validacion.hasErrors()) {
+			Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+			List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+			model.addAttribute("opciones", opciones);
+			return "/admin/registrarProveedor";
+		}
 		else {
     
 			proveedorService.guardar(proveedor);

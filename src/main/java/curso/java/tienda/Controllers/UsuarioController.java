@@ -30,7 +30,7 @@ import jakarta.validation.Valid;
 public class UsuarioController {
 	
 	@Autowired
-	private UsuarioService usuarioService;
+	UsuarioService usuarioService;
 	
 	@Autowired
 	Opcion_menuService menServ;

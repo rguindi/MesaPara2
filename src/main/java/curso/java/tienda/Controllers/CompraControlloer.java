@@ -25,7 +25,7 @@ import jakarta.servlet.http.HttpSession;
 public class CompraControlloer {
 	
 	@Autowired
-	private CompraServicio compraServicio;
+	CompraServicio compraServicio;
 	
 	
 	@Autowired

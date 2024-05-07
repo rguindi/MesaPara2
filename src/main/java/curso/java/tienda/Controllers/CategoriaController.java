@@ -26,7 +26,7 @@ import jakarta.validation.Valid;
 public class CategoriaController {
 	
 	@Autowired
-	private CategoriaService categoriaService;
+	CategoriaService categoriaService;
 	
 	@Autowired
 	UsuarioService usuarioService;
@@ -78,7 +78,9 @@ public class CategoriaController {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.empleadoIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 	//	model.addAttribute("pag", "categoria");
 		Categoria categoria = categoriaService.recuperarCategoria(id);
-		
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
 		model.addAttribute("categoriaForm", categoria);
 		return "/admin/registrarCategoria";
 	}

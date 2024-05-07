@@ -11,4 +11,3 @@ Ideas requisitos opcionales:
 - Paginación
 
 
-...

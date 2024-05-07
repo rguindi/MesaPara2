@@ -15,7 +15,7 @@ import curso.java.tienda.Repositories.ConfiguracionRespository;
 public class ConfiguracionService {
 
 	@Autowired
-	private ConfiguracionRespository configuracionRepository;
+	ConfiguracionRespository configuracionRepository;
 	
 	
 	public List<Configuracion> recuperarConfiguracion () {

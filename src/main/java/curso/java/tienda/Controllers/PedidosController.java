@@ -30,15 +30,15 @@ import curso.java.tienda.services.PedidoService;
 import curso.java.tienda.services.ProductoService;
 import curso.java.tienda.services.UsuarioService;
 import curso.java.tienda.services.ValoracionService;
-import curso.java.tienda.services.pdfService;
+import curso.java.tienda.services.PdfService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class pedidosController {
+public class PedidosController {
 	
 	@Autowired
-    private MessageSource variables;
+    MessageSource variables;
 	
 	@Autowired
 	PedidoService pedidoService;
@@ -62,7 +62,7 @@ public class pedidosController {
 	Opcion_menuService menServ;
 	
 	@Autowired
-	pdfService pdfservicio;
+	PdfService pdfservicio;
 	
 	@Autowired
 	AutoUpdateOrdersService autoUpdate;

@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpServletRequest;
 public class ValoracionController {
 	
 	@Autowired
-    private MessageSource variables;
+    MessageSource variables;
 	
 	@Autowired
 	ProductoService productoService;

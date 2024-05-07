@@ -62,7 +62,9 @@ public class DescuentosController {
 	public String editarDescuento(@PathVariable Long id, Model model, HttpServletRequest request) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 		Descuento descuento = descuentoService.descuentoPorId(id);
-		
+		Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+		List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+		model.addAttribute("opciones", opciones);
 		model.addAttribute("descuentoForm", descuento);
 		return "/admin/registrarDescuento";
 	}
@@ -87,10 +89,13 @@ public class DescuentosController {
 	
 	@PostMapping("/registrarDescuento/submit")
 	public String registrarDescuentoSubmit(@Valid @ModelAttribute("descuentoForm") Descuento descuento, 
-			BindingResult validacion, HttpServletRequest request) {
+			BindingResult validacion, HttpServletRequest request, Model model) {
 		if(!usuarioService.adminIsLoged(request) && !usuarioService.superAdminIsLoged(request)) return "redirect:/";
 
 		if(validacion.hasErrors()) {
+			Usuario user = (Usuario) request.getSession().getAttribute("usuario");
+			List<Opciones_menu> opciones = menServ.opcinesPorRol(user.getId_rol());
+			model.addAttribute("opciones", opciones);
 			return "/admin/registrarDescuento";
 		}
 		else {

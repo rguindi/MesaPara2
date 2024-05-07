@@ -42,10 +42,10 @@ import jakarta.validation.Valid;
 @Controller
 public class ProductoController {
 	 @Autowired
-	    private MessageSource variables;
+	MessageSource variables;
 	
 	@Autowired
-	private StorageService storageService;
+	StorageService storageService;
 	
 	@Autowired
 	ProductoService productoService;

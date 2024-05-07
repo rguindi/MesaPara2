@@ -13,7 +13,7 @@ import curso.java.tienda.Repositories.CategoriaRepository;
 public class CategoriaService {
 
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	CategoriaRepository categoriaRepository;
 	
 	public Categoria recuperarCategoria (Long Id) {
 		Categoria categoria = categoriaRepository.findById(Id).orElse(null);

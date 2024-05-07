@@ -28,10 +28,10 @@ import jakarta.servlet.http.HttpServletRequest;
 public class MainService {
 	
 	@Autowired
-    private JavaMailSender mailSender;
+   JavaMailSender mailSender;
 	
 	@Autowired
-    private PasswordRestTokenService passwordRestTokenService;
+    PasswordRestTokenService passwordRestTokenService;
 	
 	
 

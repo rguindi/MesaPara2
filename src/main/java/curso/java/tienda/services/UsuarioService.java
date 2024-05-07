@@ -18,7 +18,7 @@ import org.jasypt.util.password.StrongPasswordEncryptor;
 public class UsuarioService {
 
 	@Autowired
-	private UsuarioRepository usuarioRepositorio;
+	UsuarioRepository usuarioRepositorio;
 	
 	public boolean validarRegistro (Usuario user, BindingResult validacion,  @RequestParam("clave2") String clave2) {
 		if(!user.getClave().equals(clave2)) validacion.rejectValue("clave", "error.clave.diferente", "Las contraseñas no coinciden");

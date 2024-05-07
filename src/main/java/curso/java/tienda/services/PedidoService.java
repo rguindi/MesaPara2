@@ -19,16 +19,16 @@ import jakarta.servlet.http.HttpServletRequest;
 @Service
 public class PedidoService {
 	@Autowired
-	private PedidoRepository pedidoRepository;
+	PedidoRepository pedidoRepository;
 	
 	@Autowired
-	private CompraServicio compraServicio;
+	CompraServicio compraServicio;
 	
 	@Autowired
-	private UsuarioService usuarioService;
+	UsuarioService usuarioService;
 	
 	@Autowired
-	private MainService mainService;
+	MainService mainService;
 	
 	@Autowired
 	DetalleService detalleService;

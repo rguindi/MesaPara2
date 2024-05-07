@@ -17,10 +17,10 @@ import curso.java.tienda.Repositories.DetallePedidoRepository;
 public class DetalleService {
 	
 	@Autowired
-	private DetallePedidoRepository detalleRepositorio;
+	DetallePedidoRepository detalleRepositorio;
 	
 	@Autowired
-	private ProductoService productoServicio;
+	ProductoService productoServicio;
 	
 	public List<DetallePedido> porIdPedido(Long Id){
 		return detalleRepositorio.buscaPedido(Id);

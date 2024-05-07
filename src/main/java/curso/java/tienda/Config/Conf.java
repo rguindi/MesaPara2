@@ -18,7 +18,7 @@ import curso.java.tienda.upload.storage.StorageProperties;
 
 @Configuration
 @EnableConfigurationProperties(StorageProperties.class)
-public class conf {
+public class Conf {
 	
 	
 	

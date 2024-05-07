@@ -10,8 +10,8 @@ public class AutoUpdateOrdersService {
 	@Autowired
 	PedidoService pedidoService;
 
-    private Thread taskThread;
-    private volatile boolean running = true;
+    Thread taskThread;
+    volatile boolean running = true;
 
 
     public void startTask(int intervalInSeconds, HttpSession miSesion) {
@@ -20,11 +20,12 @@ public class AutoUpdateOrdersService {
     	
         taskThread = new Thread(() -> {
             while (running) {
+            	System.out.println("Productos enviados cada " + intervalInSeconds + " segundos");
                 try {
-                   
-                    System.out.println("Productos enviados cada " + intervalInSeconds + " segundos");
+                	  Thread.sleep(intervalInSeconds * 1000);
+                    
                     pedidoService.todosEnviados();           
-                    Thread.sleep(intervalInSeconds * 1000);
+                  
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

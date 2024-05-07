@@ -27,7 +27,7 @@ import curso.java.tienda.Repositories.ConfiguracionRespository;
 import curso.java.tienda.Repositories.ProductoRepository;
 
 @Service
-public class pdfService {
+public class PdfService {
 	
 	@Autowired
 	ConfiguracionRespository configuracionRepository;
