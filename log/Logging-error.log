@@ -22910,3 +22910,84 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 2024-05-07 13:11:25,148 [http-nio-8080-exec-8] ERROR ERROR_FILE - Probando Log-ERROR desde /
 2024-05-07 13:16:25,059 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
 2024-05-07 13:18:14,587 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 15:55:39,941 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:02:53,524 [http-nio-8080-exec-4] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:02:56,558 [http-nio-8080-exec-6] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:03:00,711 [http-nio-8080-exec-3] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:03:07,973 [http-nio-8080-exec-4] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:03:24,462 [http-nio-8080-exec-8] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:03:54,523 [http-nio-8080-exec-3] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:04:31,090 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:04:53,440 [http-nio-8080-exec-9] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:05:07,673 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:05:42,274 [http-nio-8080-exec-7] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:06:14,836 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:06:41,998 [http-nio-8080-exec-6] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:06:59,659 [http-nio-8080-exec-2] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:09:00,221 [http-nio-8080-exec-5] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:09:16,972 [http-nio-8080-exec-3] ERROR ERROR_FILE - Probando Log-ERROR desde /
+2024-05-07 16:12:39,912 [restartedMain] ERROR o.a.c.session.StandardManager - Exception loading sessions from persistent storage
+java.io.StreamCorruptedException: invalid type code: 00
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1764)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2606)
+	at java.base/java.io.ObjectInputStream.defaultReadObject(ObjectInputStream.java:647)
+	at java.base/java.lang.Throwable.readObject(Throwable.java:912)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1100)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2423)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2257)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1733)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:509)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:467)
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1348)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:985)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:210)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:156)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:346)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4893)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:845)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:240)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:437)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at curso.java.tienda.MesaPara2Application.main(MesaPara2Application.java:11)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-05-07 16:12:41,944 [http-nio-8080-exec-1] ERROR ERROR_FILE - Probando Log-ERROR desde /
