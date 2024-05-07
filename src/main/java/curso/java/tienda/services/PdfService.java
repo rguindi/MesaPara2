@@ -160,7 +160,9 @@ public class PdfService {
 	
 			//Total
 			contenido.newLineAtOffset(-60, -60);
-			contenido.showText("Precio total: "+String.valueOf(pedido.getTotal())  + " €");
+			double total = pedido.getTotal();
+			String formattedTotal = String.format("%.2f", total);
+			contenido.showText("Precio total: " + formattedTotal + " €");
 			contenido.endText();
 
 			
